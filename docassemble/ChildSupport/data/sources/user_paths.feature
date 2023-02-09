@@ -13,3 +13,5 @@ Scenario: Just answer Yes to and first option to every question
     | need_to_respond | True |  |
     | number_of_children | one |  |
     | user_role_in_case | defendant |  |
+  And I take a screenshot
+  
