@@ -1,0 +1,54 @@
+---
+objects:
+  - bundle_test: ALDocumentBundle.using( elements=[pdf_from_url1, pdf_from_url2], title="Test Bundle", filename="test_bundle" )
+---
+objects:
+  - pdf_from_url1: ALDocument.using( title="One", filename="one.pdf" )
+  - pdf_from_url1['final']: DAFile
+  - pdf_from_url2: ALDocument.using( title="One", filename="one.pdf" )
+  - pdf_from_url2['final']: DAFile
+---
+#depends on:
+#  - my_intermin_var
+#  - my_affidavit_var
+code: |
+  if "interim" in which_forms.true_values():
+    url_1 = 'https://courts.alaska.gov/shc/family/docs/shc-1100n.pdf'
+    (filename, mimetype) = path_and_mimetype(url_1)
+    pdf_from_url1['final'].set_mimetype(mimetype)
+    pdf_from_url1['final'].copy_into(filename)
+    pdf_from_url1['final'].initialized = True
+    pdf_from_url1.enabled = True
+  else:
+    pdf_from_url1.enabled = False
+    
+  if "affidavit" in which_forms.true_values():
+    url_2 = 'https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf'
+    (filename, mimetype) = path_and_mimetype(url_2)
+    pdf_from_url2['final'].set_mimetype(mimetype)
+    pdf_from_url2['final'].copy_into(filename)
+    pdf_from_url2['final'].initialized = True
+    pdf_from_url2.enabled = True
+  else:
+    pdf_from_url2.enabled = False
+    
+  end_interview
+---
+event: end_interview
+question: |
+  Here are the files
+subquestion: |
+  
+  ${ bundle_test.as_pdf(key="final") }
+---
+comment: |
+  For bundling see 209A conditional bundling: https://github.com/SuffolkLITLab/docassemble-MA209AProtectiveOrder/blob/master/docassemble/MA209AProtectiveOrder/data/questions/209a_package.yml ll. 581-end
+question: |
+  Which form do you need?
+fields: 
+  - form choices: which_forms
+    datatype: checkboxes
+    choices:
+      - interim
+      - affidavit
+---

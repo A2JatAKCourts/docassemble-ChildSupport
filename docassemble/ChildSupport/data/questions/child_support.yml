@@ -1,0 +1,531 @@
+---
+include:
+  - docassemble.AssemblyLine:assembly_line.yml
+  - docassemble.AKA2JBranding:custom_organization.yml
+  - accordion_steps.yml
+  - bundling_forms_for_downloading.yml
+---
+metadata:
+  title: |
+    Asking for Child Support in Alaska
+  short title: |
+    Asking for Child Support
+  authors:
+    - Caroline Robinson
+    - Jeannie Sato
+---
+mandatory: True
+comment: |
+  Global interview metadata
+variable name: interview_metadata["child_support"]
+data:
+  al_weaver_version: "1.7.0"
+  generated on: "2022-11-10"
+  title: >-
+    Asking for Child Support
+  short title: >-
+    Asking for Child Support
+  description: |-
+    Learn how to ask for child support in Alaska
+  original_form: >-
+    None
+  allowed courts: []
+  categories: []
+  typical role: "na"
+  generate download screen: True
+---
+code: |
+  interview_metadata['main_interview_key'] =  'child_support'
+---
+code: |
+  # This controls the default country and list of states in address field questions
+  AL_DEFAULT_COUNTRY = "US"
+---
+code: |
+  # This controls the default state in address field questions
+  AL_DEFAULT_STATE = "AK"
+---
+code: |
+  github_repo_name =  'docassemble-AskingForChildSupportIssues'
+---
+code: |
+  interview_short_title = "Asking for Child Support in Alaska"
+---
+code: |
+  al_form_type = "other" 
+---
+comment: |
+  For Guided Assistants avoid asking for personal information - like user name and role
+objects:
+  #  - users: ALPeopleList.using(ask_number=True,target_number=1)
+  - users: ALPeopleList.using(there_are_any=False)
+---
+# sections:
+#  - review_child_support: Review your answers
+---
+#################### Interview order #####################
+comment: |
+  Controls order and branching logic for questions specific to this form
+id: interview_order_child_support
+code: |
+  # Set the allowed courts for this interview
+  # allowed_courts = interview_metadata["child_support"]["allowed courts"]
+  # nav.set_section("review_child_support")
+  user_role = "na"
+  if not wants_action_plan:
+    get_steps
+    child_support_download
+  else:
+    if existing_case == 'open':						
+      if user_role_in_case == 'defendant':							
+        need_to_respond
+        if interim_motion == 'wait':						
+          if general_information_about_forms:					
+             number_of_children
+             get_steps
+             child_support_download
+          else:
+            get_steps
+            child_support_download
+        else:						
+          get_steps
+          number_of_children					
+          get_steps
+          child_support_download				
+      elif user_role_in_case == 'closed':					
+        get_steps							
+        child_support_download						
+    # set_progress(14)								
+      else:							
+        if interim_motion == 'wait':	
+          if general_information_about_forms:					
+            number_of_children
+            get_steps
+            child_support_download
+          else:
+            get_steps
+            child_support_download				
+        else:						
+          number_of_children
+          get_steps
+          child_support_download					
+    # set_progress(28)								
+    elif existing_case == 'none':								
+      paternity
+      if ask_court_or_cssd == 'cssd':
+        get_steps
+        child_support_download
+      else:
+        parents_married
+        if general_information_about_forms:
+          number_of_children
+          interim_motion
+          get_steps
+          child_support_download
+        else:
+          if interim_motion == 'wait':
+            get_steps
+            child_support_download
+          else:
+            number_of_children
+            get_steps
+            child_support_download
+    else:
+      if after_courtview == 'open':						
+        if user_role_in_case == 'defendant':							
+          need_to_respond
+          if interim_motion == 'wait':						
+            if general_information_about_forms:
+              get_steps
+              child_support_download
+            else:
+              get_steps
+              child_support_download
+          else:						
+            number_of_children
+            get_steps
+            child_support_download				
+        elif user_role_in_case == 'closed':
+          get_steps
+          child_support_download						
+      # set_progress(14)								
+        else:							
+          if interim_motion == 'wait':						
+            if general_information_about_forms:					
+              number_of_children
+              get_steps
+              child_support_download										
+            else:
+              get_steps
+              child_support_download			
+          else:						
+            number_of_children
+            get_steps
+            child_support_download					
+      # set_progress(28)								
+      elif after_courtview == 'none':								
+        paternity
+        if ask_court_or_cssd == 'cssd':
+          get_steps
+          child_support_download
+      # set_progress(42)
+        else:
+          parents_married
+          if general_information_about_forms:
+            number_of_children
+            interim_motion
+            get_steps
+            child_support_download
+    #  set_progress(56)
+          else:
+            interim_motion
+            number_of_children
+            get_steps
+            child_support_download
+      else:
+        get_steps
+        child_support_download
+    #  number_of_steps
+    #  set_progress(70)
+
+  interview_order_child_support = True
+---
+###################### Main order ######################
+comment: |
+  This block includes the logic for standalone interviews.
+  Delete mandatory: True to include in another interview
+mandatory: True
+code: |
+  #  al_intro_screen
+  wants_action_plan
+  interview_order_child_support
+  #  signature_date
+  # Store anonymous data for analytics / statistics
+  store_variables_snapshot(
+      persistent=True,
+      data={
+          "zip": showifdef("users[0].address.zip"),
+          "reached_interview_end": True,
+      },
+  )
+  child_support_download
+---
+comment: |
+  This question is used to introduce your interview. Please customize
+id: Asking_for_Child_Support
+question: |
+  Asking for Child Support
+subquestion: |
+  This Guided Assistant asks you questions and uses your answers to build a Personal Action Plan - a list of steps to help you ask for child support in Alaska.
+  
+  This interview can help you find information to:
+  
+	* Ask the court for child support when you start a case.
+	* Ask the court for child support during a case.
+	* Ask the state administrative agency, Child Support Services Division, for child support.
+	* Prove or disprove your child’s biological father, and
+	* Fill out the court’s child support forms.
+fields:  
+  - "Do you want an Action Plan to help you with 1 of these topics?": wants_action_plan
+    label above field: True
+    datatype: yesnoradio
+---
+id: do you have an existing family law case
+question: |
+  Do you have a court case for custody, divorce, or legal separation?
+fields:
+  - no label: existing_case
+    input type: radio
+    choices:
+      - Yes: open
+      - No: none
+      - "I do not know": unknown
+  - note: |
+     
+     #### <i class="fa-regular fa-lightbulb"></i> What if I need information about getting child support in another state? ####
+     Your Personal Action Plan explains how child support works only in Alaska.  To find out about child support in other states find their [court](https://www.ncsc.org/information-and-resources/state-court-websites), [legal aid](https://lawhelp.org), [child support agency or tribal child support agency website](https://www.acf.hhs.gov/css/contact-information/state-and-tribal-child-support-agency-contacts).
+---
+id: Courtview
+question: |
+  Look for your name in Courtview
+subquestion: |
+  Look for your name in [Courtview](https://records.courts.alaska.gov/eaccess/search.page.3), the Alaska Court System’s list of public court cases. If you find a case with your name you can see what kind of case it is.  
+  Do you have a court case for: 
+  
+  *	custody, 
+  *	divorce, or 
+  *	legal separation?
+fields:
+  - no label: after_courtview
+    input type: radio
+    choices:
+      - Yes: open
+      - No: none
+      - "I still do not know": unknown
+---
+id: open case status
+question: |
+  What is going on in your case?
+fields:
+  - no label: user_role_in_case
+    input type: radio
+    choices:
+      - "The other parent started a case and I have to file papers to respond.": defendant
+      - "I filed papers to start the case and am waiting for the other side to respond.": plaintiff
+      - "We have an open case.": joint
+      - "The case ended and we got our final paperwork.": closed
+---
+id: Do you want information about how to fill out the papers you need to respond
+question: |
+  Do you want information about how to fill out the papers you need to respond?
+fields:
+  - no label: need_to_respond
+    datatype: yesnoradio
+  - "What kind of case?": case_type 
+    input type: radio
+    choices:
+      - "Divorce": divorce
+      - "Legal separation": legal separation
+      - "Custody": custody
+    show if:
+      need_to_respond
+---
+id: Interim child support order
+question: |
+  Interim child support order
+subquestion: |
+  % if existing_case == 'open':
+  % if user_role_in_case == 'defendant': 
+  % if need_to_respond:
+   Your Personal Action Plan now includes information about filing papers to respond in your ${ case_type } case. 
+  % endif
+  % endif
+  % endif
+  
+  The judge will enter a final child support order at the end of your case, and pick the date child support should start.  
+  
+  Child support is usually owed when parents do not live together.  
+  
+  Sometimes, when a case ends, one parent owes the other parent back child support.  
+  
+  If you do not want to wait until the end of your case, you can ask the judge for an “interim” Child Support order.    
+fields:
+  - "What do you want to do?": interim_motion
+    input type: radio
+    choices:
+      - "Wait for the judge to order child support at the end of my case.": wait
+      - "Ask the judge to order child support while my case is going on": ask 
+  - note: |
+      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
+      An interim order is any order the judge makes before they make the final order or decree. 
+      The judge can make short-term decisions about child support, the parenting plan, 
+      % if (existing_case == 'open' and user_role_in_case == 'defendant' and need_to_respond) or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case == 'defendant' and need_to_respond): 
+        % if case_type in('divorce', 'dissolution', 'legal separation'):
+       possession of the family home, spousal support or payment of debts, 
+        % endif
+      % elif existing_case == 'none' or (existing_case == 'unknown' and after_courtview == 'none'):
+        % if parents_married:
+       possession of the family home, spousal support or payment of debts, 
+        % endif
+      % endif
+      and attorney fees. The final order may be entirely different.
+---
+id: info about filling out child support forms
+question: |
+  % if (existing_case == 'open' and user_role_in_case != 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case != 'closed'):
+  Do you want your Personal Action Plan to include information to help you fill out the court's child support forms?
+  % else:
+  Do you want your Personal Action Plan to include information to help you fill out the child support forms when you start your case? 
+  % endif
+yesno: general_information_about_forms
+---
+id: kids
+question: |
+  How many children will your child support order cover? 
+fields:
+  - no label: number_of_children
+    input type: radio
+    choices:
+      - "1 child": one
+      - "More than 1 child": more than one
+  - note: |
+      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
+      
+      Child support is to support  children  who are under 18.
+
+      Child support orders usually last until your child turns 19 if:
+      
+      1. They still live with you or their other parent, and
+      2. They are finishing high school.
+---
+id: Paternity
+question: |
+  Paternity
+subquestion: |
+ Parents are responsible for financially supporting their children.  
+  
+  A child's biological father is generally their legal father.
+
+  If parents disagree, either parent can ask the court to decide.  
+ 
+  * Proving someone is the **biological** father of a child is called "establishing paternity."
+  * Proving someone is not the **biological** father is called "disestablishing paternity." 
+
+  Do you want to add information about establishing or disestablishing paternity to your Personal Action Plan?
+fields:
+  - no label: paternity
+    datatype: yesnoradio
+  - note: |
+      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
+      Is the law different if my child:
+      
+      *	is adopted, 
+      *	has parents who are the same gender,
+      *	has transgender parents, or
+      * was conceived by in vitro fertilization, or surrogacy?
+      
+      A person who adopts a child is the child's legal parent.
+      Usually, you cannot “undo” an adoption to “disestablish paternity”.
+      
+      These situations can be complicated.  If you have questions, it is a good idea to talk to a lawyer.
+  
+---
+id: Ask CSSD or the Court for a child support order
+question: |
+  Do you want to ask the court or CSSD to order a child support?
+subquestion: |
+  % if paternity:
+  Your action plan includes information about "establishing paternity" and "disestablishing paternity."
+  % endif
+  
+  A child support order tells one parent to pay child support to the other parent.
+  
+  **The Alaska Court** orders child support as part of a Parenting Plan in divorce, custody, dissolution or legal separation cases.  Parenting Plans are sometimes called “custody orders”.  
+  A Parenting Plan is a list of decisions about:
+  
+  *	which parent pays child support, 
+  *	the amount of child support
+  *	a schedule for when and how long your children will stay at each parent’s house, 
+  *	a holiday schedule,
+  *	how you will make decisions about your children, and 
+  *	financial questions like: 
+    *	“How to spend our children’s PFDs?” or 
+    *	“Which parent should claim any child tax credits?”  
+  
+  **The Alaska Child Support Services Division (CSSD)** can order child support but does not order Parenting Plans. CSSD child support orders work best if you do not need a Parenting Plan.  
+  
+fields: 
+  - "I want to learn how to ask for child support from:": ask_court_or_cssd
+    label above field: True
+    input type: radio
+    choices:
+  	  - "Alaska Court": court
+      - "CSSD": cssd
+      - "Both": both
+  - note: |
+      #### <i class="fa-regular fa-lightbulb"></i> How does the court or CSSD decide how much Child Support to order?####
+      The Alaska Supreme Court sets the guidelines that judges and Alaska Child Support Services must follow when they decide the amount of child support payments. You can read the rule and the Child Support Guideline Committee’s comments about the rule online See [Child Support Awards in Civil Rule 90.3](https://casetext.com/rule/alaska-court-rules/alaska-rules-of-civil-procedure/part-xii-special-proceedings/rule-903-child-support-awards) or [the court's PDF](https://public.courts.alaska.gov/web/rules/docs/civ.pdf)
+---
+id: Ask the court for Child Support
+question: |
+  Start a court case to ask for child support
+subquestion: |
+  % if ask_court_or_cssd == 'both':
+  Your Personal Action Plan includes information about how to ask the Alaska Child Support Services Division (CSSD) for a child support order. 
+  % endif
+  
+  If you want the court to order child support, you must start a court case.
+  
+  If you are not married to the other parent, start a custody case to get a Parenting Plan and child support.
+  
+  If you are married to the other parent, start a divorce, dissolution, or legal separation case.
+fields: 
+  - "Are you married to your children’s other parent?": parents_married
+    datatype: yesnoradio
+---
+id: child support draft template review screen
+event: review_child_support
+question: |
+  Review your answers
+review:
+  - Edit: interim_motion
+    button: |
+      **Interim motion**:
+      ${ word(yesno(interim_motion)) }
+  - Edit: interview_title
+    button: |
+      **Interview title**:
+      ${ interview_title }
+  - Edit: wrong_path_tf
+    button: |
+      **Wrong path tf**:
+      ${ word(yesno(wrong_path_tf)) }
+  - Edit: modify
+    button: |
+      **Modify**:
+      ${ word(yesno(modify)) }
+  - Edit: do_not_know
+    button: |
+      **Do not know**:
+      ${ word(yesno(do_not_know)) }
+  - Edit: more_child_TF
+    button: |
+      **More child tf**:
+      ${ word(yesno(more_child_TF)) }
+  - Edit: one_child_tf
+    button: |
+      **One child tf**:
+      ${ word(yesno(one_child_tf)) }
+  - Edit: number_of_steps
+    button: |
+      **Number of steps**:
+      ${ number_of_steps }
+  - Edit: basics
+    button: |
+      **Basics**:
+      ${ word(yesno(basics)) }
+  - Edit: user_role
+    button: |
+      **User role**:
+      ${ user_role }
+---
+#  id: download child_support
+#  event: child_support_download
+#  question: |
+#    Your Personal Action Plan is ready!
+#  subquestion: |
+#    You can see, download (and eventually send) your plan.
+#     ${ al_user_bundle.download_list_html() }
+#  buttons:
+#    - Start over: restart  
+#  progress: 100
+#  comment: |
+#    Thank you ${users}. Your form is ready to download and deliver.  
+#    View, download and send your form below. Click the "Edit answers" button to fix any mistakes.
+#    ${ action_button_html(url_action('review_child_support'), label='Edit answers', color='info') }  
+#    ${ al_user_bundle.download_list_html() }
+#    ${ al_user_bundle.send_button_html(show_editable_checkbox=True) }
+---
+# ALDocument objects specify the metadata for each template
+objects:
+  #  - child_support_Post_interview_instructions: ALDocument.using(title="Instructions", filename="child_support_next_steps.docx", enabled=True, has_addendum=False, default_overflow_message=AL_DEFAULT_OVERFLOW_MESSAGE)
+  - child_support_attachment: ALDocument.using(title="Asking for Child Support", filename="child_support", enabled=True, has_addendum=False, default_overflow_message=AL_DEFAULT_OVERFLOW_MESSAGE)
+---
+# Bundles group the ALDocuments into separate downloads, such as for court and for the user
+objects:
+  - al_user_bundle: ALDocumentBundle.using(elements=[child_support_attachment], filename="child_support", title="All forms to download for your records", enabled=True)
+  - al_recipient_bundle: ALDocumentBundle.using(elements=[child_support_attachment],  filename="child_support", title="All forms to file", enabled=True)
+---
+# Each attachment defines a key in an ALDocument. We use `i` as the placeholder here so the same template is 
+# used for "preview" and "final" keys, and logic in the template checks the value of 
+# `i` to show or hide the user's signature
+attachments:
+  #  - name: Post-interview-Instructions
+  #    filename: child_support_next_steps
+  #    docx template file: child_support_next_steps.docx
+  #    variable name: child_support_Post_interview_instructions[i]
+  - name: Askig for child support Action Plan
+    filename: child_support_action_plan
+    variable name: child_support_attachment[i]
+    skip undefined: True
+    docx template file: child_support_action_plan.docx

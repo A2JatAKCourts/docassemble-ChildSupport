@@ -1,0 +1,406 @@
+id: download child support
+decoration: pen-to-square
+event: child_support_download
+question: |
+  # <i class="fa-thin fa-list"></i>Your Personal Action Plan is ready!
+subquestion: |
+  Your Personal Action Plan in ${ len(step_list) } Steps
+  
+  % for iteration_index, step_tuple in enumerate( step_list ):
+  ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
+  % endfor
+  
+   ${ al_user_bundle.download_list_html() }
+buttons:
+  - Start over: restart
+---
+code: |
+  step_list = []
+  if wants_action_plan:
+    if existing_case == 'unknown' and after_courtview == 'unknown':      
+      step_list.append((find_out_step, "find_out_idx"))
+    if (existing_case == 'open' and user_role_in_case != 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case != 'closed'):
+      step_list.append((childsupport_step, "childsupport_idx"))
+      if user_role_in_case == 'defendant':
+        if need_to_respond:
+          step_list.append((respond_step, "respond_idx"))
+      if interim_motion == 'ask':
+        step_list.append((interim_step, "interim_idx"))
+        if number_of_children == 'one':
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+        else:
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+      else:
+        if general_information_about_forms:
+          step_list.append((general_info_step, "general_info_idx"))
+          if number_of_children == 'one':
+            step_list.append((one_child1_step, "one_child1_idx"))
+            step_list.append((shared_custody_step, "shared_custody_idx"))
+            step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          else:
+            step_list.append((more_children_step, "more_children_idx"))
+            step_list.append((more_children_forms_step, "more_children_forms_idx"))
+            step_list.append((file_and_serve_step, "file_and_serve_idx"))
+    elif (existing_case == 'open' and user_role_in_case == 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case == 'closed'):
+      step_list.append((childsupport_step, "childsupport_idx"))
+      step_list.append((modify_step, "modify_idx"))
+    elif existing_case == 'none' or (existing_case == 'unknown' and after_courtview == 'none'):
+      step_list.append((childsupport_step, "childsupport_idx"))
+      if paternity:
+        step_list.append((paternity_step, "paternity_idx"))
+      if ask_court_or_cssd != 'cssd':
+        if ask_court_or_cssd == 'court':
+          step_list.append((court_step, "court_idx"))
+        else:
+          step_list.append((cssd_step, "cssd_idx"))
+          step_list.append((court_step, "court_idx"))
+        if interim_motion == 'ask':
+          step_list.append((interim_step, "interim_idx"))
+        if general_information_about_forms:
+          step_list.append((general_info_step, "general_info_idx"))
+        if general_information_about_forms or interim_motion == 'ask':
+          if number_of_children == 'one':
+            step_list.append((one_child1_step, "one_child1_idx"))
+            step_list.append((shared_custody_step, "shared_custody_idx"))
+            step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          else:
+            step_list.append((more_children_step, "more_children_idx"))
+            step_list.append((more_children_forms_step, "more_children_forms_idx"))
+            step_list.append((file_and_serve_step, "file_and_serve_idx"))
+      else:
+        step_list.append((cssd_step, "cssd_idx"))
+      
+  else:
+    step_list.append((wrong_tf, "wrong_tf_idx"))
+    step_list.append((wrong_tf2, "wrong_tf2_idx"))
+  step_list.append((get_help, "get_help_idx"))
+  
+  for iter_idx, step_tuple in enumerate( step_list ):
+    define(step_tuple[ 1 ], iter_idx + 1)
+
+  get_steps = True
+---
+template: wrong_tf
+subject: |
+  Step ${ wrong_tf_idx }: Try another Guided Assistant
+content: | 
+  * [Enforcing Your Child Support Order](https://Docassemble.AKCourts.gov/start/EnforcingChildSupport)
+  * [Changing Your Child Support Order](https://Docassemble.AKCourts.gov/start/ChangingChildSupport)
+  * [Starting A Case to End Your Marriage](https://LegalNav.org/guided_assistant/starting-a-case-to-end-your-marriage/?location=alaska)
+  * [Responding if Your Spouse Starts a Case to End Your Marriage](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-case-to-end-your-marriage/?location=Alaska)
+  * [Starting a Custody Case](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska)
+  * [Responding if Your Spouse Starts a Custody Case](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-custody-case/?location=Alaska)
+  * [Enforcing a Custody Order](https://LegalNav.org/guided_assistant/enforcing-a-custody-order/?location=alaska)
+  * [Changing a Custody Order](https://LegalNav.org/guided_assistant/changing-a-custody-order/?location=alaska)
+--- 
+template: wrong_tf2
+subject: | 
+  Step ${ wrong_tf2_idx }: Look at the court's self-help web pages
+content: | 
+  * [Forms and Information about Child Support](https://courts.alaska.gov/shc/family/support.htm)
+  * [Asking for an Order / filing a motion](https://courts.alaska.gov/shc/family/motions.htm)
+  * [Family Law Home](https://courts.alaska.gov/shc/family/index.htm)
+---
+template: find_out_step
+subject: |
+  Step ${find_out_idx}: Find out if you have a court case
+content: |
+  If you do not know if you have an open divorce, dissolution, or custody case, look for your name in [Courtview](https://records.courts.alaska.gov/eaccess/home.page.2), the Alaska Court System's list of public court cases. 
+  If you find a case with your name you can see the kind of case it is.
+  If you need more help call the [Family Law Self-Help Center](https://courts.alaska.gov/shc/family/selfhelp.htm):
+  (907) 264-0851 or
+  (866) 279-0851 from an Alaska-based phone outside of Anchorage. 
+
+---
+template: modify_step
+subject: |
+  Step ${ modify_idx }: Decide if you need to change your order
+content: |
+  This Guided Assistant interview has information about asking for child support.
+  
+  If your case is closed you may want to get a Personal Action Plan for changing or enforcing your child support order: 
+  
+  See [Changing or Enforcing Your Child Support Order](https://docassemble.AKCourts.gov/start/ChangingChildSupport)
+---
+template: get_help
+subject: |
+  Step ${ get_help_idx }: Get more information or help
+content: |
+  For help with forms or understanding the process, call the [Family Law Self-Help Center](https://courts.alaska.gov/shc/family/selfhelp.htm)
+  (907) 264-0851 or
+  (866) 279-0851 from an Alaska-based phone outside of Anchorage.
+  
+  <span class="subheading">Many lawyers</span>
+  offer free or flat fee consultations without having to hire them for the whole case. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
+  
+  Depending on your income, you may qualify for [Alaska Free Legal Answers](https://legalnav.org/resource/alaska-free-legal-answers).
+  
+  Depending on your income and circumstances, you may qualify for a free lawyer from [Alaska Legal Services](alsc-law.org/apply-for-services).
+---
+template: paternity_step
+subject: |
+  Step ${ paternity_idx }: Learn about paternity
+content: |
+  <div class='step-subheading'>Paternity</div>
+
+  Paternity refers to a child’s legal father. Only a child’s legal father has the rights and responsibilities of a father. Usually a child’s biological father is also their legal father.
+  
+  You may have to prove the identity of your child’s biological father to establish him as the legal father, if you and the other parent disagree.
+  
+  * Proving the biological father of a child is called "establishing paternity."
+  * Proving someone is not the biological father is called "disestablishing paternity."
+  
+  When a married man and woman have a child:
+  
+  * The husband is the child’s legal father, even if he is not the biological father.
+  * If the husband is not the biological father, you need to disestablish his paternity and establish the biological father’s paternity. After you do this, the biological father will also be the child’s legal father. 
+  
+  <div class='step-subheading'>Benefits of Establishing Paternity</div>
+  
+  Your child gets many benefits from knowing who their biological father is:
+  
+  * child support, 
+  * an inheritance -it can be very hard to prove your child’s biological father if the father is dead,  
+  * being included on their father’s health insurance,
+  * knowing their father’s medical history,
+  * benefits from programs like Social Security and Veterans’ Benefits, and
+  * a relationship with their father.
+  
+  <div class='step-subheading'>Ways to establish paternity</div>
+  
+  * Sign the Health Analytics & Vital Records Affidavit of Paternity, VS-06-5376 form:
+      * An unmarried man and woman can sign the Health Analytics & Vital Records Affidavit of Paternity, VS-06-5376 form. This form says the man and woman agree that they are biological parents of a child. 
+      * You can also use this form for a husband, wife, and another man to agree that the other man is the biological father – not the husband.
+      * You can only get the form from [Health Analytics & Vital Records](https://health.alaska.gov/dph/VitalStats/Pages/default.aspx) or your local court. After you complete the form, give it to Health Analytics & Vital Records. Do not file it at court.
+  * Start a case with Child Support Services Division (CSSD):
+      * If you apply for CSSD services, you can ask CSSD for help to establish paternity.
+      * CSSD can order [DNA testing](https://courts.alaska.gov/shc/family/glossary.htm#dna) to discover if the person you think is your child’s biological father actually is. If he is the father, CSSD can establish paternity.
+      * If CSSD establishes paternity, they will order child support. Either parent can open a court case and ask the court for a Parenting Plan so both parents can spend time with their child. Use [Starting a Custody Case](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska).
+  * Start a court case to establish or disestablish paternity:
+      * If a husband and wife are married when a child is born, the husband is not the biological father. If the husband and wife want to separate, they can start a divorce, dissolution, or legal separation case. and ask the judge to disestablish paternity as part of the divorce case. Use [Starting A Case to End Your Marriage](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska).
+      * If a married husband and wife want to stay married, but the husband is not the biological father of a child, the wife, husband, or another man can start a case to disestablish the husband’s paternity and establish another man’s paternity.
+      * If you are not married to the other biological parent when the child is born, you can start a paternity case and ask the judge to find that your child’s biological father is their legal father. If the judge establishes paternity, they can order child support. You can ask the court to open a custody case at the same time and get a Parenting Plan so both parents can spend time with their child. Use [Starting a Custody Case](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska).
+      * See [the court’s paternity forms](https://courts.alaska.gov/shc/family/shcforms.htm#paternity).
+  * Start a court case to disestablish the legal father’s paternity and establish another man as biological father:
+      * This is a complicated situation. Try to talk to a lawyer. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
+      * If you are not married and you want to disestablish one man’s paternity and establish another man’s paternity, you can open a paternity case with 3 people in the case:
+          1. mother, 
+          1. the man already established as biological father who may not be the biological father, and
+          1. the man you think is the biological father.
+  * After the judge establishes paternity, you can open a custody case with just yourself and the biological father to ask for child support and a Parenting Plan so both parents can spend time with their child.
+  
+  <div class='step-subheading'>Get more information about Paternity</div>
+  
+  See the Court's [Paternity](https://courts.alaska.gov/shc/family/shcpaternity.htm) webpage.
+---
+template: cssd_step
+subject: |
+  Step ${ cssd_idx }: Learn about CSSD
+content: |
+  <div class='step-subheading'>The Child Support Services Division (CSSD) is the state agency that can make child support orders, help collect child support and send child support payments to parents.</div>
+    * If a parent or guardian does not have a court order for child support, CSSD can make a child support order.
+    * If you or your children get certain types of public assistance, or your children are in the state's custody, CSSD will automatically open a case, make a child support order, and try to collect the child support for the parent the children do not live with.  
+    * CSSD can help collect child support for both a CSSD child support order and a court child support order.  If you have a court child support order and you want CSSD to hep collect, apply for CSSD services.
+    * Once a year, either parent can ask CSSD to look at each parent’s income and calculate if the child support amount should change. 
+      * If CSSD ordered the child support, and the amount should change, CSSD will change it. 
+      *	If the court ordered the child support, CSSD will tell you if the amount should change.  To change child support, you need to file a motion with the court to modify child support.  Use [Changing Your Child Support Order](https://docassemble.akcourts.gov/start/ChangingChildSupport).
+    * CSSD can order DNA testing.  DNA testing can show who a child’s biological father is.
+    *	If you do not agree about the biological father, CSSD can order DNA tests to prove paternity.
+    *	If you ask CSSD for a child support order, they calculate child support based on the schedule you already have. They do not make a parenting plan order about:
+      *	a schedule for when and how long your children will stay at each parent's house,
+      *	a holiday schedule,
+      *	how you will make decisions about your children, and
+      *	financial questions like spending your children’s PFD or claiming child tax credits
+  <div class='step-subheading'>Apply for CSSD Services</div>
+    *	Submit an online application by logging into myAlaska.  
+      *	Go to [CSSD’s home page](https://childsupport.alaska.gov/), and 
+      *	click "Online Application for Services" in the bottom right corner.
+    *	For help, watch CSSD’s Tutorial - [How to Apply for Services Online](https://childsupport.alaska.gov/Static/ApplyForServicesTutorial/index.html).
+  <div class='step-subheading'>Changes</div>
+  If your parenting schedule changes, or your income or the other parent’s income changes, it is important to **tell CSSD right away** (or tell the court right away if you have a child support order from the court).  CSSD and the court can only change child support starting when you file something asking to change it, and notify the other parent that you are asking for a change. Until you tell CSSD or the court, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed. CSSD and the court cannot go back and change child support that was due in the past.
+  
+  If your order is from CSSD, they can change your order if:
+  
+  *	The cost of your child's health insurance premium changes, or
+  * Your income or the other parent’s income changes so that a new Child Support payment calculation would be at least 15% more or 15% less than the payment you have now.
+  * Your children’s schedule changes and a new calculation would be at least 15% more or 15% less than the payment you have now.
+
+  If your order is from the court, CSSD cannot change the child support calculation.  But, CSSD can change the credit for paying your childs health insurance premium if:
+  
+  * CSSD is collecting the child support, and
+  * the amount of your child’s health insurance premium changes.
+  
+  To ask for a change, you can use the Guided Assistant Interview [Changing Your Child Support Order](https://docassemble.akcourts.gov/start/ChangingChildSupport). 
+  <div class='step-subheading'>Get more help</div>
+    *	Contact CSSD
+      *	Customer Service Call Center:
+        *	Monday – Thursday, 9:30 am - 4:00 pm
+        *	✆ Phone: (907) 269-6900, 
+        *	Toll Free (In-state): 800-478-3300
+       *	⌨ Fax: (907) 787-3220
+       *	Email: dor.cssd.customerservice.anchorage@alaska.gov
+    *	Read [Information about CSSD, DR-316](https://public.courts.alaska.gov/web/forms/docs/dr-316.pdf). 
+    *	[CSSD FAQ Page](https://childsupport.alaska.gov/child-support-services/information/faqs).
+    *	The differences between a child support order from CSSD and a child support order from the Court are not easy to understand. Call the [Family Law Self Help Center Helpline](http://courts.alaska.gov/shc/family/shcabout.htm#1b) if you need help to decide between asking CSSD and going to court.
+  *	[CSSD Brochures](https://childsupport.alaska.gov/child-support-services/information/brochures)
+---
+template: childsupport_step
+subject: |
+  Step ${ childsupport_idx }: Learn about child support
+content: |
+  <div class='step-subheading'>Formula</div>
+  The Alaska Court System and the Child Support Services Division (CSSD) use the same formula to calculate child support.  The formula is in [Alaska Civil Rule 90.3](https://courts.alaska.gov/rules/docs/civ.pdf).
+  
+  The formula uses:
+  
+  * the number of nights your children spend with each parent in a year, and
+  * each parent’s income.
+  
+  You can read the rule and the Child Support Guideline Committee’s comments about the rule online. See [Alaska Civil Rule 90.3](https://courts.alaska.gov/rules/docs/civ.pdf).
+  <div class='step-subheading'>Count overnights</div>
+  * If the children spend fewer than 110 overnights with 1 of you, the formula only looks at the income of the parent who has fewer overnights. 
+  * If the children spend more than 110 overnights with each of you, the formula looks at both of your incomes.  
+  * If you live far away from your child’s other parent, it can be hard for the children to go back and forth.  Sometimes this means the children do not spend 110 overnights with one of the parents.  
+  <div class='step-subheading'>Child support applies in every case</div>
+  * Parents cannot agree they do not want to exchange child support.  All children are entitled to child support under Alaska law.
+  * If your children spend the same number of nights with each of you, and you make about the same amount of money, the amount of child support may be very low.
+  * If your children spend the same number of nights with each of you, but one of you makes more money than the other, the parent who makes more usually must pay child support to the other parent. 
+  * If your children do not spend at least 110 nights with one of you, the parent who gets fewer nights must pay the other parent at least $50/week. This is the minimum amount of child support, even if the formula calculates a lower amount.  Child support is usually more than $50.
+  <div class='step-subheading'>Health insurance</div>
+  * You must provide health insurance for your children if it is available at a reasonable cost.  
+  * Parents usually share the cost of the monthly insurance premium.
+  * Parents usually share the cost of their children’s medical expenses that insurance does not cover, up to $5,000.  After $5,000, the parent who earns more may need to pay more than half.
+---
+template: court_step
+subject: |
+  Step ${ court_idx }: Start a court case
+content: |
+  Use the Guided Assistant interview to answer questions and get detailed steps about how to start your case.
+  % if parents_married:
+  [Start a case to end your marriage](https://LegalNav.org/guided_assistant/starting-a-case-to-end-your-marriage/?location=alaska)
+  % else:
+  [Starting a Custody Case](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska)
+  % endif
+  
+  * Use the other steps in this action plan to help you fill out the child support forms you need to start your case.
+  % if interim_motion == 'ask':
+  *	File your Motion for Interim Child Support with your complaint, which is the form you use to start your case.
+  % endif
+---
+template: respond_step
+subject: |
+  Step ${ respond_idx }: Respond to your ${ case_type } case
+content: |
+  Use the Guided Assistant interview to answer questions and get detailed steps about how to respond in your ${ case_type } case.
+  
+  % if case_type in ('divorce', 'legal separation'):
+  [Respond in your case to end your marriage](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-case-to-end-your-marriage/?location=alaska)
+  % else:
+  [Respond in your custody case](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-case-to-end-your-marriage/?location=alaska)
+  % endif
+  
+  * Use the other steps in this action plan to help you fill out the child support forms you need for your response, which is called an Answer
+  * File your Motion for Interim Custody with your Answer.
+  * Use the other steps in this action plan to help you fill out the child support forms you need for your response, which is called an Answer. 
+  % if interim_motion == 'ask':
+  *	File your Motion for Interim Child Support with your answer.
+  % endif
+---
+template: interim_step
+subject: |
+  Step ${ interim_idx }: Ask for interim child support 
+content: |
+  1.	Use [Motion and Affidavit for Interim Orders – (Minor Children), SHC-1100](https://courts.alaska.gov/shc/family/docs/shc-1100n.pdf) to ask the judge for an interim child support order during your case.
+  % if existing_case == 'open' or (existing_case == 'unknown' and after_courtview == 'open'):
+    a.	At the top of the form, write the same names and case number that are on the other documents in your case.
+    b.	Check the box in question 2 to ask for interim child support.
+   % else:
+   Check the box in question 2 to ask for interim child support.
+   % endif
+  2.	Use Step 9 to help you fill out the [Child Support Guidelines Affidavit, DR-305](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf). Attach it to your motion.
+  3.	Use Steps 
+  % if number_of_children  == "one":
+  10 and 11 
+  % else: 
+  12 and 13
+  % endif 
+  to help you pick the right child support calculation form. 
+  
+  Fill out the form and attach it to your motion.
+  4.	Fill out [Order on Child Support, DR 300](https://public.courts.alaska.gov/web/forms/docs/dr-300.pdf). Attach it to your motion.
+  5.	Read more about [motions](https://courts.alaska.gov/shc/family/motions.htm#order).
+---
+template: general_info_step
+subject: |
+  Step ${ general_info_idx }: Fill out the Child Support Guidelines Affidavit  
+content: |
+  To calculate child support, the court needs to know both parents’ income.  
+  The [Child Support Guidelines Affidavit](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf), and the documents filed with it, give the court each parent’s income information.  
+  Use [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf) to help you fill out this form.
+---
+template: one_child1_step
+subject: |
+  Step ${ one_child1_idx }: Figure out your child support schedule 
+content: |
+  The child support formula is based on the number of overnights your child spends with each parent.  There are 2 child support schedules when parents have one child.
+  <div class='step-subheading'>Primary child support schedule</div>
+    * If your child spends fewer than 110 overnights with the other parent, you have "primary custody" for child support calculations.
+    * If your child spends fewer than 110 overnights with you, the other parent has "primary custody" for child support calculations.
+  <div class='step-subheading'>Shared child support schedule</div>
+    * If your child spends more than 110 overnights with both parents, you both have "shared custody" for child support calculations. 
+---
+template: shared_custody_step
+subject: |
+  Step ${ shared_custody_idx }: Fill out the Shared Custody Support Calculation 
+content: |
+  Sometimes you do not know if your schedule will be "shared" or "primary" until after the judge decides the parenting plan schedule.
+  If you do not know what the final schedule will be, or if you know it will be shared custody, fill out [Shared Custody Support Calculation, DR-306](https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf)
+---
+template: more_children_step
+subject: |
+  Step ${ more_children_idx }: Figure out your child support schedule 
+content: |
+  The child support formula is based on the number of overnights each child spends with each parent. There are 4 child support schedules when parents have more than 1 child:
+  
+  <div class='step-subheading'>Primary Child Support Schedule</div> 
+  * The children all have the same parenting time schedule.  They spend fewer than 110 overnights with the other parent.  You have "primary custody" for child support calculations.
+  * The children all have the same parenting time schedule.  They spend fewer than 110 overnights with you.  The other parent has "primary custody" for child support calculations.
+  
+  <div class='step-subheading'>Shared Child Support Schedule</div>
+    * The children all have the same parenting time schedule.  They spend more than 110 overnights with both parents.  You both have "shared custody" for child support calculations. 
+
+  <div class='step-subheading'>Hybrid Child Support Schedule</div>
+    * The children do not have the same parenting time schedule.  
+    * One or both of you has "primary custody" of at least 1 child, and both of you have "shared custody" of at least 1 child.  You and the other parent have "hybrid" custody.  For example, 1 child stays almost all the time with you, and the other child spends 1 week with you and the next week with the other parent.
+
+  <div class='step-subheading'>Divided Child Support Schedule</div>
+    * The children do not have the same parenting time schedule.
+    * One of you has "primary custody" of at least 1 child, and the other has "primary custody" of at least 1 other child.  Neither of you has "shared custody" of any child.  You and the other parent have "divided custody."  For example, 1 child spends almost all their overnights with you, and the other child spends almost all their overnights with the other parent.
+---
+template: more_children_forms_step
+subject: |
+  Step ${ more_children_forms_idx }: Fill out the form that matches your situation 
+content: |
+  Sometimes you do not know your children’s schedule until after the judge decides the parenting plan schedule.
+    * If you do not know what the final schedule will be, or if you know it will be shared custody, fill out the [Shared Custody Support Calculation, DR-306](https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf).
+    * If you know the schedule will be hybrid custody, fill out [Hybrid Custody Child Support Calculation, DR-308](https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf).
+    * If you know the schedule will be divided custody, fill out [Divided Custody Child Support Calculation, DR-307](https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf).
+---
+template: file_and_serve_step
+subject: |
+  Step ${ file_and_serve_idx }: File and serve your forms
+content: |
+  1.	Make 2 copies of everything you are going to give the court.  
+  1.	Keep 1 copy for your own records.
+  1.	You must give the other parent 1 copy of everything you file with the court.  This is called "service." 
+  a.	You can mail or hand-deliver your copy.
+  b.	If the other parent files anything in court that says they agree to service by email, you can email the copies you made for them.
+  c.	If the other parent has a lawyer, you can serve the other parent by giving their lawyer the copy by email, mail or hand-delivery.
+  1.	Fill out the Certificate of Service. If you are filing a motion or an answer, this is at the end of the form. It tells the court how you are giving copies to the other parent.
+  1.	Mail, email or hand-deliver your forms to the court.   This is called "filing" them. 
+  1.	The other parent has 10 days to respond to the court in writing (13 days if you mailed it to them).  The document is called a "response" or an "opposition."  If you filed your motion for interim custody with your complaint, the other parent does not have to respond until they respond to the Complaint.  This is usually 20 days after they receive the Complaint.
+  1.	You have 5 days to reply to anything the other parent put in their response that you didn’t talk about in your motion (8 days if they mailed it to you).  Read about replying, [Responding to a Complaint Served on You](https://courts.alaska.gov/shc/family/answer.htm).
