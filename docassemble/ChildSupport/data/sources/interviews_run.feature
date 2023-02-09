@@ -10,7 +10,7 @@ These tests are made to work with the ALKiln testing framework, an automated tes
 Want to disable the tests? Want to learn more? See ALKiln's docs: https://suffolklitlab.github.io/docassemble-AssemblyLine-documentation/docs/automated_integrated_testing
 
 @childsupport
-Scenario: child_support.yml runs
+Scenario: interview runs
   Given I start the interview at "child_support.yml"
   #And the maximum seconds for each Step in this Scenario is 50
   #And I get to the question id "downloads" with this data:
