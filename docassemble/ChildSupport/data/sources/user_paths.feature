@@ -2,10 +2,10 @@ Feature: User paths
 
 @generated @fast
 Scenario: Just answer Yes to and first option to every question
-  Given I start the interview at "child_support_draft_template"
-  And I get to the question id "download child_support_draft_template" with this data:
+  Given I start the interview at "child_support.yml"
+  And I get to the question id "download child support" with this data:
     | var | value | trigger |
-    | asking_for_child_support_intro | True |  |
+    | wants_action_plan | True |  |
     | case_type | divorce |  |
     | existing_case | open |  |
     | general_information_about_forms | True |  |
