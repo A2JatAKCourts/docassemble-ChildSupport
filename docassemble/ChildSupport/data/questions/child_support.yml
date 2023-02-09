@@ -72,119 +72,119 @@ code: |
   # allowed_courts = interview_metadata["child_support"]["allowed courts"]
   # nav.set_section("review_child_support")
   user_role = "na"
-  if not wants_action_plan:
-    get_steps
-    child_support_download
-  else:
-    if existing_case == 'open':						
-      if user_role_in_case == 'defendant':							
-        need_to_respond
-        if interim_motion == 'wait':						
-          if general_information_about_forms:					
-             number_of_children
-             get_steps
-             child_support_download
-          else:
-            get_steps
-            child_support_download
-        else:						
-          get_steps
-          number_of_children					
-          get_steps
-          child_support_download				
-      elif user_role_in_case == 'closed':					
-        get_steps							
-        child_support_download						
-    # set_progress(14)								
-      else:							
-        if interim_motion == 'wait':	
-          if general_information_about_forms:					
-            number_of_children
-            get_steps
-            child_support_download
-          else:
-            get_steps
-            child_support_download				
-        else:						
-          number_of_children
-          get_steps
-          child_support_download					
-    # set_progress(28)								
-    elif existing_case == 'none':								
-      paternity
-      if ask_court_or_cssd == 'cssd':
-        get_steps
-        child_support_download
-      else:
-        parents_married
-        if general_information_about_forms:
-          number_of_children
-          interim_motion
-          get_steps
-          child_support_download
-        else:
-          if interim_motion == 'wait':
-            get_steps
-            child_support_download
-          else:
-            number_of_children
-            get_steps
-            child_support_download
-    else:
-      if after_courtview == 'open':						
-        if user_role_in_case == 'defendant':							
-          need_to_respond
-          if interim_motion == 'wait':						
-            if general_information_about_forms:
-              get_steps
-              child_support_download
-            else:
-              get_steps
-              child_support_download
-          else:						
-            number_of_children
-            get_steps
-            child_support_download				
-        elif user_role_in_case == 'closed':
-          get_steps
-          child_support_download						
-      # set_progress(14)								
-        else:							
-          if interim_motion == 'wait':						
-            if general_information_about_forms:					
-              number_of_children
-              get_steps
-              child_support_download										
-            else:
-              get_steps
-              child_support_download			
-          else:						
-            number_of_children
-            get_steps
-            child_support_download					
-      # set_progress(28)								
-      elif after_courtview == 'none':								
-        paternity
-        if ask_court_or_cssd == 'cssd':
-          get_steps
-          child_support_download
-      # set_progress(42)
-        else:
-          parents_married
-          if general_information_about_forms:
-            number_of_children
-            interim_motion
-            get_steps
-            child_support_download
-    #  set_progress(56)
-          else:
-            interim_motion
-            number_of_children
-            get_steps
-            child_support_download
-      else:
-        get_steps
-        child_support_download
+  #if not wants_action_plan:
+  #  get_steps
+  #  child_support_download
+  #else:
+  #  if existing_case == 'open':						
+  #    if user_role_in_case == 'defendant':							
+  #      need_to_respond
+  #      if interim_motion == 'wait':						
+  #        if general_information_about_forms:					
+  #           number_of_children
+  #           get_steps
+  #           child_support_download
+  #        else:
+  #          get_steps
+  #          child_support_download
+  #      else:						
+  #        get_steps
+  #        number_of_children					
+  #        get_steps
+  #        child_support_download				
+  #    elif user_role_in_case == 'closed':					
+  #      get_steps							
+  #      child_support_download						
+  #  # set_progress(14)								
+  #    else:							
+  #      if interim_motion == 'wait':	
+  #        if general_information_about_forms:					
+  #          number_of_children
+  #          get_steps
+  #          child_support_download
+  #        else:
+  #          get_steps
+  #          child_support_download				
+  #      else:						
+  #        number_of_children
+  #        get_steps
+  #        child_support_download					
+  #  # set_progress(28)								
+  #  elif existing_case == 'none':								
+  #    paternity
+  #    if ask_court_or_cssd == 'cssd':
+  #      get_steps
+  #      child_support_download
+  #    else:
+  #      parents_married
+  #      if general_information_about_forms:
+  #        number_of_children
+  #        interim_motion
+  #        get_steps
+  #        child_support_download
+  #      else:
+  #        if interim_motion == 'wait':
+  #          get_steps
+  #          child_support_download
+  #        else:
+  #          number_of_children
+  #          get_steps
+  #          child_support_download
+  #  else:
+  #    if after_courtview == 'open':						
+  #      if user_role_in_case == 'defendant':							
+  #        need_to_respond
+  #        if interim_motion == 'wait':						
+  #          if general_information_about_forms:
+  #            get_steps
+  #            child_support_download
+  #          else:
+  #            get_steps
+  #            child_support_download
+  #        else:						
+  #          number_of_children
+  #          get_steps
+  #          child_support_download				
+  #      elif user_role_in_case == 'closed':
+  #        get_steps
+  #        child_support_download						
+  #    # set_progress(14)								
+  #      else:							
+  #        if interim_motion == 'wait':						
+  #          if general_information_about_forms:					
+  #            number_of_children
+  #            get_steps
+  #            child_support_download										
+  #          else:
+  #            get_steps
+  #            child_support_download			
+  #        else:						
+  #          number_of_children
+  #          get_steps
+  #          child_support_download					
+  #    # set_progress(28)								
+  #    elif after_courtview == 'none':								
+  #      paternity
+  #      if ask_court_or_cssd == 'cssd':
+  #        get_steps
+  #        child_support_download
+  #    # set_progress(42)
+  #      else:
+  #        parents_married
+  #        if general_information_about_forms:
+  #          number_of_children
+  #          interim_motion
+  #          get_steps
+  #          child_support_download
+  #  #  set_progress(56)
+  #        else:
+  #          interim_motion
+  #          number_of_children
+  #          get_steps
+  #          child_support_download
+  #    else:
+  get_steps
+  #      child_support_download
     #  number_of_steps
     #  set_progress(70)
 
