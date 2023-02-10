@@ -42,23 +42,13 @@ code: |
         and need_to_respond \
         and interim_motion == "wait" \
         and number_of_children == "one":
-          # Accordion
-          # Learn about child support
-          # Respond to your ${ divorce/custody/legal separation } case
-          # Fill out the Child Support Guidelines Affidavit
-          # Figure out your child support schedule
-          # Fill out the Shared Custody Support Calculation
-          # File and serve your forms
-          # Get more information or help
-          # PDF
-          # Learn about child support
-          # Respond to your ${ divorce/custody/legal separation } case
-          # Fill out the Child Support Guidelines Affidavit
-          # Figure out your child support schedule
-          # Fill out the Shared Custody Support Calculation
-          # File and serve your forms
-          # Get more information or help
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          
 
       # row 3
       if user_role_in_case == "defendant" \
