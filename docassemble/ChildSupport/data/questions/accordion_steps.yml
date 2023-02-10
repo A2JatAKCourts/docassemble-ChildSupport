@@ -35,7 +35,8 @@ code: |
       # row 16
       # think this should go at the top of "user_role_in_case"
       if user_role_in_case == "closed":
-        pass
+        step_list.append((childsupport_step, "childsupport_idx"))
+        step_list.append((modify_step, "modify_idx"))
 
       # row 2
       if user_role_in_case == "defendant" \
@@ -55,113 +56,93 @@ code: |
         and need_to_respond \
         and interim_motion == "wait" \
         and number_of_children == "more than one":
-          # Accordion
-          # Learn about child support
-          # Respond to your ${ divorce/custody/legal separation } case
-          # Fill out the Child Support Guidelines Affidavit
-          # Figure out your child support schedule
-          # Fill out the form that matches your situation
-          # File and serve your forms
-          # Get more information or help
-          # PDF
-          # Learn about child support
-          # Respond to your ${ divorce/custody/legal separation } case
-          # Fill out the Child Support Guidelines Affidavit
-          # Figure out your child support schedule
-          # Fill out the form that matches your situation
-          # File and serve your forms
-          # Get more information or help
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
       # row 5
       if user_role_in_case == "defendant" \
         and need_to_respond \
         and interim_motion == "ask" \
         and number_of_children == "one":
-          # Accordion
-          # Learn about child support
-          # Respond to your ${ divorce/custody/legal separation } case
-          # Ask for interim child support
-          # Fill out the Child Support Guidelines Affidavit
-          # Figure out your child support schedule
-          # Fill out the Shared Custody Support Calculation
-          # File and serve your forms
-          # Get more information or help
-          # PDF
-          # Learn about child support
-          # Respond to your ${ divorce/custody/legal separation } case
-          # Ask for interim child support
-          # Fill out the Child Support Guidelines Affidavit
-          # Figure out your child support schedule
-          # Fill out the Shared Custody Support Calculation
-          # File and serve your forms
-          # Get more information or help
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
       # row 6
       if user_role_in_case == "defendant" \
         and need_to_respond \
         and interim_motion == "ask" \
         and number_of_children == "more than one":
-          # Accordion
-          # Learn about child support
-          # Respond to your ${ divorce/custody/legal separation } case
-          # Fill out the Child Support Guidelines Affidavit
-          # Figure out your child support schedule
-          # Fill out the form that matches your situation
-          # File and serve your forms
-          # Get more information or help
-          # PDF
-          # Learn about child support
-          # Respond to your ${ divorce/custody/legal separation } case
-          # Fill out the Child Support Guidelines Affidavit
-          # Figure out your child support schedule
-          # Fill out the form that matches your situation
-          # File and serve your forms
-          # Get more information or help
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
       # row 10
       if user_role_in_case == "defendant" \
         and not need_to_respond \
         and interim_motion == "wait" \
+        and general_information_about_forms \
         and number_of_children == "one":
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
       # row 11
       if user_role_in_case == "defendant" \
         and not need_to_respond \
         and interim_motion == "wait" \
+        and general_information_about_forms \
         and number_of_children == "more than one":
-          # Accordion
-          # Learn about child support
-          # Fill out the Child Support Guidelines Affidavit
-          # Figure out your child support schedule
-          # Fill out the form that matches your situation
-          # File and serve your forms
-          # Get more information or help
-          # PDF
-          # Learn about child support
-          # Fill out the Child Support Guidelines Affidavit
-          # Figure out your child support schedule
-          # Fill out the form that matches your situation
-          # File and serve your forms
-          # Get more information or help
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+
+      # row 12
+      if user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "wait" \
+        and not general_information_about_forms :
+          step_list.append((childsupport_step, "childsupport_idx"))
 
       # row 13
       if user_role_in_case == "defendant" \
         and not need_to_respond \
         and interim_motion == "ask" \
         and number_of_children == "one":
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
       # row 14
       if user_role_in_case == "defendant" \
         and not need_to_respond \
         and interim_motion == "ask" \
         and number_of_children == "more than one":
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
       # row 17
       if user_role_in_case in ("plaintiff", "joint") \
