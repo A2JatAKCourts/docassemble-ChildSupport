@@ -42,6 +42,7 @@ code: |
       if user_role_in_case == "defendant" \
         and need_to_respond \
         and interim_motion == "wait" \
+        and general_information_about_forms \
         and number_of_children == "one":
           step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((respond_step, "respond_idx"))
@@ -55,6 +56,7 @@ code: |
       if user_role_in_case == "defendant" \
         and need_to_respond \
         and interim_motion == "wait" \
+        and general_information_about_forms \
         and number_of_children == "more than one":
           step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((respond_step, "respond_idx"))
@@ -69,7 +71,8 @@ code: |
         and interim_motion == "ask" \
         and number_of_children == "one":
           step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((respond_step, "respond_idx"))
+          step_list.append((respond_step, "respond_idx"))          
+          step_list.append((interim_step, "interim_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
@@ -81,7 +84,8 @@ code: |
         and interim_motion == "ask" \
         and number_of_children == "more than one":
           step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((respond_step, "respond_idx"))
+          step_list.append((respond_step, "respond_idx"))          
+          step_list.append((interim_step, "interim_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
@@ -94,7 +98,6 @@ code: |
         and general_information_about_forms \
         and number_of_children == "one":
           step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((respond_step, "respond_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
@@ -107,7 +110,6 @@ code: |
         and general_information_about_forms \
         and number_of_children == "more than one":
           step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((respond_step, "respond_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
@@ -127,6 +129,7 @@ code: |
         and number_of_children == "one":
           step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((respond_step, "respond_idx"))
+          step_list.append((interim_step, "interim_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
@@ -139,6 +142,7 @@ code: |
         and number_of_children == "more than one":
           step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((respond_step, "respond_idx"))
+          step_list.append((interim_step, "interim_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
