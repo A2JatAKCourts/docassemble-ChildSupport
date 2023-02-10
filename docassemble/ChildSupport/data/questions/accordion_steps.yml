@@ -24,8 +24,11 @@ code: |
       if user_role_in_case == 'defendant':
         if need_to_respond:
           step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
       if interim_motion == 'ask':
         step_list.append((interim_step, "interim_idx"))
+        if user_role_in_case in('plaintiff', 'joint') or (user_role_in_case == 'defendant' and need_to_respond == False):
+          step_list.append((general_info_step, "general_info_idx"))
         if number_of_children == 'one':
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
@@ -34,17 +37,18 @@ code: |
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
           step_list.append((file_and_serve_step, "file_and_serve_idx"))
-      else:
-        if general_information_about_forms:
-          step_list.append((general_info_step, "general_info_idx"))
-          if number_of_children == 'one':
-            step_list.append((one_child1_step, "one_child1_idx"))
-            step_list.append((shared_custody_step, "shared_custody_idx"))
-            step_list.append((file_and_serve_step, "file_and_serve_idx"))
-          else:
-            step_list.append((more_children_step, "more_children_idx"))
-            step_list.append((more_children_forms_step, "more_children_forms_idx"))
-            step_list.append((file_and_serve_step, "file_and_serve_idx"))
+      else: # interim_motion == 'wait'
+        if user_role_in_case in('plaintiff', 'joint') or (user_role_in_case == 'defendant' and need_to_respond == False): 
+          if general_information_about_forms:
+            step_list.append((general_info_step, "general_info_idx"))
+            if number_of_children == 'one':
+              step_list.append((one_child1_step, "one_child1_idx"))
+              step_list.append((shared_custody_step, "shared_custody_idx"))
+              step_list.append((file_and_serve_step, "file_and_serve_idx"))
+            else:
+              step_list.append((more_children_step, "more_children_idx"))
+              step_list.append((more_children_forms_step, "more_children_forms_idx"))
+              step_list.append((file_and_serve_step, "file_and_serve_idx"))
     elif (existing_case == 'open' and user_role_in_case == 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case == 'closed'):
       step_list.append((childsupport_step, "childsupport_idx"))
       step_list.append((modify_step, "modify_idx"))
@@ -60,9 +64,7 @@ code: |
           step_list.append((court_step, "court_idx"))
         if interim_motion == 'ask':
           step_list.append((interim_step, "interim_idx"))
-        if general_information_about_forms:
           step_list.append((general_info_step, "general_info_idx"))
-        if general_information_about_forms or interim_motion == 'ask':
           if number_of_children == 'one':
             step_list.append((one_child1_step, "one_child1_idx"))
             step_list.append((shared_custody_step, "shared_custody_idx"))
@@ -71,6 +73,18 @@ code: |
             step_list.append((more_children_step, "more_children_idx"))
             step_list.append((more_children_forms_step, "more_children_forms_idx"))
             step_list.append((file_and_serve_step, "file_and_serve_idx"))
+       # if general_information_about_forms:
+       #   step_list.append((general_info_step, "general_info_idx"))
+        else:
+          if general_information_about_forms:
+            if number_of_children == 'one':
+              step_list.append((one_child1_step, "one_child1_idx"))
+              step_list.append((shared_custody_step, "shared_custody_idx"))
+              step_list.append((file_and_serve_step, "file_and_serve_idx"))
+            else:
+              step_list.append((more_children_step, "more_children_idx"))
+              step_list.append((more_children_forms_step, "more_children_forms_idx"))
+              step_list.append((file_and_serve_step, "file_and_serve_idx"))
       else:
         step_list.append((cssd_step, "cssd_idx"))
       
