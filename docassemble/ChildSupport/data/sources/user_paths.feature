@@ -1,6 +1,5 @@
 Feature: User paths
 
-@generated @fast
 Scenario: Just answer Yes to and first option to every question
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
@@ -15,3 +14,10 @@ Scenario: Just answer Yes to and first option to every question
     | user_role_in_case | defendant |  |
   And I take a screenshot
   
+Scenario: Just answer Yes to and first option to every question
+  Given I start the interview at "child_support.yml"
+  And I get to the question id "download child support" with this data:
+    | var | value | trigger |
+    | wants_action_plan | False |  |
+  And I take a screenshot
+  And I should see the phrase "Try another Guided Assistant"
