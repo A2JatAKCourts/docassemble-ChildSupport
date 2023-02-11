@@ -30,7 +30,7 @@ code: |
     # Get more information or help
     pass
   else:
-    if existing_case == "open":
+    if existing_case == "open" or (existing_case == "unknown" and after_courtview == "open") :
 
       # row 16
       # think this should go at the top of "user_role_in_case"
@@ -180,7 +180,7 @@ code: |
         and number_of_children == "more than one":
           pass
 
-    if existing_case == "none":
+    if existing_case == "none" or (existing_case == "unknown" and after_courtview == "none"):
 
       # Possibly deal with paternity docs up here if placement is ok
       if paternity:
