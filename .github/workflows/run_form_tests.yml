@@ -1,5 +1,6 @@
 name: Use ALKiln testing framework v4 to run tests
 
+
 on:
   push:
   workflow_dispatch:
@@ -25,6 +26,7 @@ jobs:
         with:
           SERVER_URL: "${{ secrets.SERVER_URL }}"
           DOCASSEMBLE_DEVELOPER_API_KEY: "${{ secrets.DOCASSEMBLE_DEVELOPER_API_KEY }}"
+          ALKILN_VERSION: "4.10.3-feat-story-pics"
       - run: echo "Finished running ALKiln tests"
       
       ## To make a new issue in your repository when a test fails,

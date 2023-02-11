@@ -6,6 +6,7 @@ question: |
 subquestion: |
   Your Personal Action Plan in ${ len(step_list) } Steps
   
+  
   % for iteration_index, step_tuple in enumerate( step_list ):
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
   % endfor
@@ -15,31 +16,467 @@ buttons:
   - Start over: restart
 ---
 code: |
+  # Logic reference: https://docs.google.com/spreadsheets/d/1qHv16Z5mK7jf_UE14wLpZRL9nIIu_xkHBM-UF0ETRJg/edit#gid=0
+  
   step_list = []
-  if wants_action_plan:
-    if existing_case == 'unknown' and after_courtview == 'unknown':      
-      step_list.append((find_out_step, "find_out_idx"))
-    if (existing_case == 'open' and user_role_in_case != 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case != 'closed'):
-      step_list.append((childsupport_step, "childsupport_idx"))
-      if user_role_in_case == 'defendant':
-        if need_to_respond:
+
+  if not wants_action_plan:
+    step_list.append((wrong_tf, "wrong_tf_idx"))
+    step_list.append((wrong_tf2, "wrong_tf2_idx"))
+    
+  else:
+    if existing_case == "open" or (existing_case == "unknown" and after_courtview == "open"):
+
+      # rows 16 & 40
+      if user_role_in_case == "closed":
+        step_list.append((childsupport_step, "childsupport_idx"))
+        step_list.append((modify_step, "modify_idx"))
+
+      # row 2 & 41
+      if user_role_in_case == "defendant" \
+        and need_to_respond \
+        and interim_motion == "wait" \
+        and general_information_about_forms \
+        and number_of_children == "one":
+          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((respond_step, "respond_idx"))
           step_list.append((general_info_step, "general_info_idx"))
-      if interim_motion == 'ask':
-        step_list.append((interim_step, "interim_idx"))
-        if user_role_in_case in('plaintiff', 'joint') or (user_role_in_case == 'defendant' and need_to_respond == False):
-          step_list.append((general_info_step, "general_info_idx"))
-        if number_of_children == 'one':
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
           step_list.append((file_and_serve_step, "file_and_serve_idx"))
-        else:
+          
+
+      # row 3 & 42
+      if user_role_in_case == "defendant" \
+        and need_to_respond \
+        and interim_motion == "wait" \
+        and general_information_about_forms \
+        and number_of_children == "more than one":  
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
           step_list.append((file_and_serve_step, "file_and_serve_idx"))
-      else: # interim_motion == 'wait'
-        if user_role_in_case in('plaintiff', 'joint') or (user_role_in_case == 'defendant' and need_to_respond == False): 
-          if general_information_about_forms:
+
+      # rows 5 & 44
+      if user_role_in_case == "defendant" \
+        and need_to_respond \
+        and interim_motion == "ask" \
+        and number_of_children == "one":
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))          
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+
+      # rows 6 & 45 
+      if user_role_in_case == "defendant" \
+        and need_to_respond \
+        and interim_motion == "ask" \
+        and number_of_children == "more than one":          
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+
+      # rows 10 & 46
+      if user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "wait" \
+        and general_information_about_forms \
+        and number_of_children == "one":
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+
+      # row 11
+      if user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "wait" \
+        and number_of_children == "more than one":
+         
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+
+      # row 13
+      if user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "ask" \
+        and number_of_children == "one":
+          
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+
+      # row 14
+      if user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "ask" \
+        and number_of_children == "more than one":
+          pass
+
+      # row 17
+      if user_role_in_case in ("plaintiff", "joint") \
+        and interim_motion == "wait" \
+        and general_information_about_forms \
+        and number_of_children == "one":
+          pass
+
+      # row 18
+      if user_role_in_case in ("plaintiff", "joint") \
+        and interim_motion == "wait" \
+        and general_information_about_forms \
+        and number_of_children == "more than one":
+          pass
+
+      # row 19
+      if user_role_in_case in ("plaintiff", "joint") \
+        and interim_motion == "wait" \
+        and not general_information_about_forms:
+          pass
+
+      # row 20
+      if user_role_in_case in ("plaintiff", "joint") \
+        and interim_motion == "ask" \
+        and number_of_children == "one":
+          pass
+
+      # row 21
+      if user_role_in_case in ("plaintiff", "joint") \
+        and interim_motion == "ask" \
+        and number_of_children == "more than one":
+          pass
+
+    if existing_case == "none":
+
+      # Possibly deal with paternity docs up here if placement is ok
+      if paternity:
+        # Do paternity doc/step stuff
+        pass
+
+      # Rest of docs/steps
+      # 23
+      if ask_court_or_cssd == "cssd":
+          pass
+
+      # 24
+      if ask_court_or_cssd in ("court", "both") \
+        and (parents_married or not parents_married) \
+        and general_information_about_forms \
+        and number_of_children == "one" \
+        and interim_motion == "wait":
+          pass
+
+      # 25
+      if ask_court_or_cssd in ("court", "both") \
+        and (parents_married or not parents_married) \
+        and general_information_about_forms \
+        and number_of_children == "one" \
+        and interim_motion == "ask":
+          pass
+
+      # 26
+      if ask_court_or_cssd in ("court", "both") \
+        and (parents_married or not parents_married) \
+        and general_information_about_forms \
+        and number_of_children == "more than one" \
+        and interim_motion == "wait":
+          pass
+
+      # 27
+      if ask_court_or_cssd in ("court", "both") \
+        and (parents_married or not parents_married) \
+        and general_information_about_forms \
+        and number_of_children == "more than one" \
+        and interim_motion == "ask":
+          pass
+
+      # 28
+      if ask_court_or_cssd in ("court", "both") \
+        and (parents_married or not parents_married) \
+        and not general_information_about_forms \
+        and interim_motion == "wait":
+          pass
+
+      # 29
+      if ask_court_or_cssd in ("court", "both") \
+        and (parents_married or not parents_married) \
+        and not general_information_about_forms \
+        and interim_motion == "ask" \
+        and number_of_children == "one":
+          pass
+
+      # 30
+      if ask_court_or_cssd in ("court", "both") \
+        and (parents_married or not parents_married) \
+        and not general_information_about_forms \
+        and interim_motion == "ask" \
+        and number_of_children == "more than one":
+          pass
+
+    if existing_case == "unknown":
+
+      # 39
+      if after_courtview == "unknown":
+        pass
+
+      # 40
+      if after_courtview == "open" \
+        and user_role_in_case == "closed":
+          pass
+
+      # 41
+      if after_courtview == "open" \
+        and user_role_in_case == "defendant" \
+        and need_to_respond \
+        and interim_motion == "wait" \
+        and number_of_children == "one":
+          pass
+
+      # 42
+      if after_courtview == "open" \
+        and user_role_in_case == "defendant" \
+        and need_to_respond \
+        and interim_motion == "wait" \
+        and number_of_children == "more than one":
+          pass
+
+      # 43 skipped
+
+      # 44
+      if after_courtview == "open" \
+        and user_role_in_case == "defendant" \
+        and need_to_respond \
+        and interim_motion == "ask" \
+        and number_of_children == "one":
+          pass
+
+      # 45
+      if after_courtview == "open" \
+        and user_role_in_case == "defendant" \
+        and need_to_respond \
+        and interim_motion == "ask" \
+        and number_of_children == "more than one":
+          pass
+
+      # 46
+      if after_courtview == "open" \
+        and user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "wait" \
+        and general_information_about_forms \
+        and number_of_children == "one":
+          pass
+
+      # 47
+      if after_courtview == "open" \
+        and user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "wait" \
+        and general_information_about_forms \
+        and number_of_children == "more than one":
+          pass
+
+      # 48
+      if after_courtview == "open" \
+        and user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "wait" \
+        and not general_information_about_forms:
+          pass
+
+      # 49
+      if after_courtview == "open" \
+        and user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "ask" \
+        and number_of_children == "one":
+          pass
+
+      # 50
+      if after_courtview == "open" \
+        and user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "ask" \
+        and number_of_children == "more than one":
+          pass
+
+      # 51
+      if after_courtview == "open" \
+        and user_role_in_case in ("plaintiff", "joint") \
+        and interim_motion == "wait" \
+        and general_information_about_forms \
+        and number_of_children == "one":
+          pass
+
+      # 52
+      if after_courtview == "open" \
+        and user_role_in_case in ("plaintiff", "joint") \
+        and interim_motion == "wait" \
+        and general_information_about_forms \
+        and number_of_children == "more than one":
+          pass
+
+      # 53
+      if after_courtview == "open" \
+        and user_role_in_case in ("plaintiff", "joint") \
+        and interim_motion == "wait" \
+        and not general_information_about_forms:
+          pass
+
+      # 54
+      if after_courtview == "open" \
+        and user_role_in_case in ("plaintiff", "joint") \
+        and interim_motion == "ask" \
+        and number_of_children == "one":
+          pass
+
+      # 55
+      if after_courtview == "open" \
+        and user_role_in_case in ("plaintiff", "joint") \
+        and interim_motion == "ask" \
+        and number_of_children == "more than one":
+          pass
+
+      if after_courtview == "none":
+        # add courview doc/step
+
+        if paternity:
+          # add paternity doc/step
+          pass
+
+        # 56
+        if ask_court_or_cssd == "cssd":
+          pass
+
+        # 57
+        if ask_court_or_cssd in ("court", "both") \
+          and (parents_married or not parents_married) \
+          and general_information_about_forms \
+          and number_of_children == "one" \
+          and interim_motion == "wait":
+            pass
+
+        # 58
+        if ask_court_or_cssd in ("court", "both") \
+          and (parents_married or not parents_married) \
+          and general_information_about_forms \
+          and number_of_children == "one" \
+          and interim_motion == "ask":
+            pass
+
+        # 59
+        if ask_court_or_cssd in ("court", "both") \
+          and (parents_married or not parents_married) \
+          and general_information_about_forms \
+          and number_of_children == "more than one" \
+          and interim_motion == "wait":
+            pass
+
+        # 60
+        if ask_court_or_cssd in ("court", "both") \
+          and (parents_married or not parents_married) \
+          and general_information_about_forms \
+          and number_of_children == "more than one" \
+          and interim_motion == "ask":
+            pass
+
+        # 61
+        if ask_court_or_cssd in ("court", "both") \
+          and (parents_married or not parents_married) \
+          and not general_information_about_forms \
+          and interim_motion == "wait":
+            pass
+
+        # 62
+        if ask_court_or_cssd in ("court", "both") \
+          and (parents_married or not parents_married) \
+          and not general_information_about_forms \
+          and interim_motion == "ask" \
+          and number_of_children == "one":
+            pass
+
+        # 63
+        if ask_court_or_cssd in ("court", "both") \
+          and (parents_married or not parents_married) \
+          and not general_information_about_forms \
+          and interim_motion == "ask" \
+          and number_of_children == "more than one":
+            pass
+  
+  step_list.append((get_help, "get_help_idx"))
+  
+  for iter_idx, step_tuple in enumerate( step_list ):
+      define(step_tuple[ 1 ], iter_idx + 1)
+  
+  get_steps = True
+---
+comment: |
+  code: |
+    step_list = []
+    if wants_action_plan:
+      if existing_case == 'unknown' and after_courtview == 'unknown':      
+        step_list.append((find_out_step, "find_out_idx"))
+      if (existing_case == 'open' and user_role_in_case != 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case != 'closed'):
+        step_list.append((childsupport_step, "childsupport_idx"))
+        if user_role_in_case == 'defendant':
+          if need_to_respond:
+            step_list.append((respond_step, "respond_idx"))
+            step_list.append((general_info_step, "general_info_idx"))
+        if interim_motion == 'ask':
+          step_list.append((interim_step, "interim_idx"))
+          if user_role_in_case in('plaintiff', 'joint') or (user_role_in_case == 'defendant' and need_to_respond == False):
+            step_list.append((general_info_step, "general_info_idx"))
+          if number_of_children == 'one':
+            step_list.append((one_child1_step, "one_child1_idx"))
+            step_list.append((shared_custody_step, "shared_custody_idx"))
+            step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          else:
+            step_list.append((more_children_step, "more_children_idx"))
+            step_list.append((more_children_forms_step, "more_children_forms_idx"))
+            step_list.append((file_and_serve_step, "file_and_serve_idx"))
+        else: # interim_motion == 'wait'
+          if user_role_in_case in('plaintiff', 'joint') or (user_role_in_case == 'defendant' and need_to_respond == False): 
+            if general_information_about_forms:
+              step_list.append((general_info_step, "general_info_idx"))
+              if number_of_children == 'one':
+                step_list.append((one_child1_step, "one_child1_idx"))
+                step_list.append((shared_custody_step, "shared_custody_idx"))
+                step_list.append((file_and_serve_step, "file_and_serve_idx"))
+              else:
+                step_list.append((more_children_step, "more_children_idx"))
+                step_list.append((more_children_forms_step, "more_children_forms_idx"))
+                step_list.append((file_and_serve_step, "file_and_serve_idx"))
+      elif (existing_case == 'open' and user_role_in_case == 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case == 'closed'):
+        step_list.append((childsupport_step, "childsupport_idx"))
+        step_list.append((modify_step, "modify_idx"))
+      elif existing_case == 'none' or (existing_case == 'unknown' and after_courtview == 'none'):
+        step_list.append((childsupport_step, "childsupport_idx"))
+        if paternity:
+          step_list.append((paternity_step, "paternity_idx"))
+        if ask_court_or_cssd != 'cssd':
+          if ask_court_or_cssd == 'court':
+            step_list.append((court_step, "court_idx"))
+          else:
+            step_list.append((cssd_step, "cssd_idx"))
+            step_list.append((court_step, "court_idx"))
+          if interim_motion == 'ask':
+            step_list.append((interim_step, "interim_idx"))
             step_list.append((general_info_step, "general_info_idx"))
             if number_of_children == 'one':
               step_list.append((one_child1_step, "one_child1_idx"))
@@ -49,54 +486,30 @@ code: |
               step_list.append((more_children_step, "more_children_idx"))
               step_list.append((more_children_forms_step, "more_children_forms_idx"))
               step_list.append((file_and_serve_step, "file_and_serve_idx"))
-    elif (existing_case == 'open' and user_role_in_case == 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case == 'closed'):
-      step_list.append((childsupport_step, "childsupport_idx"))
-      step_list.append((modify_step, "modify_idx"))
-    elif existing_case == 'none' or (existing_case == 'unknown' and after_courtview == 'none'):
-      step_list.append((childsupport_step, "childsupport_idx"))
-      if paternity:
-        step_list.append((paternity_step, "paternity_idx"))
-      if ask_court_or_cssd != 'cssd':
-        if ask_court_or_cssd == 'court':
-          step_list.append((court_step, "court_idx"))
+         # if general_information_about_forms:
+         #   step_list.append((general_info_step, "general_info_idx"))
+          else:
+            if general_information_about_forms:
+              if number_of_children == 'one':
+                step_list.append((one_child1_step, "one_child1_idx"))
+                step_list.append((shared_custody_step, "shared_custody_idx"))
+                step_list.append((file_and_serve_step, "file_and_serve_idx"))
+              else:
+                step_list.append((more_children_step, "more_children_idx"))
+                step_list.append((more_children_forms_step, "more_children_forms_idx"))
+                step_list.append((file_and_serve_step, "file_and_serve_idx"))
         else:
           step_list.append((cssd_step, "cssd_idx"))
-          step_list.append((court_step, "court_idx"))
-        if interim_motion == 'ask':
-          step_list.append((interim_step, "interim_idx"))
-          step_list.append((general_info_step, "general_info_idx"))
-          if number_of_children == 'one':
-            step_list.append((one_child1_step, "one_child1_idx"))
-            step_list.append((shared_custody_step, "shared_custody_idx"))
-            step_list.append((file_and_serve_step, "file_and_serve_idx"))
-          else:
-            step_list.append((more_children_step, "more_children_idx"))
-            step_list.append((more_children_forms_step, "more_children_forms_idx"))
-            step_list.append((file_and_serve_step, "file_and_serve_idx"))
-       # if general_information_about_forms:
-       #   step_list.append((general_info_step, "general_info_idx"))
-        else:
-          if general_information_about_forms:
-            if number_of_children == 'one':
-              step_list.append((one_child1_step, "one_child1_idx"))
-              step_list.append((shared_custody_step, "shared_custody_idx"))
-              step_list.append((file_and_serve_step, "file_and_serve_idx"))
-            else:
-              step_list.append((more_children_step, "more_children_idx"))
-              step_list.append((more_children_forms_step, "more_children_forms_idx"))
-              step_list.append((file_and_serve_step, "file_and_serve_idx"))
-      else:
-        step_list.append((cssd_step, "cssd_idx"))
-      
-  else:
-    step_list.append((wrong_tf, "wrong_tf_idx"))
-    step_list.append((wrong_tf2, "wrong_tf2_idx"))
-  step_list.append((get_help, "get_help_idx"))
+        
+    else:
+      step_list.append((wrong_tf, "wrong_tf_idx"))
+      step_list.append((wrong_tf2, "wrong_tf2_idx"))
+    step_list.append((get_help, "get_help_idx"))
+    
+    for iter_idx, step_tuple in enumerate( step_list ):
+      define(step_tuple[ 1 ], iter_idx + 1)
   
-  for iter_idx, step_tuple in enumerate( step_list ):
-    define(step_tuple[ 1 ], iter_idx + 1)
-
-  get_steps = True
+    get_steps = True
 ---
 template: wrong_tf
 subject: |
