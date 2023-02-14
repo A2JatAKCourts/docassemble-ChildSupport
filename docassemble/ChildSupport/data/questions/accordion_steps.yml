@@ -3,9 +3,8 @@ decoration: pen-to-square
 event: child_support_download
 question: |
   # <i class="fa-thin fa-list"></i>Your Personal Action Plan is ready!
-subquestion: |
+subquestion: | 
   Your Personal Action Plan in ${ len(step_list) } Steps
-  
   
   % for iteration_index, step_tuple in enumerate( step_list ):
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
@@ -43,8 +42,7 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
-          
+          step_list.append((file_and_serve_step, "file_and_serve_idx")) 
 
       # row 3 & 42
       if user_role_in_case == "defendant" \
@@ -97,327 +95,283 @@ code: |
           step_list.append((shared_custody_step, "shared_custody_idx"))
           step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
-      # row 11
+      # rows 11 & 47
       if user_role_in_case == "defendant" \
         and not need_to_respond \
         and interim_motion == "wait" \
-        and number_of_children == "more than one":
-         
+        and general_information_about_forms \
+        and number_of_children == "more than one":         
           step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((respond_step, "respond_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+
+      # rows 12 & 48
+      if user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "wait" \
+        and not general_information_about_forms:         
+          step_list.append((childsupport_step, "childsupport_idx"))
+
+      # rows 13 & 49
+      if user_role_in_case == "defendant" \
+        and not need_to_respond \
+        and interim_motion == "ask" \
+        and number_of_children == "one":
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((interim_step, "interim_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
           step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
-      # row 13
+      # row 14 & 50 
       if user_role_in_case == "defendant" \
         and not need_to_respond \
         and interim_motion == "ask" \
-        and number_of_children == "one":
-          
+        and number_of_children == "more than one":
           step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((respond_step, "respond_idx"))
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+
+      # rows 17 & 51
+      if user_role_in_case in ("plaintiff", "joint") \
+        and interim_motion == "wait" \
+        and general_information_about_forms \
+        and number_of_children == "one":
+          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
           step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
-      # row 14
-      if user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "ask" \
-        and number_of_children == "more than one":
-          pass
-
-      # row 17
-      if user_role_in_case in ("plaintiff", "joint") \
-        and interim_motion == "wait" \
-        and general_information_about_forms \
-        and number_of_children == "one":
-          pass
-
-      # row 18
+      # rows 18 & 52
       if user_role_in_case in ("plaintiff", "joint") \
         and interim_motion == "wait" \
         and general_information_about_forms \
         and number_of_children == "more than one":
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
-      # row 19
+      # rows 19 & 53
       if user_role_in_case in ("plaintiff", "joint") \
         and interim_motion == "wait" \
         and not general_information_about_forms:
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
 
-      # row 20
+      # rows 20 & 54
       if user_role_in_case in ("plaintiff", "joint") \
         and interim_motion == "ask" \
         and number_of_children == "one":
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
-      # row 21
+      # rows 21 & 55
       if user_role_in_case in ("plaintiff", "joint") \
         and interim_motion == "ask" \
         and number_of_children == "more than one":
-          pass
+          step_list.append((childsupport_step, "childsupport_idx"))
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
-    if existing_case == "none":
+    if existing_case == "none" or (existing_case == "unknown" and after_courtview == "none"):
 
       # Possibly deal with paternity docs up here if placement is ok
       if paternity:
-        # Do paternity doc/step stuff
-        pass
+        step_list.append((paternity_step, "paternity_idx"))
+        step_list.append((childsupport_step, "childsupport_idx"))
+        
+      else:
+        step_list.append((childsupport_step, "childsupport_idx"))
 
       # Rest of docs/steps
-      # 23
+      # rows 23 & 56
       if ask_court_or_cssd == "cssd":
-          pass
+        step_list.append((cssd_step, "cssd_idx"))
 
-      # 24
-      if ask_court_or_cssd in ("court", "both") \
+      # rows 24 & 57
+      if ask_court_or_cssd == "court" \
         and (parents_married or not parents_married) \
         and general_information_about_forms \
         and number_of_children == "one" \
         and interim_motion == "wait":
-          pass
+          step_list.append((court_step, "court_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx")) 
+          
+      # rows 24 & 57 b for both not in spreadsheet as separate lines
+      if ask_court_or_cssd == "both" \
+        and (parents_married or not parents_married) \
+        and general_information_about_forms \
+        and number_of_children == "one" \
+        and interim_motion == "wait":
+          step_list.append((cssd_step, "cssd_idx"))
+          step_list.append((court_step, "court_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
-      # 25
-      if ask_court_or_cssd in ("court", "both") \
+      # 25 & 58
+      if ask_court_or_cssd == "court" \
         and (parents_married or not parents_married) \
         and general_information_about_forms \
         and number_of_children == "one" \
         and interim_motion == "ask":
-          pass
-
-      # 26
-      if ask_court_or_cssd in ("court", "both") \
+          step_list.append((court_step, "court_idx"))
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+     
+      if ask_court_or_cssd == "both" \
+         and (parents_married or not parents_married) \
+         and general_information_about_forms \
+         and number_of_children == "one" \
+         and interim_motion == "ask":
+           step_list.append((cssd_step, "cssd_idx"))
+           step_list.append((court_step, "court_idx"))
+           step_list.append((interim_step, "interim_idx")) 
+           step_list.append((general_info_step, "general_info_idx"))
+           step_list.append((one_child1_step, "one_child1_idx"))
+           step_list.append((shared_custody_step, "shared_custody_idx"))
+           step_list.append((file_and_serve_step, "file_and_serve_idx"))
+ 
+      # rows 26 & 59
+      if ask_court_or_cssd == "court" \
         and (parents_married or not parents_married) \
         and general_information_about_forms \
         and number_of_children == "more than one" \
         and interim_motion == "wait":
-          pass
+          step_list.append((court_step, "court_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          
+      if ask_court_or_cssd == "both" \
+        and (parents_married or not parents_married) \
+        and general_information_about_forms \
+        and number_of_children == "more than one" \
+        and interim_motion == "wait":
+          step_list.append((cssd_step, "cssd_idx"))
+          step_list.append((court_step, "court_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
-      # 27
-      if ask_court_or_cssd in ("court", "both") \
+      # rows 27 & 60
+      if ask_court_or_cssd == "court" \
         and (parents_married or not parents_married) \
         and general_information_about_forms \
         and number_of_children == "more than one" \
         and interim_motion == "ask":
-          pass
+          step_list.append((court_step, "court_idx"))
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          
+      if ask_court_or_cssd == "both" \
+        and (parents_married or not parents_married) \
+        and general_information_about_forms \
+        and number_of_children == "more than one" \
+        and interim_motion == "ask":
+          step_list.append((cssd_step, "cssd_idx"))
+          step_list.append((court_step, "court_idx"))
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
       # 28
-      if ask_court_or_cssd in ("court", "both") \
+      if ask_court_or_cssd == "court" \
         and (parents_married or not parents_married) \
         and not general_information_about_forms \
         and interim_motion == "wait":
-          pass
+          step_list.append((court_step, "court_idx"))
+          
+      if ask_court_or_cssd == "both" \
+        and (parents_married or not parents_married) \
+        and not general_information_about_forms \
+        and interim_motion == "wait":
+          step_list.append((cssd_step, "cssd_idx"))
+          step_list.append((court_step, "court_idx"))
 
       # 29
-      if ask_court_or_cssd in ("court", "both") \
+      if ask_court_or_cssd == "court" \
         and (parents_married or not parents_married) \
         and not general_information_about_forms \
         and interim_motion == "ask" \
         and number_of_children == "one":
-          pass
+          step_list.append((court_step, "court_idx"))
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          
+      if ask_court_or_cssd == "both" \
+        and (parents_married or not parents_married) \
+        and not general_information_about_forms \
+        and interim_motion == "ask" \
+        and number_of_children == "one":
+          step_list.append((cssd_step, "cssd_idx"))
+          step_list.append((court_step, "court_idx"))
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((one_child1_step, "one_child1_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
       # 30
-      if ask_court_or_cssd in ("court", "both") \
+      if ask_court_or_cssd == "court" \
         and (parents_married or not parents_married) \
         and not general_information_about_forms \
         and interim_motion == "ask" \
         and number_of_children == "more than one":
-          pass
-
-    if existing_case == "unknown":
-
-      # 39
-      if after_courtview == "unknown":
-        pass
-
-      # 40
-      if after_courtview == "open" \
-        and user_role_in_case == "closed":
-          pass
-
-      # 41
-      if after_courtview == "open" \
-        and user_role_in_case == "defendant" \
-        and need_to_respond \
-        and interim_motion == "wait" \
-        and number_of_children == "one":
-          pass
-
-      # 42
-      if after_courtview == "open" \
-        and user_role_in_case == "defendant" \
-        and need_to_respond \
-        and interim_motion == "wait" \
-        and number_of_children == "more than one":
-          pass
-
-      # 43 skipped
-
-      # 44
-      if after_courtview == "open" \
-        and user_role_in_case == "defendant" \
-        and need_to_respond \
-        and interim_motion == "ask" \
-        and number_of_children == "one":
-          pass
-
-      # 45
-      if after_courtview == "open" \
-        and user_role_in_case == "defendant" \
-        and need_to_respond \
+          step_list.append((court_step, "court_idx"))
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          
+      if ask_court_or_cssd == "both" \
+        and (parents_married or not parents_married) \
+        and not general_information_about_forms \
         and interim_motion == "ask" \
         and number_of_children == "more than one":
-          pass
+          step_list.append((cssd_step, "cssd_idx"))
+          step_list.append((court_step, "court_idx"))
+          step_list.append((interim_step, "interim_idx"))
+          step_list.append((general_info_step, "general_info_idx"))
+          step_list.append((more_children_step, "more_children_idx"))
+          step_list.append((more_children_forms_step, "more_children_forms_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
-      # 46
-      if after_courtview == "open" \
-        and user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "wait" \
-        and general_information_about_forms \
-        and number_of_children == "one":
-          pass
-
-      # 47
-      if after_courtview == "open" \
-        and user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "wait" \
-        and general_information_about_forms \
-        and number_of_children == "more than one":
-          pass
-
-      # 48
-      if after_courtview == "open" \
-        and user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "wait" \
-        and not general_information_about_forms:
-          pass
-
-      # 49
-      if after_courtview == "open" \
-        and user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "ask" \
-        and number_of_children == "one":
-          pass
-
-      # 50
-      if after_courtview == "open" \
-        and user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "ask" \
-        and number_of_children == "more than one":
-          pass
-
-      # 51
-      if after_courtview == "open" \
-        and user_role_in_case in ("plaintiff", "joint") \
-        and interim_motion == "wait" \
-        and general_information_about_forms \
-        and number_of_children == "one":
-          pass
-
-      # 52
-      if after_courtview == "open" \
-        and user_role_in_case in ("plaintiff", "joint") \
-        and interim_motion == "wait" \
-        and general_information_about_forms \
-        and number_of_children == "more than one":
-          pass
-
-      # 53
-      if after_courtview == "open" \
-        and user_role_in_case in ("plaintiff", "joint") \
-        and interim_motion == "wait" \
-        and not general_information_about_forms:
-          pass
-
-      # 54
-      if after_courtview == "open" \
-        and user_role_in_case in ("plaintiff", "joint") \
-        and interim_motion == "ask" \
-        and number_of_children == "one":
-          pass
-
-      # 55
-      if after_courtview == "open" \
-        and user_role_in_case in ("plaintiff", "joint") \
-        and interim_motion == "ask" \
-        and number_of_children == "more than one":
-          pass
-
-      if after_courtview == "none":
-        # add courview doc/step
-
-        if paternity:
-          # add paternity doc/step
-          pass
-
-        # 56
-        if ask_court_or_cssd == "cssd":
-          pass
-
-        # 57
-        if ask_court_or_cssd in ("court", "both") \
-          and (parents_married or not parents_married) \
-          and general_information_about_forms \
-          and number_of_children == "one" \
-          and interim_motion == "wait":
-            pass
-
-        # 58
-        if ask_court_or_cssd in ("court", "both") \
-          and (parents_married or not parents_married) \
-          and general_information_about_forms \
-          and number_of_children == "one" \
-          and interim_motion == "ask":
-            pass
-
-        # 59
-        if ask_court_or_cssd in ("court", "both") \
-          and (parents_married or not parents_married) \
-          and general_information_about_forms \
-          and number_of_children == "more than one" \
-          and interim_motion == "wait":
-            pass
-
-        # 60
-        if ask_court_or_cssd in ("court", "both") \
-          and (parents_married or not parents_married) \
-          and general_information_about_forms \
-          and number_of_children == "more than one" \
-          and interim_motion == "ask":
-            pass
-
-        # 61
-        if ask_court_or_cssd in ("court", "both") \
-          and (parents_married or not parents_married) \
-          and not general_information_about_forms \
-          and interim_motion == "wait":
-            pass
-
-        # 62
-        if ask_court_or_cssd in ("court", "both") \
-          and (parents_married or not parents_married) \
-          and not general_information_about_forms \
-          and interim_motion == "ask" \
-          and number_of_children == "one":
-            pass
-
-        # 63
-        if ask_court_or_cssd in ("court", "both") \
-          and (parents_married or not parents_married) \
-          and not general_information_about_forms \
-          and interim_motion == "ask" \
-          and number_of_children == "more than one":
-            pass
+    if existing_case == "unknown" and after_courtview == "unknown":
+        step_list.append((find_out_step, "find_out_idx"))
   
   step_list.append((get_help, "get_help_idx"))
   
@@ -537,9 +491,11 @@ subject: |
   Step ${find_out_idx}: Find out if you have a court case
 content: |
   If you do not know if you have an open divorce, dissolution, or custody case, look for your name in [Courtview](https://records.courts.alaska.gov/eaccess/home.page.2), the Alaska Court System's list of public court cases. 
+  
   If you find a case with your name you can see the kind of case it is.
   If you need more help call the [Family Law Self-Help Center](https://courts.alaska.gov/shc/family/selfhelp.htm):
-  (907) 264-0851 or
+  
+  (907) 264-0851 or  
   (866) 279-0851 from an Alaska-based phone outside of Anchorage. 
 
 ---
@@ -570,7 +526,7 @@ content: |
 ---
 template: paternity_step
 subject: |
-  Step ${ paternity_idx }: Learn about paternity
+  Step ${ paternity_idx }: Find out who counts as your child's legal parents
 content: |
   <div class='step-subheading'>Paternity</div>
 
@@ -626,7 +582,7 @@ content: |
 ---
 template: cssd_step
 subject: |
-  Step ${ cssd_idx }: Learn about CSSD
+  Step ${ cssd_idx }: Learn about the Alaska Child Support Services Division (CSSD)
 content: |
   <div class='step-subheading'>The Child Support Services Division (CSSD) is the state agency that can make child support orders, help collect child support and send child support payments to parents.</div>
     * If a parent or guardian does not have a court order for child support, CSSD can make a child support order.
@@ -742,31 +698,36 @@ subject: |
   Step ${ interim_idx }: Ask for interim child support 
 content: |
   1.	Use [Motion and Affidavit for Interim Orders – (Minor Children), SHC-1100](https://courts.alaska.gov/shc/family/docs/shc-1100n.pdf) to ask the judge for an interim child support order during your case.
-  % if existing_case == 'open' or (existing_case == 'unknown' and after_courtview == 'open'):
-    a.	At the top of the form, write the same names and case number that are on the other documents in your case.
-    b.	Check the box in question 2 to ask for interim child support.
-   % else:
-   Check the box in question 2 to ask for interim child support.
-   % endif
-  2.	Use Step 9 to help you fill out the [Child Support Guidelines Affidavit, DR-305](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf). Attach it to your motion.
-  3.	Use Steps 
-  % if number_of_children  == "one":
-  10 and 11 
-  % else: 
-  12 and 13
-  % endif 
-  to help you pick the right child support calculation form. 
   
-  Fill out the form and attach it to your motion.
+  % if existing_case == 'open' or (existing_case == 'unknown' and after_courtview == 'open'):
+        a.	At the top of the form, write the same names and case number that are on the other documents in your case.
+        
+        b.	Check the box in question 2 to ask for interim child support.
+  % else:
+   Check the box in question 2 to ask for interim child support.
+  % endif
+  
+  2.	Fill out the [Child Support Guidelines Affidavit, DR-305](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf). Attach it to your motion.
+  
+  % if number_of_children  == "one":
+  3. Figure out your child support schedule, fill out the Shared Custody Support Calculation and attach it to your motion.
+  
+  % else: 
+  3. Figure out your child support schedule and fill out the form that matches your situation and attach it to your motion.
+  % endif
+  
   4.	Fill out [Order on Child Support, DR 300](https://public.courts.alaska.gov/web/forms/docs/dr-300.pdf). Attach it to your motion.
+  
   5.	Read more about [motions](https://courts.alaska.gov/shc/family/motions.htm#order).
 ---
 template: general_info_step
 subject: |
   Step ${ general_info_idx }: Fill out the Child Support Guidelines Affidavit  
 content: |
-  To calculate child support, the court needs to know both parents’ income.  
-  The [Child Support Guidelines Affidavit](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf), and the documents filed with it, give the court each parent’s income information.  
+  To calculate child support, the court needs to know both parents’ income.
+  
+  The [Child Support Guidelines Affidavit](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf), and the documents filed with it, give the court each parent’s income information.
+  
   Use [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf) to help you fill out this form.
 ---
 template: one_child1_step
@@ -785,6 +746,7 @@ subject: |
   Step ${ shared_custody_idx }: Fill out the Shared Custody Support Calculation 
 content: |
   Sometimes you do not know if your schedule will be "shared" or "primary" until after the judge decides the parenting plan schedule.
+  
   If you do not know what the final schedule will be, or if you know it will be shared custody, fill out [Shared Custody Support Calculation, DR-306](https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf)
 ---
 template: more_children_step
@@ -794,8 +756,9 @@ content: |
   The child support formula is based on the number of overnights each child spends with each parent. There are 4 child support schedules when parents have more than 1 child:
   
   <div class='step-subheading'>Primary Child Support Schedule</div> 
-  * The children all have the same parenting time schedule.  They spend fewer than 110 overnights with the other parent.  You have "primary custody" for child support calculations.
-  * The children all have the same parenting time schedule.  They spend fewer than 110 overnights with you.  The other parent has "primary custody" for child support calculations.
+    
+    * The children all have the same parenting time schedule.  They spend fewer than 110 overnights with the other parent.  You have "primary custody" for child support calculations.
+    * The children all have the same parenting time schedule.  They spend fewer than 110 overnights with you.  The other parent has "primary custody" for child support calculations.
   
   <div class='step-subheading'>Shared Child Support Schedule</div>
     * The children all have the same parenting time schedule.  They spend more than 110 overnights with both parents.  You both have "shared custody" for child support calculations. 
@@ -813,6 +776,7 @@ subject: |
   Step ${ more_children_forms_idx }: Fill out the form that matches your situation 
 content: |
   Sometimes you do not know your children’s schedule until after the judge decides the parenting plan schedule.
+  
     * If you do not know what the final schedule will be, or if you know it will be shared custody, fill out the [Shared Custody Support Calculation, DR-306](https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf).
     * If you know the schedule will be hybrid custody, fill out [Hybrid Custody Child Support Calculation, DR-308](https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf).
     * If you know the schedule will be divided custody, fill out [Divided Custody Child Support Calculation, DR-307](https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf).
