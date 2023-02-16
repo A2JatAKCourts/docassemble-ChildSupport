@@ -10,7 +10,7 @@ Scenario: New case parent wants to know about paternity and asking CSSD for supp
     | ask_court_or_cssd | cssd |  |
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 4 Steps"  
-  And I should see the phrase "Find out who counts as your child's legal parents"
+  And I should see the phrase "Find out who counts as your child’s legal parents"
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Services Division (CSSD)"
   And I should see the phrase "Get more information or help"
@@ -27,7 +27,7 @@ Scenario: New case after courtview parent wants to know about paternity and aski
     | ask_court_or_cssd | cssd |  |
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 4 Steps"  
-  And I should see the phrase "Find out who counts as your child's legal parents"
+  And I should see the phrase "Find out who counts as your child’s legal parents"
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Services Division (CSSD)"
   And I should see the phrase "Get more information or help"
@@ -45,7 +45,7 @@ Scenario: New case after courtview parent wants to know about paternity and aski
 #    | interim_motion | wait |  |     
 #  And I take a screenshot
 #  And I should see the phrase "Your Personal Action Plan in 4 Steps"  
-#  And I should see the phrase "Find out who counts as your child's legal parents"
+#  And I should see the phrase "Find out who counts as your child’s legal parents"
 #  And I should see the phrase "Learn about child support"
 #  And I should see the phrase "Start a court case"
 #  And I should see the phrase "Get more information or help"
@@ -63,7 +63,7 @@ Scenario: New case after courtview parent wants to know about paternity and aski
 #    | interim_motion | wait |  |     
 #  And I take a screenshot
 #  And I should see the phrase "Your Personal Action Plan in 5 Steps"  
-#  And I should see the phrase "Find out who counts as your child's legal parents"
+#  And I should see the phrase "Find out who counts as your child’s legal parents"
 #  And I should see the phrase "Learn about child support"
 #  And I should see the phrase "Learn about the Alaska Child Support Services Division (CSSD)"
 #  And I should see the phrase "Start a court case"
@@ -83,7 +83,7 @@ Scenario: New case after courtview parent wants to know about paternity and aski
 #    | interim_motion | wait |  |     
 #  And I take a screenshot
 #  And I should see the phrase "Your Personal Action Plan in 4 Steps"  
-#  And I should see the phrase "Find out who counts as your child's legal parents"
+#  And I should see the phrase "Find out who counts as your child’s legal parents"
 #  And I should see the phrase "Learn about child support"
 #  And I should see the phrase "Start a court case"
 #  And I should see the phrase "Get more information or help"
@@ -103,7 +103,7 @@ Scenario: New case after courtview parent wants to know about paternity and aski
 #    | interim_motion | wait |  |     
 #  And I take a screenshot
 #  And I should see the phrase "Your Personal Action Plan in 5 Steps"  
-#  And I should see the phrase "Find out who counts as your child's legal parents"
+#  And I should see the phrase "Find out who counts as your child’s legal parents"
 #  And I should see the phrase "Learn about child support"
 #  And I should see the phrase "Learn about the Alaska Child Support Services Division (CSSD)"
 #  And I should see the phrase "Start a court case"
