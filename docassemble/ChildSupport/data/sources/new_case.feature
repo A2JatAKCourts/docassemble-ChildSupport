@@ -7,7 +7,7 @@ Scenario: New case parent wants to know about paternity and asking CSSD for supp
     | wants_action_plan | True |  |    
     | existing_case | none |  |
     | paternity | True |  | 
-    | ask_court_or_cssd | cssd |    
+    | ask_court_or_cssd | cssd |  |
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 4 Steps"  
   And I should see the phrase "Find out who counts as your child’s legal parents"
@@ -24,7 +24,7 @@ Scenario: New case after courtview parent wants to know about paternity and aski
     | existing_case | unknown |  |    
     | after_courtview | none |  |
     | paternity | True |  | 
-    | ask_court_or_cssd | cssd |    
+    | ask_court_or_cssd | cssd |  |
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 4 Steps"  
   And I should see the phrase "Find out who counts as your child’s legal parents"
