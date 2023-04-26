@@ -471,12 +471,12 @@ subject: |
 content: | 
   * [Enforcing Your Child Support Order](https://Docassemble.AKCourts.gov/start/EnforcingChildSupport)
   * [Changing Your Child Support Order](https://Docassemble.AKCourts.gov/start/ChangingChildSupport)
-  * [Starting A Case to End Your Marriage](https://LegalNav.org/guided_assistant/starting-a-case-to-end-your-marriage/?location=alaska)
-  * [Responding if Your Spouse Starts a Case to End Your Marriage](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-case-to-end-your-marriage/?location=Alaska)
-  * [Starting a Custody Case](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska)
-  * [Responding if Your Spouse Starts a Custody Case](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-custody-case/?location=Alaska)
-  * [Enforcing a Custody Order](https://LegalNav.org/guided_assistant/enforcing-a-custody-order/?location=alaska)
-  * [Changing a Custody Order](https://LegalNav.org/guided_assistant/changing-a-custody-order/?location=alaska)
+  * [Start a Case to End Your Marriage or Legally Separate](https://docassembledev.akcourts.gov/start/Divorce)
+  * [Respond in a Case to End Your Marriage or Legally Separate](https://docassemble.akcourts.gov/start/RespondToDivorce)
+  * [Ask the Court for a Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/AskingForChildCustody)
+  * [Respond in Your Child Custody or Parenting Plan Case](https://docassemble.akcourts.gov/start/RespondToCustody)
+  * [Enforcing Your Child Custody or Parenting Plan Order in Alaska](https://docassemble.akcourts.gov/start/EnforcingChildCustody/)
+  * [Changing Your Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/ChangingChildCustody/)
 --- 
 template: wrong_tf2
 subject: | 
@@ -484,7 +484,7 @@ subject: |
 content: | 
   * [Forms and Information about Child Support](https://courts.alaska.gov/shc/family/support.htm)
   * [Asking for an Order / filing a motion](https://courts.alaska.gov/shc/family/motions.htm)
-  * [Family Law Home](https://courts.alaska.gov/shc/family/index.htm)
+  * [Family Law Home](https://courts.alaska.gov/shc/family)
 ---
 template: find_out_step
 subject: |
@@ -520,7 +520,7 @@ content: |
   <span class="subheading">Many lawyers</span>
   offer free or flat fee consultations without having to hire them for the whole case. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
   
-  Depending on your income, you may qualify for [Alaska Free Legal Answers](https://legalnav.org/resource/alaska-free-legal-answers).
+  Depending on your income, you may qualify for [Alaska Free Legal Answers](https://alaska.freelegalanswers.org).
   
   Depending on your income and circumstances, you may qualify for a free lawyer from [Alaska Legal Services](alsc-law.org/apply-for-services).
 ---
@@ -622,12 +622,12 @@ content: |
   
   To ask for a change, you can use the Guided Assistant Interview [Changing Your Child Support Order](https://docassemble.akcourts.gov/start/ChangingChildSupport). 
   <div class='step-subheading'>Get more help</div>
-    *	Contact CSSD
-      *	Customer Service Call Center:
-        *	Monday – Thursday, 9:30 am - 4:00 pm
+    *	[Contact CSSD](https://childsupport.alaska.gov)
+      *	Customer Service Call Center
+        Monday – Thursday, 10:00 am - 3:00 pm:
         *	✆ Phone: (907) 269-6900, 
-        *	Toll Free (In-state): 800-478-3300
-       *	⌨ Fax: (907) 787-3220
+        *	Toll Free (In-state): 800-478-3300,
+       *	⌨ Fax: (907) 787-3220,
        *	Email: dor.cssd.customerservice.anchorage@alaska.gov
     *	Read [Information about CSSD, DR-316](https://public.courts.alaska.gov/web/forms/docs/dr-316.pdf). 
     *	[CSSD FAQ Page](https://childsupport.alaska.gov/child-support-services/information/faqs).
@@ -701,13 +701,13 @@ subject: |
   Step ${ interim_idx }: Ask for interim child support 
 content: |
   1.	Use [Motion and Affidavit for Interim Orders – (Minor Children), SHC-1100](https://courts.alaska.gov/shc/family/docs/shc-1100n.pdf) to ask the judge for an interim child support order during your case.
-  
   % if existing_case == 'open' or (existing_case == 'unknown' and after_courtview == 'open'):
+  
         a.	At the top of the form, write the same names and case number that are on the other documents in your case.
         
         b.	Check the box in question 2 to ask for interim child support.
   % else:
-   Check the box in question 2 to ask for interim child support.
+  Check the box in question 2 to ask for interim child support.
   % endif
   
   2.	Fill out the [Child Support Guidelines Affidavit, DR-305](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf). Attach it to your motion.
@@ -791,9 +791,9 @@ content: |
   1.	Make 2 copies of everything you are going to give the court.  
   1.	Keep 1 copy for your own records.
   1.	You must give the other parent 1 copy of everything you file with the court.  This is called "service."
-    * You can mail or hand-deliver your copy.
-    * If the other parent files anything in court that says they agree to service by email, you can email the copies you made for them.
-    * If the other parent has a lawyer, you can serve the other parent by giving their lawyer the copy by email, mail or hand-delivery.
+      * You can mail or hand-deliver your copy.
+      * If the other parent files anything in court that says they agree to service by email, you can email the copies you made for them.
+      * If the other parent has a lawyer, you can serve the other parent by giving their lawyer the copy by email, mail or hand-delivery.
   1.	Fill out the Certificate of Service. If you are filing a motion or an answer, this is at the end of the form. It tells the court how you are giving copies to the other parent.
   1.	Mail, email or hand-deliver your forms to the court.   This is called "filing" them. 
   1.	The other parent has 10 days to respond to the court in writing (13 days if you mailed it to them).  The document is called a "response" or an "opposition."  If you filed your motion for interim custody with your complaint, the other parent does not have to respond until they respond to the Complaint.  This is usually 20 days after they receive the Complaint.
