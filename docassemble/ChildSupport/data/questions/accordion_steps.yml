@@ -562,11 +562,11 @@ content: |
   * Start a case with Child Support Services Division (CSSD):
       * If you apply for CSSD services, you can ask CSSD for help to establish paternity.
       * CSSD can order [DNA testing](https://courts.alaska.gov/shc/family/glossary.htm#dna) to discover if the person you think is your child’s biological father actually is. If he is the father, CSSD can establish paternity.
-      * If CSSD establishes paternity, they will order child support. Either parent can open a court case and ask the court for a Parenting Plan so both parents can spend time with their child. Use [Starting a Custody Case](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska).
+      * If CSSD establishes paternity, they will order child support. Either parent can open a court case and ask the court for a Parenting Plan so both parents can spend time with their child. Use [Ask the Court for a Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/AskingForChildCustody).
   * Start a court case to establish or disestablish paternity:
-      * If a husband and wife are married when a child is born, the husband is not the biological father. If the husband and wife want to separate, they can start a divorce, dissolution, or legal separation case. and ask the judge to disestablish paternity as part of the divorce case. Use [Starting A Case to End Your Marriage](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska).
+      * If a husband and wife are married when a child is born, the husband is not the biological father. If the husband and wife want to separate, they can start a divorce, dissolution, or legal separation case. and ask the judge to disestablish paternity as part of the divorce case. Use [Starting A Case to End Your Marriage](http://docassemble.akcourts.gov/start/AskingForChildCustody).
       * If a married husband and wife want to stay married, but the husband is not the biological father of a child, the wife, husband, or another man can start a case to disestablish the husband’s paternity and establish another man’s paternity.
-      * If you are not married to the other biological parent when the child is born, you can start a paternity case and ask the judge to find that your child’s biological father is their legal father. If the judge establishes paternity, they can order child support. You can ask the court to open a custody case at the same time and get a Parenting Plan so both parents can spend time with their child. Use [Starting a Custody Case](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska).
+      * If you are not married to the other biological parent when the child is born, you can start a paternity case and ask the judge to find that your child’s biological father is their legal father. If the judge establishes paternity, they can order child support. You can ask the court to open a custody case at the same time and get a Parenting Plan so both parents can spend time with their child. Use [Ask the Court for a Child Custody or Parenting Plan Order](http://docassemble.akcourts.gov/start/AskingForChildCustody).
       * See [the court’s paternity forms](https://courts.alaska.gov/shc/family/shcforms.htm#paternity).
   * Start a court case to disestablish the legal father’s paternity and establish another man as biological father:
       * This is a complicated situation. Try to talk to a lawyer. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
@@ -667,9 +667,9 @@ subject: |
 content: |
   Use the Guided Assistant interview to answer questions and get detailed steps about how to start your case.
   % if parents_married:
-  [Start a case to end your marriage](https://LegalNav.org/guided_assistant/starting-a-case-to-end-your-marriage/?location=alaska)
+  [Start a Case to End Your Marriage or Legally Separate](http://docassembledev.akcourts.gov/start/Divorce)
   % else:
-  [Starting a Custody Case](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska)
+  [Ask the Court for a Child Custody or Parenting Plan Order](http://docassemble.akcourts.gov/start/AskingForChildCustody)
   % endif
   
   * Use the other steps in this action plan to help you fill out the child support forms you need to start your case.
@@ -684,9 +684,9 @@ content: |
   Use the Guided Assistant interview to answer questions and get detailed steps about how to respond in your ${ case_type } case.
   
   % if case_type in ('divorce', 'legal separation'):
-  [Respond in your case to end your marriage](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-case-to-end-your-marriage/?location=alaska)
+  [Respond in a Case to End Your Marriage or Legally Separate](https://docassemble.akcourts.gov/start/RespondToDivorce)
   % else:
-  [Respond in your custody case](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-case-to-end-your-marriage/?location=alaska)
+  [Respond in Your Child Custody or Parenting Plan Case](https://docassemble.akcourts.gov/start/RespondToCustody)
   % endif
   
   * Use the other steps in this action plan to help you fill out the child support forms you need for your response, which is called an Answer
