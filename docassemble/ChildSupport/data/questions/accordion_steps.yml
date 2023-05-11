@@ -380,90 +380,90 @@ code: |
   
   get_steps = True
 ---
-comment: |
-  code: |
-    step_list = []
-    if wants_action_plan:
-      if existing_case == 'unknown' and after_courtview == 'unknown':      
-        step_list.append((find_out_step, "find_out_idx"))
-      if (existing_case == 'open' and user_role_in_case != 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case != 'closed'):
-        step_list.append((childsupport_step, "childsupport_idx"))
-        if user_role_in_case == 'defendant':
-          if need_to_respond:
-            step_list.append((respond_step, "respond_idx"))
-            step_list.append((general_info_step, "general_info_idx"))
-        if interim_motion == 'ask':
-          step_list.append((interim_step, "interim_idx"))
-          if user_role_in_case in('plaintiff', 'joint') or (user_role_in_case == 'defendant' and need_to_respond == False):
-            step_list.append((general_info_step, "general_info_idx"))
-          if number_of_children == 'one':
-            step_list.append((one_child1_step, "one_child1_idx"))
-            step_list.append((shared_custody_step, "shared_custody_idx"))
-            step_list.append((file_and_serve_step, "file_and_serve_idx"))
-          else:
-            step_list.append((more_children_step, "more_children_idx"))
-            step_list.append((more_children_forms_step, "more_children_forms_idx"))
-            step_list.append((file_and_serve_step, "file_and_serve_idx"))
-        else: # interim_motion == 'wait'
-          if user_role_in_case in('plaintiff', 'joint') or (user_role_in_case == 'defendant' and need_to_respond == False): 
-            if general_information_about_forms:
-              step_list.append((general_info_step, "general_info_idx"))
-              if number_of_children == 'one':
-                step_list.append((one_child1_step, "one_child1_idx"))
-                step_list.append((shared_custody_step, "shared_custody_idx"))
-                step_list.append((file_and_serve_step, "file_and_serve_idx"))
-              else:
-                step_list.append((more_children_step, "more_children_idx"))
-                step_list.append((more_children_forms_step, "more_children_forms_idx"))
-                step_list.append((file_and_serve_step, "file_and_serve_idx"))
-      elif (existing_case == 'open' and user_role_in_case == 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case == 'closed'):
-        step_list.append((childsupport_step, "childsupport_idx"))
-        step_list.append((modify_step, "modify_idx"))
-      elif existing_case == 'none' or (existing_case == 'unknown' and after_courtview == 'none'):
-        step_list.append((childsupport_step, "childsupport_idx"))
-        if paternity:
-          step_list.append((paternity_step, "paternity_idx"))
-        if ask_court_or_cssd != 'cssd':
-          if ask_court_or_cssd == 'court':
-            step_list.append((court_step, "court_idx"))
-          else:
-            step_list.append((cssd_step, "cssd_idx"))
-            step_list.append((court_step, "court_idx"))
-          if interim_motion == 'ask':
-            step_list.append((interim_step, "interim_idx"))
-            step_list.append((general_info_step, "general_info_idx"))
-            if number_of_children == 'one':
-              step_list.append((one_child1_step, "one_child1_idx"))
-              step_list.append((shared_custody_step, "shared_custody_idx"))
-              step_list.append((file_and_serve_step, "file_and_serve_idx"))
-            else:
-              step_list.append((more_children_step, "more_children_idx"))
-              step_list.append((more_children_forms_step, "more_children_forms_idx"))
-              step_list.append((file_and_serve_step, "file_and_serve_idx"))
-         # if general_information_about_forms:
-         #   step_list.append((general_info_step, "general_info_idx"))
-          else:
-            if general_information_about_forms:
-              if number_of_children == 'one':
-                step_list.append((one_child1_step, "one_child1_idx"))
-                step_list.append((shared_custody_step, "shared_custody_idx"))
-                step_list.append((file_and_serve_step, "file_and_serve_idx"))
-              else:
-                step_list.append((more_children_step, "more_children_idx"))
-                step_list.append((more_children_forms_step, "more_children_forms_idx"))
-                step_list.append((file_and_serve_step, "file_and_serve_idx"))
-        else:
-          step_list.append((cssd_step, "cssd_idx"))
-        
-    else:
-      step_list.append((wrong_tf, "wrong_tf_idx"))
-      step_list.append((wrong_tf2, "wrong_tf2_idx"))
-    step_list.append((get_help, "get_help_idx"))
-    
-    for iter_idx, step_tuple in enumerate( step_list ):
-      define(step_tuple[ 1 ], iter_idx + 1)
-  
-    get_steps = True
+  #comment: |
+  #  code: |
+  #    step_list = []
+  #    if wants_action_plan:
+  #      if existing_case == 'unknown' and after_courtview == 'unknown':      
+  #        step_list.append((find_out_step, "find_out_idx"))
+  #      if (existing_case == 'open' and user_role_in_case != 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case != 'closed'):
+  #        step_list.append((childsupport_step, "childsupport_idx"))
+  #        if user_role_in_case == 'defendant':
+  #          if need_to_respond:
+  #            step_list.append((respond_step, "respond_idx"))
+  #            step_list.append((general_info_step, "general_info_idx"))
+  #        if interim_motion == 'ask':
+  #          step_list.append((interim_step, "interim_idx"))
+  #          if user_role_in_case in('plaintiff', 'joint') or (user_role_in_case == 'defendant' and need_to_respond == False):
+  #            step_list.append((general_info_step, "general_info_idx"))
+  #          if number_of_children == 'one':
+  #            step_list.append((one_child1_step, "one_child1_idx"))
+  #            step_list.append((shared_custody_step, "shared_custody_idx"))
+  #            step_list.append((file_and_serve_step, "file_and_serve_idx"))
+  #          else:
+  #            step_list.append((more_children_step, "more_children_idx"))
+  #            step_list.append((more_children_forms_step, "more_children_forms_idx"))
+  #            step_list.append((file_and_serve_step, "file_and_serve_idx"))
+  #        else: # interim_motion == 'wait'
+  #          if user_role_in_case in('plaintiff', 'joint') or (user_role_in_case == 'defendant' and need_to_respond == False): 
+  #            if general_information_about_forms:
+  #              step_list.append((general_info_step, "general_info_idx"))
+  #              if number_of_children == 'one':
+  #                step_list.append((one_child1_step, "one_child1_idx"))
+  #                step_list.append((shared_custody_step, "shared_custody_idx"))
+  #                step_list.append((file_and_serve_step, "file_and_serve_idx"))
+  #              else:
+  #                step_list.append((more_children_step, "more_children_idx"))
+  #                step_list.append((more_children_forms_step, "more_children_forms_idx"))
+  #                step_list.append((file_and_serve_step, "file_and_serve_idx"))
+  #      elif (existing_case == 'open' and user_role_in_case == 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case == 'closed'):
+  #        step_list.append((childsupport_step, "childsupport_idx"))
+  #        step_list.append((modify_step, "modify_idx"))
+  #      elif existing_case == 'none' or (existing_case == 'unknown' and after_courtview == 'none'):
+  #        step_list.append((childsupport_step, "childsupport_idx"))
+  #        if paternity:
+  #          step_list.append((paternity_step, "paternity_idx"))
+  #        if ask_court_or_cssd != 'cssd':
+  #          if ask_court_or_cssd == 'court':
+  #            step_list.append((court_step, "court_idx"))
+  #          else:
+  #            step_list.append((cssd_step, "cssd_idx"))
+  #            step_list.append((court_step, "court_idx"))
+  #          if interim_motion == 'ask':
+  #            step_list.append((interim_step, "interim_idx"))
+  #            step_list.append((general_info_step, "general_info_idx"))
+  #            if number_of_children == 'one':
+  #              step_list.append((one_child1_step, "one_child1_idx"))
+  #              step_list.append((shared_custody_step, "shared_custody_idx"))
+  #              step_list.append((file_and_serve_step, "file_and_serve_idx"))
+  #            else:
+  #              step_list.append((more_children_step, "more_children_idx"))
+  #              step_list.append((more_children_forms_step, "more_children_forms_idx"))
+  #              step_list.append((file_and_serve_step, "file_and_serve_idx"))
+  #         # if general_information_about_forms:
+  #         #   step_list.append((general_info_step, "general_info_idx"))
+  #          else:
+  #            if general_information_about_forms:
+  #              if number_of_children == 'one':
+  #                step_list.append((one_child1_step, "one_child1_idx"))
+  #                step_list.append((shared_custody_step, "shared_custody_idx"))
+  #                step_list.append((file_and_serve_step, "file_and_serve_idx"))
+  #              else:
+  #                step_list.append((more_children_step, "more_children_idx"))
+  #                step_list.append((more_children_forms_step, "more_children_forms_idx"))
+  #                step_list.append((file_and_serve_step, "file_and_serve_idx"))
+  #        else:
+  #          step_list.append((cssd_step, "cssd_idx"))
+  #        
+  #    else:
+  #      step_list.append((wrong_tf, "wrong_tf_idx"))
+  #      step_list.append((wrong_tf2, "wrong_tf2_idx"))
+  #    step_list.append((get_help, "get_help_idx"))
+  #    
+  #    for iter_idx, step_tuple in enumerate( step_list ):
+  #      define(step_tuple[ 1 ], iter_idx + 1)
+  #  
+  #    get_steps = True
 ---
 template: wrong_tf
 subject: |
@@ -703,13 +703,16 @@ content: |
   1.	Use [Motion and Affidavit for Interim Orders – (Minor Children), SHC-1100](https://courts.alaska.gov/shc/family/docs/shc-1100n.pdf) to ask the judge for an interim child support order during your case.
   % if existing_case == 'open' or (existing_case == 'unknown' and after_courtview == 'open'):
   
-        a.	At the top of the form, write the same names and case number that are on the other documents in your case.
-        
-        b.	Check the box in question 2 to ask for interim child support.
+      * At the top of the form, write the same names and case number that are on the other documents in your case.
+       * Check the box in question 2 to ask for interim child support.
   % else:
-  Check the box in question 2 to ask for interim child support.
+      * Check the box in question 2 to ask for interim child support.
   % endif
-  
+      * On the last page, at the bottom of form, fill out the CERTIFICATE OF SERVICE.   
+          Check the boxes that tell the court how you plan to serve the other parent. 
+    
+  [FILE certofservice_interim_orders.png, 100%, Certificate of Service box]
+    
   2.	Fill out the [Child Support Guidelines Affidavit, DR-305](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf). Attach it to your motion.
   
   % if number_of_children  == "one":
@@ -794,7 +797,13 @@ content: |
       * You can mail or hand-deliver your copy.
       * If the other parent files anything in court that says they agree to service by email, you can email the copies you made for them.
       * If the other parent has a lawyer, you can serve the other parent by giving their lawyer the copy by email, mail or hand-delivery.
-  1.	Fill out the Certificate of Service. If you are filing a motion or an answer, this is at the end of the form. It tells the court how you are giving copies to the other parent.
+  % if not existing_case == 'open':
+  1.	Fill out the Certificate of Service. 
+  
+      [FILE certofservice_interim_orders.png] 
+      
+  If you are filing a motion or an answer, this is at the end of the form. It tells the court how you are giving copies to the other parent.
+  % endif
   1.	Mail, email or hand-deliver your forms to the court.   This is called "filing" them. 
   1.	The other parent has 10 days to respond to the court in writing (13 days if you mailed it to them).  The document is called a "response" or an "opposition."  If you filed your motion for interim custody with your complaint, the other parent does not have to respond until they respond to the Complaint.  This is usually 20 days after they receive the Complaint.
   1.	You have 5 days to reply to anything the other parent put in their response that you didn’t talk about in your motion (8 days if they mailed it to you).  Read about replying, [Responding to a Complaint Served on You](https://courts.alaska.gov/shc/family/answer.htm).
