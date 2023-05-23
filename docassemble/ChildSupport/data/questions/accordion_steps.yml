@@ -10,7 +10,8 @@ subquestion: |
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
   % endfor
   
-   ${ al_user_bundle.download_list_html() }
+  ${ download_buttons_html(al_user_bundle) }
+  
 buttons:
   - Start over: restart
 ---
@@ -564,7 +565,8 @@ content: |
       * CSSD can order [DNA testing](https://courts.alaska.gov/shc/family/glossary.htm#dna) to discover if the person you think is your child’s biological father actually is. If he is the father, CSSD can establish paternity.
       * If CSSD establishes paternity, they will order child support. Either parent can open a court case and ask the court for a Parenting Plan so both parents can spend time with their child. Use [Ask the Court for a Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/AskingForChildCustody).
   * Start a court case to establish or disestablish paternity:
-      * If a husband and wife are married when a child is born, the husband is not the biological father. If the husband and wife want to separate, they can start a divorce, dissolution, or legal separation case. and ask the judge to disestablish paternity as part of the divorce case. Use [Starting A Case to End Your Marriage](http://docassemble.akcourts.gov/start/AskingForChildCustody).
+      * If a husband and wife are married when a child is born, the husband is not the biological father.
+      * If the husband and wife want to separate, they can start a divorce, dissolution, or legal separation case. and ask the judge to disestablish paternity as part of the divorce case. Use [Start a Case to End Your Marriage or Legally Separate](http://docassemble.akcourts.gov/start/Divorce).
       * If a married husband and wife want to stay married, but the husband is not the biological father of a child, the wife, husband, or another man can start a case to disestablish the husband’s paternity and establish another man’s paternity.
       * If you are not married to the other biological parent when the child is born, you can start a paternity case and ask the judge to find that your child’s biological father is their legal father. If the judge establishes paternity, they can order child support. You can ask the court to open a custody case at the same time and get a Parenting Plan so both parents can spend time with their child. Use [Ask the Court for a Child Custody or Parenting Plan Order](http://docassemble.akcourts.gov/start/AskingForChildCustody).
       * See [the court’s paternity forms](https://courts.alaska.gov/shc/family/shcforms.htm#paternity).
