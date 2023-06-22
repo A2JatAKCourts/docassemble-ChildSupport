@@ -232,7 +232,7 @@ fields:
 ---
 id: do you have an existing family law case
 question: |
-  Do you have a court case for custody, divorce, or legal separation?
+  Do you have a court case for custody, divorce, or legal separation in Alaska?
 fields:
   - no label: existing_case
     input type: radio
