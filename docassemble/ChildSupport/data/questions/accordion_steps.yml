@@ -21,7 +21,7 @@ code: |
   step_list = []
 
   if not wants_action_plan:
-    user_need = 'None'
+    user_need = 'Ask'
     step_list.append((wrong_tf, "wrong_tf_idx"))
     step_list.append((wrong_tf2, "wrong_tf2_idx"))
     step_list.append((cert_of_service_step, "cert_of_service_idx"))
@@ -851,9 +851,39 @@ content: |
   </ul></li>
   </li>
   </ol>
-  % if user_need == 'Ask':    
-  [FILE certofservice_interim_orders.png, 100%, Certificate of Service on the last page of answer, response and motion forms.]
-  % endif
+  % if user_need == 'change foreign order':
+  [FILE certofservice_modify.png, 100%, Certificate of Service box]
+  % elif user_need in('enforce foreign order', 'enforce AK order'):
+  [FILE certofservice_enforce.png, 100%, Certificate of Service box]					
+  % elif user_need == 'change AK order':
+    % if why_change in('income', 'problem'):							
+    % if middle_of_case:						
+    % if (defined('interim_order_date') and date_difference(starting=interim_order_date, ending=today()).days <= 10)  or (defined('interim_order_period')	and	guess_interim_order_date == 'within 10 days'):
+    [FILE certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]			
+    % elif (defined('interim_order_date') and date_difference(starting=interim_order_date, ending=today()).days  > 10) or	(defined('interim_order_period') and guess_interim_order_date == 'more than 10 days'):
+    [FILE certofservice_modify.png, 100%, Certificate of Service box]			
+    % else:					
+    % if unknown_interim_date == 'reconsider':				
+    [FILE certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]			
+    % elif unknown_interim_date == 'modify':				
+    [FILE certofservice_modify.png, 100%, Certificate of Service box]			
+    % else:				
+    Fill out the Certificate of Service for the motion you decide to use:			
+    [FILE certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]			
+    [FILE certofservice_modify.png, 100%, Certificate of Service box]
+    % endif
+    % endif		
+    % else:						
+    % if why_change =='income':		
+    [FILE certofservice_modify.png, 100%, Certificate of Service box]				
+    % else:					
+    [FILE certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]
+    % endif
+    % endif
+    % endif
+  % elif user_need == 'Ask':
+    [FILE certofservice_interim_orders.png, 100%, Certificate of Service box]
+  % endif				
 ---
 template: file_and_serve_step
 subject: |
