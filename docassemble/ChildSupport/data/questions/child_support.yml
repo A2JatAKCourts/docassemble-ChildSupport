@@ -2,6 +2,7 @@
 include:
   - docassemble.AssemblyLine:assembly_line.yml
   - docassemble.AKA2JBranding:custom_organization.yml
+  - docassemble.AKA2JBranding:aka2j_templates.yml
   - accordion_steps.yml
   - bundling_forms_for_downloading.yml
 ---
