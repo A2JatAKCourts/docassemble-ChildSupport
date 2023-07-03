@@ -2,6 +2,7 @@
 include:
   - docassemble.AssemblyLine:assembly_line.yml
   - docassemble.AKA2JBranding:custom_organization.yml
+  - docassemble.AKA2JBranding:aka2j_templates.yml
   - accordion_steps.yml
   - bundling_forms_for_downloading.yml
 ---
@@ -225,14 +226,15 @@ subquestion: |
 	* Ask the state administrative agency, Child Support Services Division, for child support.
 	* Prove or disprove your child’s biological father, and
 	* Fill out the court’s child support forms.
-fields:  
-  - "Do you want an Action Plan to help you with 1 of these topics?": wants_action_plan
-    label above field: True
-    datatype: yesnoradio
+continue button field: wants_action_plan
+#  fields:  
+#    - "Do you want an Action Plan to help you with 1 of these topics?": wants_action_plan
+#      label above field: True
+#      datatype: yesnoradio
 ---
 id: do you have an existing family law case
 question: |
-  Do you have a court case for custody, divorce, or legal separation?
+  Do you have a court case for custody, divorce, or legal separation in Alaska?
 fields:
   - no label: existing_case
     input type: radio

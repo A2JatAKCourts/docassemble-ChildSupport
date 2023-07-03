@@ -4,7 +4,7 @@ event: child_support_download
 question: |
   # <i class="fa-thin fa-list"></i>Your Personal Action Plan is ready!
 subquestion: | 
-  Your Personal Action Plan in ${ len(step_list) } Steps
+  #### Your Personal Action Plan in ${ len(step_list) } Steps
   
   % for iteration_index, step_tuple in enumerate( step_list ):
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
@@ -19,10 +19,14 @@ code: |
   # Logic reference: https://docs.google.com/spreadsheets/d/1qHv16Z5mK7jf_UE14wLpZRL9nIIu_xkHBM-UF0ETRJg/edit#gid=0
   
   step_list = []
-
+  other_party_in_case  = 'the other parent'
+  certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_interim_orders.png, 100%, Certificate of Service box]'
   if not wants_action_plan:
     step_list.append((wrong_tf, "wrong_tf_idx"))
     step_list.append((wrong_tf2, "wrong_tf2_idx"))
+    # step_list.append((file_response_step, "file_response_idx"))
+    # step_list.append((serve_response_step, "serve_response_idx"))
+    step_list.append((cert_of_service_step, "cert_of_service_idx"))
     
   else:
     if existing_case == "open" or (existing_case == "unknown" and after_courtview == "open"):
@@ -43,9 +47,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx")) 
+          step_list.append((file_response_step, "file_response_idx"))
+          step_list.append((serve_response_step, "serve_response_idx")) 
 
-      # row 3 & 42
+      # row 3 & 42  
       if user_role_in_case == "defendant" \
         and need_to_respond \
         and interim_motion == "wait" \
@@ -56,7 +61,8 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((file_response_step, "file_response_idx"))
+          step_list.append((serve_response_step, "serve_response_idx"))
 
       # rows 5 & 44
       if user_role_in_case == "defendant" \
@@ -69,7 +75,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
 
       # rows 6 & 45 
       if user_role_in_case == "defendant" \
@@ -82,7 +91,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
 
       # rows 10 & 46
       if user_role_in_case == "defendant" \
@@ -94,19 +106,21 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((file_response_step, "file_response_idx"))
+          step_list.append((serve_response_step, "serve_response_idx"))
 
       # rows 11 & 47
       if user_role_in_case == "defendant" \
         and not need_to_respond \
         and interim_motion == "wait" \
         and general_information_about_forms \
-        and number_of_children == "more than one":         
+        and number_of_children == "more than one":        
           step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((file_response_step, "file_response_idx"))
+          step_list.append((serve_response_step, "serve_response_idx"))
 
       # rows 12 & 48
       if user_role_in_case == "defendant" \
@@ -114,6 +128,7 @@ code: |
         and interim_motion == "wait" \
         and not general_information_about_forms:         
           step_list.append((childsupport_step, "childsupport_idx"))
+          
 
       # rows 13 & 49
       if user_role_in_case == "defendant" \
@@ -125,7 +140,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
 
       # row 14 & 50 
       if user_role_in_case == "defendant" \
@@ -137,7 +155,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
 
       # rows 17 & 51
       if user_role_in_case in ("plaintiff", "joint") \
@@ -148,7 +169,8 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          #  step_list.append((file_response_step, "file_response_idx"))
+          #  step_list.append((serve_response_step, "serve_response_idx"))
 
       # rows 18 & 52
       if user_role_in_case in ("plaintiff", "joint") \
@@ -159,7 +181,7 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          #  step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
       # rows 19 & 53
       if user_role_in_case in ("plaintiff", "joint") \
@@ -176,7 +198,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
 
       # rows 21 & 55
       if user_role_in_case in ("plaintiff", "joint") \
@@ -187,7 +212,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
 
     if existing_case == "none" or (existing_case == "unknown" and after_courtview == "none"):
 
@@ -214,7 +242,8 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx")) 
+          step_list.append((file_response_step, "file_response_idx"))
+          step_list.append((serve_response_step, "serve_response_idx")) 
           
       # rows 24 & 57 b for both not in spreadsheet as separate lines
       if ask_court_or_cssd == "both" \
@@ -226,8 +255,8 @@ code: |
           step_list.append((court_step, "court_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
-          step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((file_response_step, "file_response_idx"))
+          step_list.append((serve_response_step, "serve_response_idx"))
 
       # 25 & 58
       if ask_court_or_cssd == "court" \
@@ -240,7 +269,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
      
       if ask_court_or_cssd == "both" \
          and (parents_married or not parents_married) \
@@ -253,7 +285,10 @@ code: |
            step_list.append((general_info_step, "general_info_idx"))
            step_list.append((one_child1_step, "one_child1_idx"))
            step_list.append((shared_custody_step, "shared_custody_idx"))
-           step_list.append((file_and_serve_step, "file_and_serve_idx"))
+           step_list.append((cert_of_service_step, "cert_of_service_idx"))
+           step_list.append((file_step, "file_idx"))
+           step_list.append((serve_step, "serve_idx"))
+           step_list.append((expect_step, "expect_idx"))
  
       # rows 26 & 59
       if ask_court_or_cssd == "court" \
@@ -265,7 +300,6 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
           
       if ask_court_or_cssd == "both" \
         and (parents_married or not parents_married) \
@@ -277,7 +311,6 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
       # rows 27 & 60
       if ask_court_or_cssd == "court" \
@@ -290,7 +323,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
           
       if ask_court_or_cssd == "both" \
         and (parents_married or not parents_married) \
@@ -303,7 +339,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
 
       # 28
       if ask_court_or_cssd == "court" \
@@ -330,7 +369,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
           
       if ask_court_or_cssd == "both" \
         and (parents_married or not parents_married) \
@@ -343,7 +385,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
 
       # 30
       if ask_court_or_cssd == "court" \
@@ -356,7 +401,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
           
       if ask_court_or_cssd == "both" \
         and (parents_married or not parents_married) \
@@ -369,7 +417,10 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_and_serve_step, "file_and_serve_idx"))
+          step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          step_list.append((file_step, "file_idx"))
+          step_list.append((serve_step, "serve_idx"))
+          step_list.append((expect_step, "expect_idx"))
 
     if existing_case == "unknown" and after_courtview == "unknown":
         step_list.append((find_out_step, "find_out_idx"))
@@ -514,12 +565,12 @@ template: get_help
 subject: |
   Step ${ get_help_idx }: Get more information or help
 content: |
-  For help with forms or understanding the process, call the [Family Law Self-Help Center](https://courts.alaska.gov/shc/family/selfhelp.htm)
-  (907) 264-0851 or
-  (866) 279-0851 from an Alaska-based phone outside of Anchorage.
+  <p>For help with forms or understanding the process, call the <a href="https://courts.alaska.gov/shc/family">Family Law Self-Help Center</a></br>
+  (907) 264-0851 or</br>
+  (866) 279-0851.</br>
+  </p>
   
-  <span class="subheading">Many lawyers</span>
-  offer free or flat fee consultations without having to hire them for the whole case. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
+  Many lawyers offer free or flat fee consultations without having to hire them for the whole case. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
   
   Depending on your income, you may qualify for [Alaska Free Legal Answers](https://alaska.freelegalanswers.org).
   
@@ -773,7 +824,7 @@ content: |
 
   <div class='step-subheading'>Hybrid Child Support Schedule</div>
     * The children do not have the same parenting time schedule.  
-    * One or both of you has "primary custody" of at least 1 child, and both of you have "shared custody" of at least 1 child.  You and the other parent have "hybrid" custody.  For example, 1 child stays almost all the time with you, and the other child spends 1 week with you and the next week with the other parent.
+    * One or both parents have "primary custody" of at least 1 child, and you also have "shared custody" of at least 1 child.  You and the other parent have "hybrid" custody.  For example, 1 child stays almost all the time with you, and the other child spends 1 week with you and the next week with the other parent.
 
   <div class='step-subheading'>Divided Child Support Schedule</div>
     * The children do not have the same parenting time schedule.
@@ -789,23 +840,38 @@ content: |
     * If you know the schedule will be hybrid custody, fill out [Hybrid Custody Child Support Calculation, DR-308](https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf).
     * If you know the schedule will be divided custody, fill out [Divided Custody Child Support Calculation, DR-307](https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf).
 ---
-template: file_and_serve_step
+template: file_response_step
 subject: |
-  Step ${ file_and_serve_idx }: File and serve your forms
+  Step ${ file_response_idx }: File your child support forms with your response
 content: |
-  1.	Make 2 copies of everything you are going to give the court.  
-  1.	Keep 1 copy for your own records.
-  1.	You must give the other parent 1 copy of everything you file with the court.  This is called "service."
-      * You can mail or hand-deliver your copy.
-      * If the other parent files anything in court that says they agree to service by email, you can email the copies you made for them.
-      * If the other parent has a lawyer, you can serve the other parent by giving their lawyer the copy by email, mail or hand-delivery.
-  % if not existing_case == 'open':
-  1.	Fill out the Certificate of Service. 
-  
-      [FILE certofservice_interim_orders.png] 
-      
-  If you are filing a motion or an answer, this is at the end of the form. It tells the court how you are giving copies to the other parent.
+  1. Make 2 copies of your completed:
+      * **Child Support Guidelines Affidavit** and,
+  % if number_of_children == 'one':
+      * **Shared Custody Calculation**.
+  % else:
+      * custody calculation that matches your parenting arrangement.
   % endif
-  1.	Mail, email or hand-deliver your forms to the court.   This is called "filing" them. 
-  1.	The other parent has 10 days to respond to the court in writing (13 days if you mailed it to them).  The document is called a "response" or an "opposition."  If you filed your motion for interim custody with your complaint, the other parent does not have to respond until they respond to the Complaint.  This is usually 20 days after they receive the Complaint.
-  1.	You have 5 days to reply to anything the other parent put in their response that you didn’t talk about in your motion (8 days if they mailed it to you).  Read about replying, [Responding to a Complaint Served on You](https://courts.alaska.gov/shc/family/answer.htm).
+  2. Give the originals to the court along with your response or **Answer**. This is called "filing" your documents. You can:
+      * Deliver the documents to the court yourself.
+      * Mail the document by first-class mail. Or
+      * Use the Court's TrueFile eFiling system to send the documents to the court electronically.
+  3. Keep 1 copy for your own records.
+  4. Give the other copy to the other parent. Read Step ${ serve_response_idx }: Serve the other parent.
+  
+  <p><span style="color:pink">- for defendants who say they do not want response info, should we combine file and serve?</span>
+---
+template: serve_response_step
+subject: |
+  Step ${ serve_response_idx }: Serve the other parent
+content: |
+  You made 2 copies of your completed:
+  
+    * **Child Support Guidelines Affidavit** and,
+  % if number_of_children == 'one':
+    * **Shared Custody Calculation**.
+  % else:
+    * custody calculation that matches your parenting arrangement.
+  % endif
+  
+  Include the 2nd copy of your affidavit and custody calculation when you give your response or **Answer** to the other parent.  
+---
