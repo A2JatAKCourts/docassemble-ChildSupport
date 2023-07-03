@@ -19,9 +19,8 @@ code: |
   # Logic reference: https://docs.google.com/spreadsheets/d/1qHv16Z5mK7jf_UE14wLpZRL9nIIu_xkHBM-UF0ETRJg/edit#gid=0
   
   step_list = []
-
+  certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_interim_orders.png, 100%, Certificate of Service box]'
   if not wants_action_plan:
-    user_need = 'Ask'
     step_list.append((wrong_tf, "wrong_tf_idx"))
     step_list.append((wrong_tf2, "wrong_tf2_idx"))
     # step_list.append((file_response_step, "file_response_idx"))
@@ -29,7 +28,6 @@ code: |
     step_list.append((cert_of_service_step, "cert_of_service_idx"))
     
   else:
-    user_need = 'Ask'
     if existing_case == "open" or (existing_case == "unknown" and after_courtview == "open"):
 
       # rows 16 & 40
@@ -38,10 +36,10 @@ code: |
         step_list.append((modify_step, "modify_idx"))
 
       # row 2 & 41
-      # delete and general_information_about_forms \
       if user_role_in_case == "defendant" \
         and need_to_respond \
         and interim_motion == "wait" \
+        and general_information_about_forms \
         and number_of_children == "one":
           step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((respond_step, "respond_idx"))
@@ -51,11 +49,11 @@ code: |
           step_list.append((file_response_step, "file_response_idx"))
           step_list.append((serve_response_step, "serve_response_idx")) 
 
-      # row 3 & 42      
-      # delete and general_information_about_forms \
+      # row 3 & 42  
       if user_role_in_case == "defendant" \
         and need_to_respond \
         and interim_motion == "wait" \
+        and general_information_about_forms \
         and number_of_children == "more than one":  
           step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((respond_step, "respond_idx"))
@@ -96,10 +94,10 @@ code: |
           step_list.append((serve_response_step, "serve_response_idx"))
 
       # rows 10 & 46
-      # delete and general_information_about_forms \
       if user_role_in_case == "defendant" \
         and not need_to_respond \
         and interim_motion == "wait" \
+        and general_information_about_forms \
         and number_of_children == "one":
           step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((general_info_step, "general_info_idx"))
@@ -109,11 +107,11 @@ code: |
           step_list.append((serve_response_step, "serve_response_idx"))
 
       # rows 11 & 47
-      # delete and general_information_about_forms \
       if user_role_in_case == "defendant" \
         and not need_to_respond \
         and interim_motion == "wait" \
-        and number_of_children == "more than one":         
+        and general_information_about_forms \
+        and number_of_children == "more than one":        
           step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
@@ -122,32 +120,12 @@ code: |
           step_list.append((serve_response_step, "serve_response_idx"))
 
       # rows 12 & 48
-      # delete and not general_information_about_forms \
-      # add number of children and corresponding steps
       if user_role_in_case == "defendant" \
         and not need_to_respond \
         and interim_motion == "wait" \
-        and number_of_children == "one":         
+        and not general_information_about_forms:         
           step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((general_info_step, "general_info_idx"))
-          step_list.append((one_child1_step, "one_child1_idx"))
-          step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_response_step, "file_response_idx"))
-          step_list.append((serve_response_step, "serve_response_idx"))
           
-      # rows 12 & 48 w more than on child
-      # delete and not general_information_about_forms \
-      # add number of children and corresponding steps
-      if user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "wait" \
-        and number_of_children == "more than one":         
-          step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((general_info_step, "general_info_idx"))
-          step_list.append((more_children_step, "more_children_idx"))
-          step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_response_step, "file_response_idx"))
-          step_list.append((serve_response_step, "serve_response_idx"))
 
       # rows 13 & 49
       if user_role_in_case == "defendant" \
@@ -822,7 +800,7 @@ content: |
 
   <div class='step-subheading'>Hybrid Child Support Schedule</div>
     * The children do not have the same parenting time schedule.  
-    * One or both of you has "primary custody" of at least 1 child, and both of you have "shared custody" of at least 1 child.  You and the other parent have "hybrid" custody.  For example, 1 child stays almost all the time with you, and the other child spends 1 week with you and the next week with the other parent.
+    * One or both parents have "primary custody" of at least 1 child, and you also have "shared custody" of at least 1 child.  You and the other parent have "hybrid" custody.  For example, 1 child stays almost all the time with you, and the other child spends 1 week with you and the next week with the other parent.
 
   <div class='step-subheading'>Divided Child Support Schedule</div>
     * The children do not have the same parenting time schedule.
@@ -898,18 +876,6 @@ content: |
     [FILE certofservice_interim_orders.png, 100%, Certificate of Service box]
   % endif				
 ---
-template: file_step
-subject: |
-  Step ${ file_idx }: File your motion forms
-content: |
-  File
----
-template: serve_step
-subject: |
-  Step ${ serve_idx }: Serve the other parent
-content: |
-  Serve
----
 template: file_response_step
 subject: |
   Step ${ file_response_idx }: File your child support forms with your response
@@ -930,6 +896,34 @@ content: |
   
   <p><span style="color:pink">- for defendants who say they do not want response info, should we combine file and serve?</span>
 ---
+template: expect_step
+subject: |
+  Step ${ expect_idx }: What to expect after you file
+content: |
+  <div class='step-subheading'>The other parent may file a response or “opposition”</div>
+  <p><strong>If you serve the other parent</strong>:
+  <ul>
+  <li>by hand-delivery, email, or TrueFile, they have 10 days to respond to the court in writing,</li>
+  <li>by mail, they have 13 days.</li>
+  <ul>
+  </p>
+   The documents the other parent files after you serve them is their “response” or “opposition.”
+  % if ((defined(user_role_in_case) and user_role_in_case == 'plaintiff') and (defined(interim_motion) and interim_motion == 'ask')):
+  If you file your **Motion for Interim Child Support** with your complaint, the other parent does not have to respond until they respond to the complaint. This is usually 20 days after they get the complaint.
+  % endif
+ 
+  <div class='step-subheading'>You can reply to their response</div>
+  If the other parent files a response you can file a reply. If they serve you:
+  <ul>
+  <li>By hand delivery, email or TrueFile, you have 5 days to file,</li>
+  <li>By mail, you have 8 days</li>
+  <ul>
+  If the due date is a weekend or holiday, your reply is due the next day the court is open. For example, if your reply is due on a Saturday, and the court is open Monday, your reply is due Monday.
+  Watch a video about replies: [Motions Part 3: Preparing a Reply](https://www.youtube.com/watch?v=egoBeRFB_Uw)
+  Use: <strong>Reply, <a href="https://courts.alaska.gov/shc/family/docs/shc-1305n.pdf">SHC – 1305</a></strong>.
+  Read more about[motions](https://courts.alaska.gov/shc/family/motions.htm#order) and [replying](https://courts.alaska.gov/shc/family/motions.htm#reply) on the court’s webpage
+  
+---
 template: serve_response_step
 subject: |
   Step ${ serve_response_idx }: Serve the other parent
@@ -945,23 +939,3 @@ content: |
   
   Include the 2nd copy of your affidavit and custody calculation when you give your response or **Answer** to the other parent.  
 ---
-template: file_and_serve_step
-subject: |
-  Step ${ file_and_serve_idx }: File and serve your forms
-content: |
-  1.	Make 2 copies of everything you are going to give the court.  
-  1.	Keep 1 copy for your own records.
-  1.	You must give the other parent 1 copy of everything you file with the court.  This is called "service."
-      * You can mail or hand-deliver your copy.
-      * If the other parent files anything in court that says they agree to service by email, you can email the copies you made for them.
-      * If the other parent has a lawyer, you can serve the other parent by giving their lawyer the copy by email, mail or hand-delivery.
-  % if not existing_case == 'open':
-  1.	Fill out the Certificate of Service. 
-  
-      [FILE certofservice_interim_orders.png, 100%, Certificate of Service on the last page of answer, response and motion forms.] 
-      
-  If you are filing a motion or an answer, this is at the end of the form. It tells the court how you are giving copies to the other parent.
-  % endif
-  1.	Mail, email or hand-deliver your forms to the court.   This is called "filing" them. 
-  1.	The other parent has 10 days to respond to the court in writing (13 days if you mailed it to them).  The document is called a "response" or an "opposition."  If you filed your motion for interim custody with your complaint, the other parent does not have to respond until they respond to the Complaint.  This is usually 20 days after they receive the Complaint.
-  1.	You have 5 days to reply to anything the other parent put in their response that you didn’t talk about in your motion (8 days if they mailed it to you).  Read about replying, [Responding to a Complaint Served on You](https://courts.alaska.gov/shc/family/answer.htm).
