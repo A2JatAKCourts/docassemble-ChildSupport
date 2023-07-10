@@ -223,7 +223,7 @@ subquestion: |
   
 	* Ask the court for child support when you start a case.
 	* Ask the court for child support during a case.
-	* Ask the state administrative agency, Child Support Services Division, for child support.
+	* Ask the state administrative agency, Child Support Enforcement Division, for child support.
 	* Prove or disprove your child’s biological father, and
 	* Fill out the court’s child support forms.
 continue button field: wants_action_plan
@@ -279,18 +279,14 @@ fields:
 ---
 id: Do you want information about how to fill out the papers you need to respond
 question: |
-  Do you want information about how to fill out the papers you need to respond?
+  What kind of case is it?
 fields:
-  - no label: need_to_respond
-    datatype: yesnoradio
-  - "What kind of case?": case_type 
+  - no label: case_type 
     input type: radio
     choices:
       - "Divorce": divorce
       - "Legal separation": legal separation
       - "Custody": custody
-    show if:
-      need_to_respond
 ---
 id: Interim child support order
 question: |
@@ -338,6 +334,12 @@ question: |
   Do you want your Personal Action Plan to include information to help you fill out the court's child support forms?
   % else:
   Do you want your Personal Action Plan to include information to help you fill out the child support forms when you start your case? 
+  % endif
+subquestion: |
+  % if (existing_case == 'open' and user_role_in_case != 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case != 'closed'):
+  You probably filled out child support forms to start your case. 
+  They can be complicated to fill out.
+  You may have to update them during your case or if you have a trial.
   % endif
 yesno: general_information_about_forms
 ---
@@ -392,9 +394,9 @@ fields:
       These situations can be complicated.  If you have questions, it is a good idea to talk to a lawyer.
   
 ---
-id: Ask CSSD or the Court for a child support order
+id: Ask CSED or the Court for a child support order
 question: |
-  Do you want to ask the court or CSSD to order a child support?
+  Do you want to ask the court or CSED to order a child support?
 subquestion: |
   % if paternity:
   Your action plan includes information about "establishing paternity" and "disestablishing paternity."
@@ -414,7 +416,7 @@ subquestion: |
     *	“How to spend our children’s PFDs?” or 
     *	“Which parent should claim any child tax credits?”  
   
-  **The Alaska Child Support Services Division (CSSD)** can order child support but does not order Parenting Plans. CSSD child support orders work best if you do not need a Parenting Plan.  
+  **The Alaska Child Support Enforcement Division (CSED)** can order child support but does not order Parenting Plans. CSED child support orders work best if you do not need a Parenting Plan.  
   
 fields: 
   - "I want to learn how to ask for child support from:": ask_court_or_cssd
@@ -422,18 +424,18 @@ fields:
     input type: radio
     choices:
   	  - "Alaska Court": court
-      - "CSSD": cssd
+      - "CSED": cssd
       - "Both": both
   - note: |
-      #### <i class="fa-regular fa-lightbulb"></i> How does the court or CSSD decide how much Child Support to order?####
-      The Alaska Supreme Court sets the guidelines that judges and Alaska Child Support Services must follow when they decide the amount of child support payments. You can read the rule and the Child Support Guideline Committee’s comments about the rule online See [Child Support Awards in Civil Rule 90.3](https://casetext.com/rule/alaska-court-rules/alaska-rules-of-civil-procedure/part-xii-special-proceedings/rule-903-child-support-awards) or [the court's PDF](https://public.courts.alaska.gov/web/rules/docs/civ.pdf)
+      #### <i class="fa-regular fa-lightbulb"></i> How does the court or CSED decide how much Child Support to order?####
+      The Alaska Supreme Court sets the guidelines that judges and Alaska Child Support Enforcement Division must follow when they decide the amount of child support payments. You can read the rule and the Child Support Guideline Committee’s comments about the rule online See [Child Support Awards in Civil Rule 90.3](https://casetext.com/rule/alaska-court-rules/alaska-rules-of-civil-procedure/part-xii-special-proceedings/rule-903-child-support-awards) or [the court's PDF](https://public.courts.alaska.gov/web/rules/docs/civ.pdf)
 ---
 id: Ask the court for Child Support
 question: |
   Start a court case to ask for child support
 subquestion: |
   % if ask_court_or_cssd == 'both':
-  Your Personal Action Plan includes information about how to ask the Alaska Child Support Services Division (CSSD) for a child support order. 
+  Your Personal Action Plan includes information about how to ask the Alaska Child Support Enforcement Division (CSED) for a child support order. 
   % endif
   
   If you want the court to order child support, you must start a court case.

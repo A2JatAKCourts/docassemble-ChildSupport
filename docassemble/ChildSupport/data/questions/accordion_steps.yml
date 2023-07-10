@@ -21,6 +21,9 @@ code: |
   step_list = []
   other_party_in_case  = 'the other parent'
   certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_interim_orders.png, 100%, Certificate of Service box]'
+  file_motion_to_set_aside = ''
+  file_motion_to_enforce = ''
+  expect_after_motion = ''
   if not wants_action_plan:
     step_list.append((wrong_tf, "wrong_tf_idx"))
     step_list.append((wrong_tf2, "wrong_tf2_idx"))
@@ -30,6 +33,8 @@ code: |
     
   else:
     if existing_case == "open" or (existing_case == "unknown" and after_courtview == "open"):
+      if user_role_in_case == "plaintiff":
+        expect_after_motion = "If you file your <b>Motion for Interim Child Support</b> with your complaint, " + ${ value('other_party_in_case') } + " does not have to respond until they respond to the complaint.  This is usually 20 days after they get the complaint."
 
       # rows 16 & 40
       if user_role_in_case == "closed":
@@ -37,128 +42,10 @@ code: |
         step_list.append((modify_step, "modify_idx"))
 
       # row 2 & 41
-      if user_role_in_case == "defendant" \
-        and need_to_respond \
-        and interim_motion == "wait" \
-        and general_information_about_forms \
-        and number_of_children == "one":
-          step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((respond_step, "respond_idx"))
-          step_list.append((general_info_step, "general_info_idx"))
-          step_list.append((one_child1_step, "one_child1_idx"))
-          step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_response_step, "file_response_idx"))
-          step_list.append((serve_response_step, "serve_response_idx")) 
-
-      # row 3 & 42  
-      if user_role_in_case == "defendant" \
-        and need_to_respond \
-        and interim_motion == "wait" \
-        and general_information_about_forms \
-        and number_of_children == "more than one":  
-          step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((respond_step, "respond_idx"))
-          step_list.append((general_info_step, "general_info_idx"))
-          step_list.append((more_children_step, "more_children_idx"))
-          step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_response_step, "file_response_idx"))
-          step_list.append((serve_response_step, "serve_response_idx"))
-
-      # rows 5 & 44
-      if user_role_in_case == "defendant" \
-        and need_to_respond \
-        and interim_motion == "ask" \
-        and number_of_children == "one":
-          step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((respond_step, "respond_idx"))          
-          step_list.append((interim_step, "interim_idx"))
-          step_list.append((general_info_step, "general_info_idx"))
-          step_list.append((one_child1_step, "one_child1_idx"))
-          step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
-
-      # rows 6 & 45 
-      if user_role_in_case == "defendant" \
-        and need_to_respond \
-        and interim_motion == "ask" \
-        and number_of_children == "more than one":          
-          step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((respond_step, "respond_idx"))
-          step_list.append((interim_step, "interim_idx"))
-          step_list.append((general_info_step, "general_info_idx"))
-          step_list.append((more_children_step, "more_children_idx"))
-          step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
-
-      # rows 10 & 46
-      if user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "wait" \
-        and general_information_about_forms \
-        and number_of_children == "one":
-          step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((general_info_step, "general_info_idx"))
-          step_list.append((one_child1_step, "one_child1_idx"))
-          step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_response_step, "file_response_idx"))
-          step_list.append((serve_response_step, "serve_response_idx"))
-
-      # rows 11 & 47
-      if user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "wait" \
-        and general_information_about_forms \
-        and number_of_children == "more than one":        
-          step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((general_info_step, "general_info_idx"))
-          step_list.append((more_children_step, "more_children_idx"))
-          step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((file_response_step, "file_response_idx"))
-          step_list.append((serve_response_step, "serve_response_idx"))
-
-      # rows 12 & 48
-      if user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "wait" \
-        and not general_information_about_forms:         
-          step_list.append((childsupport_step, "childsupport_idx"))
-          
-
-      # rows 13 & 49
-      if user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "ask" \
-        and number_of_children == "one":
-          step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((interim_step, "interim_idx"))
-          step_list.append((general_info_step, "general_info_idx"))
-          step_list.append((one_child1_step, "one_child1_idx"))
-          step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
-
-      # row 14 & 50 
-      if user_role_in_case == "defendant" \
-        and not need_to_respond \
-        and interim_motion == "ask" \
-        and number_of_children == "more than one":
-          step_list.append((childsupport_step, "childsupport_idx"))
-          step_list.append((interim_step, "interim_idx"))
-          step_list.append((general_info_step, "general_info_idx"))
-          step_list.append((more_children_step, "more_children_idx"))
-          step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
+      if user_role_in_case == "defendant":
+        case_type
+        step_list.append((childsupport_step, "childsupport_idx"))
+        step_list.append((respond_step, "respond_idx"))
 
       # rows 17 & 51
       if user_role_in_case in ("plaintiff", "joint") \
@@ -169,8 +56,6 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          #  step_list.append((file_response_step, "file_response_idx"))
-          #  step_list.append((serve_response_step, "serve_response_idx"))
 
       # rows 18 & 52
       if user_role_in_case in ("plaintiff", "joint") \
@@ -181,7 +66,6 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
-          #  step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
       # rows 19 & 53
       if user_role_in_case in ("plaintiff", "joint") \
@@ -218,6 +102,7 @@ code: |
           step_list.append((expect_step, "expect_idx"))
 
     if existing_case == "none" or (existing_case == "unknown" and after_courtview == "none"):
+      expect_after_motion = "If you file your <b>Motion for Interim Child Support</b> with your complaint, ${ other_party_in_case } does not have to respond until they respond to the complaint.  This is usually 20 days after they get the complaint."
 
       # Possibly deal with paternity docs up here if placement is ok
       if paternity:
@@ -242,8 +127,6 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((file_response_step, "file_response_idx"))
-          step_list.append((serve_response_step, "serve_response_idx")) 
           
       # rows 24 & 57 b for both not in spreadsheet as separate lines
       if ask_court_or_cssd == "both" \
@@ -255,8 +138,7 @@ code: |
           step_list.append((court_step, "court_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
-          step_list.append((file_response_step, "file_response_idx"))
-          step_list.append((serve_response_step, "serve_response_idx"))
+          step_list.append((shared_custody_step, "shared_custody_idx"))
 
       # 25 & 58
       if ask_court_or_cssd == "court" \
@@ -423,7 +305,8 @@ code: |
           step_list.append((expect_step, "expect_idx"))
 
     if existing_case == "unknown" and after_courtview == "unknown":
-        step_list.append((find_out_step, "find_out_idx"))
+      step_list.append((childsupport_step, "childsupport_idx"))
+      step_list.append((find_out_step, "find_out_idx"))
   
   step_list.append((get_help, "get_help_idx"))
   
@@ -611,10 +494,10 @@ content: |
       * An unmarried man and woman can sign the Health Analytics & Vital Records Affidavit of Paternity, VS-06-5376 form. This form says the man and woman agree that they are biological parents of a child. 
       * You can also use this form for a husband, wife, and another man to agree that the other man is the biological father – not the husband.
       * You can only get the form from [Health Analytics & Vital Records](https://health.alaska.gov/dph/VitalStats/Pages/default.aspx) or your local court. After you complete the form, give it to Health Analytics & Vital Records. Do not file it at court.
-  * Start a case with Child Support Services Division (CSSD):
-      * If you apply for CSSD services, you can ask CSSD for help to establish paternity.
-      * CSSD can order [DNA testing](https://courts.alaska.gov/shc/family/glossary.htm#dna) to discover if the person you think is your child’s biological father actually is. If he is the father, CSSD can establish paternity.
-      * If CSSD establishes paternity, they will order child support. Either parent can open a court case and ask the court for a Parenting Plan so both parents can spend time with their child. Use [Ask the Court for a Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/AskingForChildCustody).
+  * Start a case with Child Support Enforcement Division (CSED):
+      * If you apply for CSED services, you can ask CSED for help to establish paternity.
+      * CSED can order [DNA testing](https://courts.alaska.gov/shc/family/glossary.htm#dna) to discover if the person you think is your child’s biological father actually is. If he is the father, CSED can establish paternity.
+      * If CSED establishes paternity, they will order child support. Either parent can open a court case and ask the court for a Parenting Plan so both parents can spend time with their child. Use [Ask the Court for a Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/AskingForChildCustody).
   * Start a court case to establish or disestablish paternity:
       * If a husband and wife are married when a child is born, the husband is not the biological father.
       * If the husband and wife want to separate, they can start a divorce, dissolution, or legal separation case. and ask the judge to disestablish paternity as part of the divorce case. Use [Start a Case to End Your Marriage or Legally Separate](http://docassemble.akcourts.gov/start/Divorce).
@@ -635,64 +518,64 @@ content: |
 ---
 template: cssd_step
 subject: |
-  Step ${ cssd_idx }: Learn about the Alaska Child Support Services Division (CSSD)
+  Step ${ cssd_idx }: Learn about the Alaska Child Support Enforcement Division (CSED)
 content: |
-  <div class='step-subheading'>The Child Support Services Division (CSSD) is the state agency that can make child support orders, help collect child support and send child support payments to parents.</div>
-    * If a parent or guardian does not have a court order for child support, CSSD can make a child support order.
-    * If you or your children get certain types of public assistance, or your children are in the state's custody, CSSD will automatically open a case, make a child support order, and try to collect the child support for the parent the children do not live with.  
-    * CSSD can help collect child support for both a CSSD child support order and a court child support order.  If you have a court child support order and you want CSSD to hep collect, apply for CSSD services.
-    * Once a year, either parent can ask CSSD to look at each parent’s income and calculate if the child support amount should change. 
-      * If CSSD ordered the child support, and the amount should change, CSSD will change it. 
-      *	If the court ordered the child support, CSSD will tell you if the amount should change.  To change child support, you need to file a motion with the court to modify child support.  Use [Changing Your Child Support Order](https://docassemble.akcourts.gov/start/ChangingChildSupport).
-    * CSSD can order DNA testing.  DNA testing can show who a child’s biological father is.
-    *	If you do not agree about the biological father, CSSD can order DNA tests to prove paternity.
-    *	If you ask CSSD for a child support order, they calculate child support based on the schedule you already have. They do not make a parenting plan order about:
+  <div class='step-subheading'>The Child Support Enforcement Division (CSED) is the state agency that can make child support orders, help collect child support and send child support payments to parents.</div>
+    * If a parent or guardian does not have a court order for child support, CSED can make a child support order.
+    * If you or your children get certain types of public assistance, or your children are in the state's custody, CSED will automatically open a case, make a child support order, and try to collect the child support for the parent the children do not live with.  
+    * CSED can help collect child support for both a CSED child support order and a court child support order.  If you have a court child support order and you want CSED to hep collect, apply for CSED services.
+    * Once a year, either parent can ask CSED to look at each parent’s income and calculate if the child support amount should change. 
+      * If CSED ordered the child support, and the amount should change, CSED will change it. 
+      *	If the court ordered the child support, CSED will tell you if the amount should change.  To change child support, you need to file a motion with the court to modify child support.  Use [Changing Your Child Support Order](https://docassemble.akcourts.gov/start/ChangingChildSupport).
+    * CSED can order DNA testing.  DNA testing can show who a child’s biological father is.
+    *	If you do not agree about the biological father, CSED can order DNA tests to prove paternity.
+    *	If you ask CSED for a child support order, they calculate child support based on the schedule you already have. They do not make a parenting plan order about:
       *	a schedule for when and how long your children will stay at each parent's house,
       *	a holiday schedule,
       *	how you will make decisions about your children, and
       *	financial questions like spending your children’s PFD or claiming child tax credits
   <div class='step-subheading'>Apply for CSSD Services</div>
     *	Submit an online application by logging into myAlaska.  
-      *	Go to [CSSD’s home page](https://childsupport.alaska.gov/), and 
+      *	Go to [CSED’s home page](https://childsupport.alaska.gov/), and 
       *	click "Online Application for Services" in the bottom right corner.
-    *	For help, watch CSSD’s Tutorial - [How to Apply for Services Online](https://childsupport.alaska.gov/Static/ApplyForServicesTutorial/index.html).
+    *	For help, watch CSED’s Tutorial - [How to Apply for Services Online](https://childsupport.alaska.gov/Static/ApplyForServicesTutorial/index.html).
   <div class='step-subheading'>Changes</div>
-  If your parenting schedule changes, or your income or the other parent’s income changes, it is important to **tell CSSD right away** (or tell the court right away if you have a child support order from the court).  
+  If your parenting schedule changes, or your income or the other parent’s income changes, it is important to **tell CSED right away** (or tell the court right away if you have a child support order from the court).  
   
-  *	CSSD and the court can only change child support starting when you file something asking to change it, and notify the other parent that you are asking for a change.
-  *	Until you tell CSSD or the court, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed. CSSD and the court cannot go back and change child support that was due in the past.
+  *	CSED and the court can only change child support starting when you file something asking to change it, and notify the other parent that you are asking for a change.
+  *	Until you tell CSED or the court, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed. CSED and the court cannot go back and change child support that was due in the past.
   
-  If your order is from CSSD, they can change your order if:
+  If your order is from CSED, they can change your order if:
   
   *	The cost of your child's health insurance premium changes, or
   * Your income or the other parent’s income changes so that a new Child Support payment calculation would be at least 15% more or 15% less than the payment you have now.
   * Your children’s schedule changes and a new calculation would be at least 15% more or 15% less than the payment you have now.
 
-  If your order is from the court, CSSD cannot change the child support calculation.  But, CSSD can change the credit for paying your childs health insurance premium if:
+  If your order is from the court, CSED cannot change the child support calculation.  But, CSED can change the credit for paying your childs health insurance premium if:
   
-  * CSSD is collecting the child support, and
+  * CSED is collecting the child support, and
   * the amount of your child’s health insurance premium changes.
   
   To ask for a change, you can use the Guided Assistant Interview [Changing Your Child Support Order](https://docassemble.akcourts.gov/start/ChangingChildSupport). 
   <div class='step-subheading'>Get more help</div>
-    *	[Contact CSSD](https://childsupport.alaska.gov)
+    *	[Contact CSED](https://childsupport.alaska.gov)
       *	Customer Service Call Center
         Monday – Thursday, 10:00 am - 3:00 pm:
         *	✆ Phone: (907) 269-6900, 
         *	Toll Free (In-state): 800-478-3300,
        *	⌨ Fax: (907) 787-3220,
        *	Email: dor.cssd.customerservice.anchorage@alaska.gov
-    *	Read [Information about CSSD, DR-316](https://public.courts.alaska.gov/web/forms/docs/dr-316.pdf). 
-    *	[CSSD FAQ Page](https://childsupport.alaska.gov/child-support-services/information/faqs).
-    *	The differences between a child support order from CSSD and a child support order from the Court are not easy to understand. Call the [Family Law Self Help Center Helpline](http://courts.alaska.gov/shc/family/shcabout.htm#1b) if you need help to decide between asking CSSD and going to court.
-  *	[CSSD Brochures](https://childsupport.alaska.gov/child-support-services/information/brochures)
+    *	Read [Information about CSED, DR-316](https://public.courts.alaska.gov/web/forms/docs/dr-316.pdf). 
+    *	[CSED FAQ Page](https://childsupport.alaska.gov/child-support-services/information/faqs).
+    *	The differences between a child support order from CSED and a child support order from the Court are not easy to understand. Call the [Family Law Self Help Center Helpline](http://courts.alaska.gov/shc/family/shcabout.htm#1b) if you need help to decide between asking CSED and going to court.
+  *	[CSED Brochures](https://childsupport.alaska.gov/child-support-services/information/brochures)
 ---
 template: childsupport_step
 subject: |
   Step ${ childsupport_idx }: Learn about child support
 content: |
   <div class='step-subheading'>Formula</div>
-  The Alaska Court System and the Child Support Services Division (CSSD) use the same formula to calculate child support.  The formula is in [Alaska Civil Rule 90.3](https://courts.alaska.gov/rules/docs/civ.pdf).
+  The Alaska Court System and the Child Support Enforcement Division (CSED) use the same formula to calculate child support.  The formula is in [Alaska Civil Rule 90.3](https://courts.alaska.gov/rules/docs/civ.pdf).
   
   The formula uses:
   
@@ -727,7 +610,7 @@ content: |
   
   * Use the other steps in this action plan to help you fill out the child support forms you need to start your case.
   % if interim_motion == 'ask':
-  *	File your Motion for Interim Child Support with your complaint, which is the form you use to start your case.
+  *	File your **Motion for Interim Child Support** with your complaint, which is the form you use to start your case.
   % endif
 ---
 template: respond_step
@@ -740,13 +623,6 @@ content: |
   [Respond in a Case to End Your Marriage or Legally Separate](https://docassemble.akcourts.gov/start/RespondToDivorce)
   % else:
   [Respond in Your Child Custody or Parenting Plan Case](https://docassemble.akcourts.gov/start/RespondToCustody)
-  % endif
-  
-  * Use the other steps in this action plan to help you fill out the child support forms you need for your response, which is called an Answer
-  * File your Motion for Interim Custody with your Answer.
-  * Use the other steps in this action plan to help you fill out the child support forms you need for your response, which is called an Answer. 
-  % if interim_motion == 'ask':
-  *	File your Motion for Interim Child Support with your answer.
   % endif
 ---
 template: interim_step
@@ -764,7 +640,7 @@ content: |
       * On the last page, at the bottom of form, fill out the CERTIFICATE OF SERVICE.   
           Check the boxes that tell the court how you plan to serve the other parent. 
     
-  [FILE certofservice_interim_orders.png, 100%, Certificate of Service box]
+  ${ certificate_of_service_image }
     
   2.	Fill out the [Child Support Guidelines Affidavit, DR-305](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf). Attach it to your motion.
   
