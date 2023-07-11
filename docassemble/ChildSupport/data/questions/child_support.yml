@@ -60,6 +60,7 @@ comment: |
 objects:
   #  - users: ALPeopleList.using(ask_number=True,target_number=1)
   - users: ALPeopleList.using(there_are_any=False)
+  - service_cert_interim_image: DAStaticFile.using(filename = 'docassemble.AKA2JBranding:certofservice_interim_orders.png', alt_text="Certificate of Service box")
 ---
 # sections:
 #  - review_child_support: Review your answers
@@ -528,7 +529,7 @@ attachments:
   #    filename: child_support_next_steps
   #    docx template file: child_support_next_steps.docx
   #    variable name: child_support_Post_interview_instructions[i]
-  - name: Askig for child support Action Plan
+  - name: Asking for child support Action Plan
     filename: child_support_action_plan
     variable name: child_support_attachment[i]
     skip undefined: True
