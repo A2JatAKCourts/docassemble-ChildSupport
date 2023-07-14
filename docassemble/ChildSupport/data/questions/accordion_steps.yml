@@ -25,6 +25,7 @@ code: |
   images_list.append({'image': service_cert_interim_image, 'text': "Certificate of Service at the bottom of a Motion for Interim Child Support."})
   file_motion_to_set_aside = ''
   file_motion_to_enforce = ''
+  # expect_after_motion is in what to expect step for filing motion for interim order w complaint, or answer/response, cannot use variable in docx template, must insert condition in what to expect step.
   expect_after_motion = ''
   if not wants_action_plan:
     step_list.append((wrong_tf, "wrong_tf_idx"))
@@ -753,13 +754,13 @@ content: |
   
   Include the 2nd copy of your affidavit and custody calculation when you give your response or **Answer** to the other parent.  
 ---
-template: cert_of_service_step
-subject: |
-  Step ${ cert_of_service_idx }: Fill out the Certificate of Service
-content: |
-  % for image_data in images_list:
-  ${ image_data['image'].show(width='100%') }
-  
-  ${  image_data['text'] }
-  % endfor
+# template: cert_of_service_step
+# subject: |
+#   Step ${ cert_of_service_idx }: Fill out the Certificate of Service
+# content: |
+#   % for image_data in images_list:
+#   ${ image_data['image'].show(width='100%') }
+#   
+#   ${  image_data['text'] }
+#   % endfor
 ---

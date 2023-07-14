@@ -60,7 +60,7 @@ comment: |
 objects:
   #  - users: ALPeopleList.using(ask_number=True,target_number=1)
   - users: ALPeopleList.using(there_are_any=False)
-  - service_cert_interim_image: DAStaticFile.using(filename = 'docassemble.AKA2JBranding:certofservice_interim_orders.png', alt_text="Certificate of Service box")
+  # - service_cert_interim_image: DAStaticFile.using(filename = 'docassemble.AKA2JBranding:certofservice_interim_orders.png', alt_text="Certificate of Service box")
 ---
 # sections:
 #  - review_child_support: Review your answers
@@ -514,12 +514,12 @@ review:
 # ALDocument objects specify the metadata for each template
 objects:
   #  - child_support_Post_interview_instructions: ALDocument.using(title="Instructions", filename="child_support_next_steps.docx", enabled=True, has_addendum=False, default_overflow_message=AL_DEFAULT_OVERFLOW_MESSAGE)
-  - child_support_attachment: ALDocument.using(title="Asking for Child Support", filename="child_support", enabled=True, has_addendum=False, default_overflow_message=AL_DEFAULT_OVERFLOW_MESSAGE)
+  - child_support_attachment: ALDocument.using(title="Asking for Child Support", filename="child_support_action_plan", enabled=True, has_addendum=False, default_overflow_message=AL_DEFAULT_OVERFLOW_MESSAGE, suffix_to_append="")
 ---
 # Bundles group the ALDocuments into separate downloads, such as for court and for the user
 objects:
-  - al_user_bundle: ALDocumentBundle.using(elements=[child_support_attachment], filename="child_support", title="All forms to download for your records", enabled=True)
-  - al_recipient_bundle: ALDocumentBundle.using(elements=[child_support_attachment],  filename="child_support", title="All forms to file", enabled=True)
+  - al_user_bundle: ALDocumentBundle.using(elements=[child_support_attachment], filename="child_support_action_plan", title="All forms to download for your records", enabled=True)
+  - al_recipient_bundle: ALDocumentBundle.using(elements=[child_support_attachment],  filename="child_support_action_plan", title="All forms to file", enabled=True)
 ---
 # Each attachment defines a key in an ALDocument. We use `i` as the placeholder here so the same template is 
 # used for "preview" and "final" keys, and logic in the template checks the value of 

@@ -16,7 +16,7 @@ Scenario:  row #23
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
 
 Scenario:  row #24
@@ -40,7 +40,7 @@ Scenario:  row #24
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the Shared Custody Support Calculation"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
   
   
 Scenario:  row #25
@@ -70,7 +70,7 @@ Scenario:  row #25
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"  
+  And I download "child_support_action_plan.pdf"  
   
 
 Scenario:  #26
@@ -95,7 +95,7 @@ Scenario:  #26
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the form that matches your situation"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
 
 Scenario: #27
@@ -124,7 +124,7 @@ Scenario: #27
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"  
+  And I download "child_support_action_plan.pdf"  
 
 Scenario:  #28
   Given I start the interview at "child_support.yml"
@@ -144,7 +144,7 @@ Scenario:  #28
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
 Scenario:  #29
   Given I start the interview at "child_support.yml"
@@ -172,7 +172,7 @@ Scenario:  #29
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help" 
-  And I download "child_support_preview.pdf" 
+  And I download "child_support_action_plan.pdf" 
   
 Scenario:  row #30
   Given I start the interview at "child_support.yml"
@@ -201,7 +201,7 @@ Scenario:  row #30
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"  
+  And I download "child_support_action_plan.pdf"  
 
 
 Scenario:  row #56
@@ -219,7 +219,7 @@ Scenario:  row #56
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
 
 Scenario:  row #57
@@ -244,7 +244,7 @@ Scenario:  row #57
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the Shared Custody Support Calculation"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
 Scenario:  row #64
   Given I start the interview at "child_support.yml"
@@ -260,7 +260,7 @@ Scenario:  row #64
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
 Scenario:  row #65
   Given I start the interview at "child_support.yml"
@@ -284,7 +284,7 @@ Scenario:  row #65
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the Shared Custody Support Calculation"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
 Scenario:  row #66
   Given I start the interview at "child_support.yml"
@@ -313,7 +313,7 @@ Scenario:  row #66
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"  
+  And I download "child_support_action_plan.pdf"  
   
 
 Scenario:  row #67
@@ -338,7 +338,7 @@ Scenario:  row #67
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the form that matches your situation"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
 
 Scenario:  row #68
@@ -367,7 +367,7 @@ Scenario:  row #68
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"  
+  And I download "child_support_action_plan.pdf"  
 
 Scenario:  row #69
   Given I start the interview at "child_support.yml"
@@ -387,7 +387,7 @@ Scenario:  row #69
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
 Scenario:  row #70
   Given I start the interview at "child_support.yml"
@@ -415,7 +415,7 @@ Scenario:  row #70
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"  
+  And I download "child_support_action_plan.pdf"  
   
 Scenario:  row #71
   Given I start the interview at "child_support.yml"
@@ -444,4 +444,4 @@ Scenario:  row #71
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"  
+  And I download "child_support_action_plan.pdf"  
