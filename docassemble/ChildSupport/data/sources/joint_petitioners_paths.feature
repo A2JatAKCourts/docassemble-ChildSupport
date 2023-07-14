@@ -18,6 +18,7 @@ Scenario: joint petitioners do not want interim order have one child row #17
   And I should see the phrase "Fill out the Shared Custody Support Calculation"
   And I should see the phrase "File and serve your forms"
   And I should see the phrase "Get more information or help"
+  And I download "child_support_action_plan.pdf"
   
 Scenario: joint petitioners do not want interim order have one child row #51
   Given I start the interview at "child_support.yml"
@@ -38,3 +39,4 @@ Scenario: joint petitioners do not want interim order have one child row #51
   And I should see the phrase "Fill out the Shared Custody Support Calculation"
   And I should see the phrase "File and serve your forms"
   And I should see the phrase "Get more information or help"
+  And I download "child_support_action_plan.pdf"
