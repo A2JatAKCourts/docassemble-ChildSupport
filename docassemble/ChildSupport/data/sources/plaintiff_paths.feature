@@ -1,7 +1,7 @@
 @plaintiffs
 Feature: User paths
 
-Scenario: plaintiff doesn't want interim order has 1 child row #17
+Scenario: Row #17
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -18,9 +18,9 @@ Scenario: plaintiff doesn't want interim order has 1 child row #17
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the Shared Custody Support Calculation"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
-Scenario: plaintiff doesn't want interim order has > 1 child row #18
+Scenario: Row #18
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -37,9 +37,9 @@ Scenario: plaintiff doesn't want interim order has > 1 child row #18
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the form that matches your situation"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
   
- Scenario: plaintiff doesn't want interim order or general info row #19
+ Scenario: Row #19
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -52,9 +52,9 @@ Scenario: plaintiff doesn't want interim order has > 1 child row #18
   And I should see the phrase "Your Personal Action Plan in 2 Steps"
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
-Scenario: plaintiff wants interim order has 1 child row #20
+Scenario: Row #20
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -75,9 +75,9 @@ Scenario: plaintiff wants interim order has 1 child row #20
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
-Scenario: plaintiff wants interim order has > 1 child row #21
+Scenario: Row #21
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -98,10 +98,10 @@ Scenario: plaintiff wants interim order has > 1 child row #21
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf" 
+  And I download "child_support_action_plan.pdf" 
   
   
-Scenario: plaintiff doesn't want interim order has 1 child row #51
+Scenario: Row #51 
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -119,9 +119,9 @@ Scenario: plaintiff doesn't want interim order has 1 child row #51
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the Shared Custody Support Calculation"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
-Scenario: plaintiff doesn't want interim order has > 1 child row #52
+Scenario: Row #52
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -139,9 +139,9 @@ Scenario: plaintiff doesn't want interim order has > 1 child row #52
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the form that matches your situation"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
   
- Scenario: plaintiff doesn't want interim order or general info row #53
+ Scenario: Row #53
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -155,9 +155,9 @@ Scenario: plaintiff doesn't want interim order has > 1 child row #52
   And I should see the phrase "Your Personal Action Plan in 2 Steps"
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
-Scenario: plaintiff wants interim order has 1 child row #54
+Scenario: Row #54 
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -179,9 +179,9 @@ Scenario: plaintiff wants interim order has 1 child row #54
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"
+  And I download "child_support_action_plan.pdf"
 
-Scenario: plaintiff wants interim order has > 1 child row #55
+Scenario: Row #55 
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -203,4 +203,4 @@ Scenario: plaintiff wants interim order has > 1 child row #55
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
-  And I download "child_support_preview.pdf"   
+  And I download "child_support_action_plan.pdf"   
