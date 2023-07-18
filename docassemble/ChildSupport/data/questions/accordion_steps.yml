@@ -439,7 +439,7 @@ content: |
 ---
 template: modify_step
 subject: |
-  Step ${ modify_idx }: Decide if you need to change your order
+  Step ${ modify_idx }: Decide if you want to change your order
 content: |
   This Guided Assistant interview has information about asking for child support.
   
@@ -610,8 +610,9 @@ content: |
   % else:
   [Ask the Court for a Child Custody or Parenting Plan Order](http://docassemble.akcourts.gov/start/AskingForChildCustody)
   % endif
-  
+  % if general_information_about_forms:
   * Use the other steps in this action plan to help you fill out the child support forms you need to start your case.
+  % endif
   % if interim_motion == 'ask':
   *	File your **Motion for Interim Child Support** with your complaint, which is the form you use to start your case.
   % endif
