@@ -32,10 +32,10 @@ Scenario:  row #24
     | number_of_children | one |  | 
     | interim_motion | wait |  |     
   And I take a screenshot
-  And I should see the phrase "Your Personal Action Plan in 7 Steps"  
+  And I should see the phrase "Your Personal Action Plan in 7 Steps"
   And I should see the phrase "Find out who counts as your child’s legal parents"
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Start a court case"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the Shared Custody Support Calculation"
@@ -113,8 +113,8 @@ Scenario: #27
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 12 Steps"  
   And I should see the phrase "Find out who counts as your child’s legal parents"
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Start a court case"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Ask for interim child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
@@ -161,8 +161,8 @@ Scenario:  #29
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 12 Steps"  
   And I should see the phrase "Find out who counts as your child’s legal parents"
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Start a court case"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Ask for interim child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
@@ -238,8 +238,8 @@ Scenario:  row #57
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 7 Steps"  
   And I should see the phrase "Find out who counts as your child’s legal parents"
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Start a court case"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the Shared Custody Support Calculation"
@@ -356,8 +356,8 @@ Scenario:  row #68
     | interim_motion | ask |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 11 Steps"
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Start a court case"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Ask for interim child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
@@ -403,9 +403,9 @@ Scenario:  row #70
     | number_of_children | one |  | 
     | interim_motion | ask |  |     
   And I take a screenshot
-  And I should see the phrase "Your Personal Action Plan in 11 Steps"  
+  And I should see the phrase "Your Personal Action Plan in 11 Steps"
+  And I should see the phrase "Start a court case"  
   And I should see the phrase "Learn about child support"
-  And I should see the phrase "Start a court case"
   And I should see the phrase "Ask for interim child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
@@ -431,10 +431,10 @@ Scenario:  row #71
     | number_of_children | more than one |  | 
     | interim_motion | ask |  |     
   And I take a screenshot
-  And I should see the phrase "Your Personal Action Plan in 12 Steps" 
+  And I should see the phrase "Your Personal Action Plan in 12 Steps"
+  And I should see the phrase "Start a court case" 
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-  And I should see the phrase "Start a court case"
   And I should see the phrase "Ask for interim child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
