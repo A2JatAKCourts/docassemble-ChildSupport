@@ -110,7 +110,7 @@ code: |
       # Possibly deal with paternity docs up here if placement is ok
       if paternity:
         step_list.append((paternity_step, "paternity_idx"))
-        step_list.append((childsupport_step, "childsupport_idx"))
+        # step_list.append((childsupport_step, "childsupport_idx"))
 
       # Rest of docs/steps
       # rows 23 & 56
