@@ -2,7 +2,7 @@
 Feature: User paths
 
 Scenario: Row #17
-  Given I start the interview at "child_support.yml"
+Â Â Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -21,7 +21,7 @@ Scenario: Row #17
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #18
-  Given I start the interview at "child_support.yml"
+Â Â Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -40,7 +40,7 @@ Scenario: Row #18
   And I download "child_support_action_plan.pdf"
   
  Scenario: Row #19
-  Given I start the interview at "child_support.yml"
+Â Â Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -55,7 +55,7 @@ Scenario: Row #18
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #20
-  Given I start the interview at "child_support.yml"
+Â Â Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -71,14 +71,14 @@ Scenario: Row #20
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the Shared Custody Support Calculation"
   And I should see the phrase "Fill out the Certificate of Service"
-  And I should see the phrase "File your motion forms"
+  And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #21
-  Given I start the interview at "child_support.yml"
+Â Â Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -94,7 +94,7 @@ Scenario: Row #21
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the form that matches your situation"
   And I should see the phrase "Fill out the Certificate of Service"
-  And I should see the phrase "File your motion forms"
+  And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
@@ -102,7 +102,7 @@ Scenario: Row #21
   
   
 Scenario: Row #51 
-  Given I start the interview at "child_support.yml"
+Â Â Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -122,7 +122,7 @@ Scenario: Row #51
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #52
-  Given I start the interview at "child_support.yml"
+Â Â Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -142,7 +142,7 @@ Scenario: Row #52
   And I download "child_support_action_plan.pdf"
   
  Scenario: Row #53
-  Given I start the interview at "child_support.yml"
+Â Â Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -158,7 +158,7 @@ Scenario: Row #52
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #54 
-  Given I start the interview at "child_support.yml"
+Â Â Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -175,14 +175,14 @@ Scenario: Row #54
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the Shared Custody Support Calculation"
   And I should see the phrase "Fill out the Certificate of Service"
-  And I should see the phrase "File your motion forms"
+  And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #55 
-  Given I start the interview at "child_support.yml"
+Â Â Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -199,7 +199,7 @@ Scenario: Row #55
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the form that matches your situation"
   And I should see the phrase "Fill out the Certificate of Service"
-  And I should see the phrase "File your motion forms"
+  And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"

@@ -39,7 +39,7 @@ Scenario: Row #55
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the form that matches your situation"
   And I should see the phrase "Fill out the Certificate of Service"
-  And I should see the phrase "File your motion forms"
+  And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
   And I should see the phrase "What to expect after you file"
   And I should see the phrase "Get more information or help"
