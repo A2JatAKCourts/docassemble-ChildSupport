@@ -2,7 +2,7 @@
 Feature: User paths
 
 Scenario: Row #17
-Â Â Given I start the interview at "child_support.yml"
+  Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -21,7 +21,7 @@ Scenario: Row #17
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #18
-Â Â Given I start the interview at "child_support.yml"
+  Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -39,8 +39,8 @@ Scenario: Row #18
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"
   
- Scenario: Row #19
-Â Â Given I start the interview at "child_support.yml"
+Scenario: Row #19
+  Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -55,7 +55,7 @@ Scenario: Row #18
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #20
-Â Â Given I start the interview at "child_support.yml"
+  Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -78,7 +78,7 @@ Scenario: Row #20
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #21
-Â Â Given I start the interview at "child_support.yml"
+  Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -102,7 +102,7 @@ Scenario: Row #21
   
   
 Scenario: Row #51 
-Â Â Given I start the interview at "child_support.yml"
+  Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -122,7 +122,7 @@ Scenario: Row #51
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #52
-Â Â Given I start the interview at "child_support.yml"
+  Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -142,7 +142,7 @@ Scenario: Row #52
   And I download "child_support_action_plan.pdf"
   
  Scenario: Row #53
-Â Â Given I start the interview at "child_support.yml"
+  Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -158,7 +158,7 @@ Scenario: Row #52
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #54 
-Â Â Given I start the interview at "child_support.yml"
+  Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |
@@ -182,7 +182,7 @@ Scenario: Row #54
   And I download "child_support_action_plan.pdf"
 
 Scenario: Row #55 
-Â Â Given I start the interview at "child_support.yml"
+  Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
     | wants_action_plan | True |  |

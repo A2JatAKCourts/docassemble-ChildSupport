@@ -23,7 +23,7 @@ code: |
   other_party_in_case  = 'the other parent'
   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_interim_orders.png, 100%, Certificate of Service box]'
   images_list.append({'image': service_cert_interim_image, 'text': "Certificate of Service at the bottom of a Motion for Interim Child Support."})  
-  file_step_heading = 'File your Motion for Interim Child Support'
+  file_step_heading = "File your Motion for Interim Child Support"
   file_motion_to_set_aside = ''
   file_motion_to_enforce = ''
   file_modify_filing_fee = ''
