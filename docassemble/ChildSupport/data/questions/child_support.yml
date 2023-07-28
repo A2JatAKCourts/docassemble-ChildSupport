@@ -245,12 +245,12 @@ fields:
       - "I do not know": unknown
   - note: |
      
-     #### <i class="fa-regular fa-lightbulb"></i> What if I need information about getting child support in another state? ####
+     #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
      Your Personal Action Plan explains how child support works only in Alaska.  To find out about child support in other states find their [court](https://www.ncsc.org/information-and-resources/state-court-websites), [legal aid](https://lawhelp.org), [child support agency or tribal child support agency website](https://www.acf.hhs.gov/css/contact-information/state-and-tribal-child-support-agency-contacts).
 ---
 id: Courtview
 question: |
-  Look for your name in Courtview
+  Courtview
 subquestion: |
   Look for your name in [Courtview](https://records.courts.alaska.gov/eaccess/search.page.3), the Alaska Court System’s list of public court cases. If you find a case with your name you can see what kind of case it is.  
   Do you have a court case for: 
@@ -293,21 +293,12 @@ id: Interim child support order
 question: |
   Interim child support order
 subquestion: |
-  % if existing_case == 'open':
-  % if user_role_in_case == 'defendant': 
-  % if need_to_respond:
-   Your Personal Action Plan now includes information about filing papers to respond in your ${ case_type } case. 
-  % endif
-  % endif
-  % endif
+  When parents do not live together, child support is money one parent gives the other parent to help pay for their children’s expenses.
   
-  The judge will enter a final child support order at the end of your case, and pick the date child support should start.  
+  The judge will sign a child support order at the end of your case, and pick the date the child support should start.  Sometimes the start date is in the past, and one parent owes the other parent back child support.
   
-  Child support is usually owed when parents do not live together.  
-  
-  Sometimes, when a case ends, one parent owes the other parent back child support.  
-  
-  If you do not want to wait until the end of your case, you can ask the judge for an “interim” Child Support order.    
+    If you do not want to wait until the end of your case, you can ask the judge for an “interim” child support order that starts before the case ends.  
+   
 fields:
   - "What do you want to do?": interim_motion
     input type: radio
@@ -356,9 +347,7 @@ fields:
   - note: |
       #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
       
-      Child support is to support  children  who are under 18.
-
-      Child support orders usually last until your child turns 19 if:
+      Child support orders last until your children turn 18, or last until they turn 19 if:
       
       1. They still live with you or their other parent, and
       2. They are finishing high school.
@@ -367,12 +356,10 @@ id: Paternity
 question: |
   Paternity
 subquestion: |
- Parents are responsible for financially supporting their children.  
-  
-  A child's biological father is generally their legal father.
-
-  If parents disagree, either parent can ask the court to decide.  
+ Paternity refers to a child’s legal father.  Only a child’s legal father has the rights and responsibilities of a father.  Usually a child’s biological father is also their legal father.
  
+ You may have to prove the identity of your child’s biological father to establish him as the legal father if you and the other parent disagree.
+
   * Proving someone is the **biological** father of a child is called "establishing paternity."
   * Proving someone is not the **biological** father is called "disestablishing paternity." 
 
@@ -382,18 +369,12 @@ fields:
     datatype: yesnoradio
   - note: |
       #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
-      Is the law different if my child:
+      It can be complicated if your child is not the biological child of both parents.  You may want to talk to a lawyer if you have questions about establishing or disestablishing paternity and:
       
-      *	is adopted, 
-      *	has parents who are the same gender,
-      *	has transgender parents, or
-      * was conceived by in vitro fertilization, or surrogacy?
-      
-      A person who adopts a child is the child's legal parent.
-      Usually, you cannot “undo” an adoption to “disestablish paternity”.
-      
-      These situations can be complicated.  If you have questions, it is a good idea to talk to a lawyer.
-  
+      *	your child is adopted, 
+      *	you and the other parent are the same gender,
+      *	you and the other parent are transgender parents, or
+      * your child was conceived by in vitro fertilization, or surrogacy?  
 ---
 id: Ask CSED or the Court for a child support order
 question: |
@@ -414,8 +395,8 @@ subquestion: |
   *	a holiday schedule,
   *	how you will make decisions about your children, and 
   *	financial questions like: 
-    *	“How to spend our children’s PFDs?” or 
-    *	“Which parent should claim any child tax credits?”  
+    *	spending your children’s PFD, or 
+    *	claiming child tax credits.  
   
   **The Alaska Child Support Enforcement Division (CSED)** can order child support but does not order Parenting Plans. CSED child support orders work best if you do not need a Parenting Plan.  
   
@@ -428,8 +409,8 @@ fields:
       - "CSED": cssd
       - "Both": both
   - note: |
-      #### <i class="fa-regular fa-lightbulb"></i> How does the court or CSED decide how much Child Support to order?####
-      The Alaska Supreme Court sets the guidelines that judges and Alaska Child Support Enforcement Division must follow when they decide the amount of child support payments. You can read the rule and the Child Support Guideline Committee’s comments about the rule online See [Child Support Awards in Civil Rule 90.3](https://casetext.com/rule/alaska-court-rules/alaska-rules-of-civil-procedure/part-xii-special-proceedings/rule-903-child-support-awards) or [the court's PDF](https://public.courts.alaska.gov/web/rules/docs/civ.pdf)
+      #### <i class="fa-regular fa-lightbulb"></i> Learn more####
+      The Alaska Supreme Court sets the formula that judges and Alaska Child Support Enforcement Division must follow when they decide the amount of child support payments. 
 ---
 id: Ask the court for Child Support
 question: |
