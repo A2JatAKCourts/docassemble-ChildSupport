@@ -461,21 +461,21 @@ content: |
   
   See [Changing or Enforcing Your Child Support Order](https://docassemble.AKCourts.gov/start/ChangingChildSupport)
 ---
-template: get_help
-subject: |
-  Step ${ get_help_idx }: Get more information or help
-content: |
-  <p>For help with forms or understanding the process, call the <a href="https://courts.alaska.gov/shc/family">Family Law Self-Help Center</a></br>
-  (907) 264-0851 or</br>
-  (866) 279-0851.</br>
-  </p>
-  
-  Many lawyers offer free or flat fee consultations without having to hire them for the whole case. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
-  
-  Depending on your income, you may qualify for [Alaska Free Legal Answers](https://alaska.freelegalanswers.org).
-  
-  Depending on your income and circumstances, you may qualify for a free lawyer from [Alaska Legal Services](alsc-law.org/apply-for-services).
----
+#  template: get_help
+#  subject: |
+#    Step ${ get_help_idx }: Get more information or help
+#  content: |
+#    <p>For help with forms or understanding the process, call the <a href="https://courts.alaska.gov/shc/family">Family Law Self-Help Center</a></br>
+#    (907) 264-0851 or</br>
+#    (866) 279-0851.</br>
+#    </p>
+#    
+#    Many lawyers offer free or flat fee consultations without having to hire them for the whole case. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
+#    
+#    Depending on your income, you may qualify for [Alaska Free Legal Answers](https://alaska.freelegalanswers.org).
+#    
+#    Depending on your income and circumstances, you may qualify for a free lawyer from [Alaska Legal Services](alsc-law.org/apply-for-services).
+#  ---
 template: paternity_step
 subject: |
   Step ${ paternity_idx }: Find out who counts as your child's legal parents
