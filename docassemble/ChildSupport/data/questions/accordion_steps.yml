@@ -38,8 +38,6 @@ code: |
     
   else:
     if existing_case == "open" or (existing_case == "unknown" and after_courtview == "open"):
-      if user_role_in_case == "plaintiff":
-        expect_after_motion = "If you file your <b>Motion for Interim Child Support</b> with your complaint, " + other_party_in_case + " does not have to respond until they respond to the complaint.  This is usually 20 days after they get the complaint." 
 
       # rows 16 & 40
       if user_role_in_case == "closed":
@@ -107,7 +105,7 @@ code: |
           step_list.append((expect_step, "expect_idx"))
 
     if existing_case == "none" or (existing_case == "unknown" and after_courtview == "none"):
-      expect_after_motion = "If you file your <b>Motion for Interim Child Support</b> with your complaint, " + other_party_in_case + " does not have to respond until they respond to the complaint.  This is usually 20 days after they get the complaint."
+      expect_after_motion = "<p>If you file your <b>Motion for Interim Child Support</b> with your complaint, " + other_party_in_case + " does not have to respond until they respond to the complaint.  This is usually 20 days after they get the complaint.    </p>"
 
       # Possibly deal with paternity docs up here if placement is ok
       if paternity:
