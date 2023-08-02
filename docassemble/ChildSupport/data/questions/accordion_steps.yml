@@ -115,8 +115,9 @@ code: |
       # Rest of docs/steps
       # rows 23 & 56
       if ask_court_or_cssd == "cssd":
-        step_list.append((childsupport_step, "childsupport_idx"))
         step_list.append((cssd_step, "cssd_idx"))
+        step_list.append((childsupport_step, "childsupport_idx"))
+        
 
       # rows 24 & 57
       if ask_court_or_cssd == "court" \
@@ -136,9 +137,9 @@ code: |
         and general_information_about_forms \
         and number_of_children == "one" \
         and interim_motion == "wait":
-          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((cssd_step, "cssd_idx"))
           step_list.append((court_step, "court_idx"))
+          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
@@ -165,9 +166,9 @@ code: |
          and general_information_about_forms \
          and number_of_children == "one" \
          and interim_motion == "ask":
-           step_list.append((childsupport_step, "childsupport_idx"))
            step_list.append((cssd_step, "cssd_idx"))
            step_list.append((court_step, "court_idx"))
+           step_list.append((childsupport_step, "childsupport_idx"))
            step_list.append((interim_step, "interim_idx")) 
            step_list.append((general_info_step, "general_info_idx"))
            step_list.append((one_child1_step, "one_child1_idx"))
@@ -194,9 +195,9 @@ code: |
         and general_information_about_forms \
         and number_of_children == "more than one" \
         and interim_motion == "wait":
-          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((cssd_step, "cssd_idx"))
           step_list.append((court_step, "court_idx"))
+          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
@@ -223,9 +224,9 @@ code: |
         and general_information_about_forms \
         and number_of_children == "more than one" \
         and interim_motion == "ask":
-          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((cssd_step, "cssd_idx"))
           step_list.append((court_step, "court_idx"))
+          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((interim_step, "interim_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
@@ -247,9 +248,9 @@ code: |
         and (parents_married or not parents_married) \
         and not general_information_about_forms \
         and interim_motion == "wait":
-          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((cssd_step, "cssd_idx"))
           step_list.append((court_step, "court_idx"))
+          step_list.append((childsupport_step, "childsupport_idx"))
 
       # 29
       if ask_court_or_cssd == "court" \
@@ -273,9 +274,9 @@ code: |
         and not general_information_about_forms \
         and interim_motion == "ask" \
         and number_of_children == "one":
-          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((cssd_step, "cssd_idx"))
           step_list.append((court_step, "court_idx"))
+          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((interim_step, "interim_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
@@ -307,9 +308,9 @@ code: |
         and not general_information_about_forms \
         and interim_motion == "ask" \
         and number_of_children == "more than one":
-          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((cssd_step, "cssd_idx"))
           step_list.append((court_step, "court_idx"))
+          step_list.append((childsupport_step, "childsupport_idx"))
           step_list.append((interim_step, "interim_idx"))
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((more_children_step, "more_children_idx"))
@@ -492,7 +493,7 @@ content: |
   * The husband is the child’s legal father, even if he is not the biological father.
   * If the husband is not the biological father, you need to disestablish his paternity and establish the biological father’s paternity. After you do this, the biological father will also be the child’s legal father. 
   
-  <div class='step-subheading'>Benefits of Establishing Paternity</div>
+  <div class='step-subheading'>Benefits of establishing paternity</div>
   
   Your child gets many benefits from knowing who their biological father is:
   
@@ -617,17 +618,22 @@ subject: |
   Step ${ court_idx }: Start a court case
 content: |
   Use the Guided Assistant interview to answer questions and get detailed steps about how to start your case.
+  
   % if parents_married:
   [Start a Case to End Your Marriage or Legally Separate](http://docassembledev.akcourts.gov/start/Divorce)
   % else:
   [Ask the Court for a Child Custody or Parenting Plan Order](http://docassemble.akcourts.gov/start/AskingForChildCustody)
   % endif
+  % if general_information_about_forms or interim_motion == 'ask':
+  <ul>
   % if general_information_about_forms:
-  * Use the other steps in this action plan to help you fill out the child support forms you need to start your case.
+  <li>Use the other steps in this action plan to help you fill out the child support forms you need to start your case.</li>
   % endif
   % if interim_motion == 'ask':
-  *	File your **Motion for Interim Child Support** with your complaint, which is the form you use to start your case.
+  <li>File your <strong>Motion for Interim Child Support</strong> with your complaint, which is the form you use to start your case.</li>
   % endif
+  </ul>
+   % endif
 ---
 template: respond_step
 subject: |

@@ -31,7 +31,7 @@ Scenario: Row #16 case closed
   And I download "child_support_action_plan.pdf"
 
 @UnknownCase
-Scenario: does not know if they have an open case. row #39
+Scenario: row #39
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -46,7 +46,7 @@ Scenario: does not know if they have an open case. row #39
   And I download "child_support_action_plan.pdf"
 
 
-Scenario: After looking at courtview case ended. row #40
+Scenario: row #40
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |
@@ -62,7 +62,7 @@ Scenario: After looking at courtview case ended. row #40
   And I download "child_support_action_plan.pdf"
 
   
-Scenario: defendant w custody case row # 41
+Scenario: # 41
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
     | var | value | trigger |

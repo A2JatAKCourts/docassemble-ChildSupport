@@ -13,8 +13,8 @@ Scenario:  row #23
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 4 Steps"  
   And I should see the phrase "Find out who counts as your child’s legal parents"
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"
 
@@ -58,9 +58,9 @@ Scenario:  row #25
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 13 Steps"  
   And I should see the phrase "Find out who counts as your child’s legal parents"
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Start a court case"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Ask for interim child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
@@ -88,9 +88,9 @@ Scenario:  #26
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 8 Steps"  
   And I should see the phrase "Find out who counts as your child’s legal parents"
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Start a court case"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
   And I should see the phrase "Fill out the form that matches your situation"
@@ -140,8 +140,8 @@ Scenario:  #28
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 5 Steps"  
   And I should see the phrase "Find out who counts as your child’s legal parents"
+  And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"  
   And I should see the phrase "Learn about child support"
-  And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"
@@ -189,9 +189,9 @@ Scenario:  row #30
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 13 Steps"  
   And I should see the phrase "Find out who counts as your child’s legal parents"
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Start a court case"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Ask for interim child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
@@ -216,8 +216,8 @@ Scenario:  row #56
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 4 Steps"  
   And I should see the phrase "Find out who counts as your child’s legal parents"
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"
 
@@ -257,8 +257,8 @@ Scenario:  row #64
     | ask_court_or_cssd | cssd |  |
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 3 Steps"  
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"
 
@@ -277,8 +277,8 @@ Scenario:  row #65
     | interim_motion | wait |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 7 Steps"  
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
@@ -300,10 +300,10 @@ Scenario:  row #66
     | number_of_children | one |  | 
     | interim_motion | ask |  |     
   And I take a screenshot
-  And I should see the phrase "Your Personal Action Plan in 12 Steps"  
-  And I should see the phrase "Learn about child support"
+  And I should see the phrase "Your Personal Action Plan in 12 Steps"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-  And I should see the phrase "Start a court case"
+  And I should see the phrase "Start a court case"  
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Ask for interim child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
@@ -331,7 +331,6 @@ Scenario:  row #67
     | interim_motion | wait |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 7 Steps"
-  And I should see the phrase "Learn about child support"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
@@ -382,9 +381,9 @@ Scenario:  row #69
     | general_information_about_forms | False |  |
     | interim_motion | wait |  |     
   And I take a screenshot
-  And I should see the phrase "Your Personal Action Plan in 4 Steps" "
-  And I should see the phrase "Learn about child support"
+  And I should see the phrase "Your Personal Action Plan in 4 Steps"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
+  And I should see the phrase "Learn about child support"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"
@@ -432,9 +431,9 @@ Scenario:  row #71
     | interim_motion | ask |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 12 Steps"
+  And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Start a court case" 
   And I should see the phrase "Learn about child support"
-  And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Ask for interim child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
   And I should see the phrase "Figure out your child support schedule"
