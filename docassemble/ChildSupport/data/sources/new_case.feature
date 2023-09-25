@@ -12,7 +12,7 @@ Scenario:  row #23
     | ask_court_or_cssd | cssd |  |
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 4 Steps"  
-  And I should see the phrase "Find out who counts as your child’s legal parents"
+  And I should see the phrase "Find out who counts as your childâ€™s legal parents"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Get more information or help"
@@ -33,7 +33,7 @@ Scenario:  row #24
     | interim_motion | wait |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 7 Steps"
-  And I should see the phrase "Find out who counts as your child’s legal parents"
+  And I should see the phrase "Find out who counts as your childâ€™s legal parents"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
@@ -57,7 +57,7 @@ Scenario:  row #25
     | interim_motion | ask |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 13 Steps"  
-  And I should see the phrase "Find out who counts as your child’s legal parents"
+  And I should see the phrase "Find out who counts as your childâ€™s legal parents"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Learn about child support"
@@ -68,7 +68,7 @@ Scenario:  row #25
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
   
@@ -87,7 +87,7 @@ Scenario:  #26
     | interim_motion | wait |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 8 Steps"  
-  And I should see the phrase "Find out who counts as your child’s legal parents"
+  And I should see the phrase "Find out who counts as your childâ€™s legal parents"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Learn about child support"
@@ -112,7 +112,7 @@ Scenario: #27
     | interim_motion | ask |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 12 Steps"  
-  And I should see the phrase "Find out who counts as your child’s legal parents"
+  And I should see the phrase "Find out who counts as your childâ€™s legal parents"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Ask for interim child support"
@@ -122,7 +122,7 @@ Scenario: #27
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
 
@@ -140,7 +140,7 @@ Scenario:  #28
     | interim_motion | wait |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 5 Steps"  
-  And I should see the phrase "Find out who counts as your child’s legal parents"
+  And I should see the phrase "Find out who counts as your childâ€™s legal parents"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"  
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Start a court case"
@@ -162,7 +162,7 @@ Scenario:  #29
     | interim_motion | ask |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 12 Steps"  
-  And I should see the phrase "Find out who counts as your child’s legal parents"
+  And I should see the phrase "Find out who counts as your childâ€™s legal parents"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Ask for interim child support"
@@ -172,7 +172,7 @@ Scenario:  #29
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help" 
   And I download "child_support_action_plan.pdf" 
 
@@ -191,7 +191,7 @@ Scenario:  row #30
     | interim_motion | ask |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 13 Steps"  
-  And I should see the phrase "Find out who counts as your child’s legal parents"
+  And I should see the phrase "Find out who counts as your childâ€™s legal parents"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Learn about child support"
@@ -202,7 +202,7 @@ Scenario:  row #30
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
 
@@ -218,7 +218,7 @@ Scenario:  row #56
     | ask_court_or_cssd | cssd |  |
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 4 Steps"  
-  And I should see the phrase "Find out who counts as your child’s legal parents"
+  And I should see the phrase "Find out who counts as your childâ€™s legal parents"
   And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Get more information or help"
@@ -240,7 +240,7 @@ Scenario:  row #57
     | interim_motion | wait |  |     
   And I take a screenshot
   And I should see the phrase "Your Personal Action Plan in 7 Steps"  
-  And I should see the phrase "Find out who counts as your child’s legal parents"
+  And I should see the phrase "Find out who counts as your childâ€™s legal parents"
   And I should see the phrase "Start a court case"
   And I should see the phrase "Learn about child support"
   And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
@@ -316,7 +316,7 @@ Scenario:  row #66
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
   
@@ -369,7 +369,7 @@ Scenario:  row #68
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
 
@@ -419,7 +419,7 @@ Scenario:  row #70
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
   
@@ -449,6 +449,6 @@ Scenario:  row #71
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  

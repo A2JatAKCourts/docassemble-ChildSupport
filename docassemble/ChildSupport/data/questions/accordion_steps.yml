@@ -27,6 +27,7 @@ code: |
   file_motion_to_set_aside = ''
   file_motion_to_enforce = ''
   file_modify_filing_fee = ''
+  motion_type = 'a Motion for Interim Child Support'
   # expect_after_motion is in what to expect step for filing motion for interim order w complaint, or answer/response, cannot use variable in docx template, must insert condition in what to expect step.
   expect_after_motion = ''
   if not wants_action_plan:
@@ -88,7 +89,7 @@ code: |
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
           step_list.append((file_step, "file_idx"))
           step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
+          step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
 
       # rows 21 & 55
       if user_role_in_case in ("plaintiff", "joint") \
@@ -102,7 +103,7 @@ code: |
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
           step_list.append((file_step, "file_idx"))
           step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
+          step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
 
     if existing_case == "none" or (existing_case == "unknown" and after_courtview == "none"):
       expect_after_motion = "<p>If you file your <b>Motion for Interim Child Support</b> with your complaint, " + other_party_in_case + " does not have to respond until they respond to the complaint.  This is usually 20 days after they get the complaint.    </p>"
@@ -159,7 +160,7 @@ code: |
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
           step_list.append((file_step, "file_idx"))
           step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
+          step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
      
       if ask_court_or_cssd == "both" \
          and (parents_married or not parents_married) \
@@ -176,7 +177,7 @@ code: |
            step_list.append((cert_of_service_step, "cert_of_service_idx"))
            step_list.append((file_step, "file_idx"))
            step_list.append((serve_step, "serve_idx"))
-           step_list.append((expect_step, "expect_idx"))
+           step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
  
       # rows 26 & 59
       if ask_court_or_cssd == "court" \
@@ -217,7 +218,7 @@ code: |
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
           step_list.append((file_step, "file_idx"))
           step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
+          step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
           
       if ask_court_or_cssd == "both" \
         and (parents_married or not parents_married) \
@@ -234,7 +235,7 @@ code: |
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
           step_list.append((file_step, "file_idx"))
           step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
+          step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
 
       # 28
       if ask_court_or_cssd == "court" \
@@ -267,7 +268,7 @@ code: |
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
           step_list.append((file_step, "file_idx"))
           step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
+          step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
           
       if ask_court_or_cssd == "both" \
         and (parents_married or not parents_married) \
@@ -284,7 +285,7 @@ code: |
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
           step_list.append((file_step, "file_idx"))
           step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
+          step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
 
       # 30
       if ask_court_or_cssd == "court" \
@@ -301,7 +302,7 @@ code: |
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
           step_list.append((file_step, "file_idx"))
           step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
+          step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
           
       if ask_court_or_cssd == "both" \
         and (parents_married or not parents_married) \
@@ -318,7 +319,7 @@ code: |
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
           step_list.append((file_step, "file_idx"))
           step_list.append((serve_step, "serve_idx"))
-          step_list.append((expect_step, "expect_idx"))
+          step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
 
     if existing_case == "unknown" and after_courtview == "unknown":
       step_list.append((childsupport_step, "childsupport_idx"))
