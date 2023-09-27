@@ -29,7 +29,6 @@ code: |
   file_modify_filing_fee = ''
   motion_type = 'Motion for Interim Child Support'
   # expect_after_motion is in what to expect step for filing motion for interim order w complaint, or answer/response, cannot use variable in docx template, must insert condition in what to expect step.
-  motion_type = 'a Motion for Interim Child Support'
   expect_after_motion = ''
   if not wants_action_plan:
     step_list.append((wrong_tf, "wrong_tf_idx"))
