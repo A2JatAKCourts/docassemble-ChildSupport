@@ -68,7 +68,7 @@ Scenario:  row #25
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
   
@@ -122,7 +122,7 @@ Scenario: #27
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
 
@@ -172,7 +172,7 @@ Scenario:  #29
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help" 
   And I download "child_support_action_plan.pdf" 
 
@@ -202,7 +202,7 @@ Scenario:  row #30
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
 
@@ -316,7 +316,7 @@ Scenario:  row #66
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
   
@@ -369,7 +369,7 @@ Scenario:  row #68
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
 
@@ -419,7 +419,7 @@ Scenario:  row #70
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  
   
@@ -449,6 +449,6 @@ Scenario:  row #71
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"  

@@ -1,6 +1,7 @@
 @joint_petitioners
 Feature: User paths
 
+@row17
 Scenario: Row #17 
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
@@ -20,6 +21,7 @@ Scenario: Row #17
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"
   
+@row55
 Scenario: Row #55 
   Given I start the interview at "child_support.yml"
   And I get to the question id "download child support" with this data:
@@ -41,6 +43,6 @@ Scenario: Row #55
   And I should see the phrase "Fill out the Certificate of Service"
   And I should see the phrase "File your Motion for Interim Child Support"
   And I should see the phrase "Serve the other parent"
-  And I should see the phrase "What to expect after you file"
+  And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
   And I should see the phrase "Get more information or help"
   And I download "child_support_action_plan.pdf"
