@@ -18,8 +18,10 @@ buttons:
 code: |
   # Logic reference: https://docs.google.com/spreadsheets/d/1qHv16Z5mK7jf_UE14wLpZRL9nIIu_xkHBM-UF0ETRJg/edit#gid=0
   
+  user_need = 'child support'
   step_list = []
   images_list = []
+  reply_certificate_list = []
   other_party_in_case  = 'the other parent'
   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_interim_orders.png, 100%, Certificate of Service box]'
   images_list.append({'image': service_cert_interim_image, 'text': "Certificate of Service at the bottom of a Motion for Interim Child Support."})  
@@ -30,6 +32,7 @@ code: |
   motion_type = 'Motion for Interim Child Support'
   # expect_after_motion is in what to expect step for filing motion for interim order w complaint, or answer/response, cannot use variable in docx template, must insert condition in what to expect step.
   expect_after_motion = ''
+  reply_certificate_list.append({'image': service_cert_reply_image, 'text': "Certificate of Service at the bottom of the Reply form."})
   if not wants_action_plan:
     step_list.append((wrong_tf, "wrong_tf_idx"))
     step_list.append((wrong_tf2, "wrong_tf2_idx"))
