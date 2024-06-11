@@ -90,8 +90,8 @@ code: |
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
+          step_list.append((file_motion_step, "file_motion_idx"))
+          step_list.append((serve_motion_step, "serve_motion_idx"))
           step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
 
       # rows 21 & 55
@@ -104,8 +104,8 @@ code: |
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
+          step_list.append((file_motion_step, "file_motion_idx"))
+          step_list.append((serve_motion_step, "serve_motion_idx"))
           step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
 
     if existing_case == "none" or (existing_case == "unknown" and after_courtview == "none"):
@@ -161,8 +161,8 @@ code: |
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
+          step_list.append((file_motion_step, "file_motion_idx"))
+          step_list.append((serve_motion_step, "serve_motion_idx"))
           step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
      
       if ask_court_or_cssd == "both" \
@@ -178,8 +178,8 @@ code: |
            step_list.append((one_child1_step, "one_child1_idx"))
            step_list.append((shared_custody_step, "shared_custody_idx"))
            step_list.append((cert_of_service_step, "cert_of_service_idx"))
-           step_list.append((file_step, "file_idx"))
-           step_list.append((serve_step, "serve_idx"))
+           step_list.append((file_motion_step, "file_motion_idx"))
+           step_list.append((serve_motion_step, "serve_motion_idx"))
            step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
  
       # rows 26 & 59
@@ -219,8 +219,8 @@ code: |
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
+          step_list.append((file_motion_step, "file_motion_idx"))
+          step_list.append((serve_motion_step, "serve_motion_idx"))
           step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
           
       if ask_court_or_cssd == "both" \
@@ -236,8 +236,8 @@ code: |
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
+          step_list.append((file_motion_step, "file_motion_idx"))
+          step_list.append((serve_motion_step, "serve_motion_idx"))
           step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
 
       # 28
@@ -269,8 +269,8 @@ code: |
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
+          step_list.append((file_motion_step, "file_motion_idx"))
+          step_list.append((serve_motion_step, "serve_motion_idx"))
           step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
           
       if ask_court_or_cssd == "both" \
@@ -286,8 +286,8 @@ code: |
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
+          step_list.append((file_motion_step, "file_motion_idx"))
+          step_list.append((serve_motion_step, "serve_motion_idx"))
           step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
 
       # 30
@@ -303,8 +303,8 @@ code: |
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
+          step_list.append((file_motion_step, "file_motion_idx"))
+          step_list.append((serve_motion_step, "serve_motion_idx"))
           step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
           
       if ask_court_or_cssd == "both" \
@@ -320,8 +320,8 @@ code: |
           step_list.append((more_children_step, "more_children_idx"))
           step_list.append((more_children_forms_step, "more_children_forms_idx"))
           step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_step, "file_idx"))
-          step_list.append((serve_step, "serve_idx"))
+          step_list.append((file_motion_step, "file_motion_idx"))
+          step_list.append((serve_motion_step, "serve_motion_idx"))
           step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
 
     if existing_case == "unknown" and after_courtview == "unknown":
