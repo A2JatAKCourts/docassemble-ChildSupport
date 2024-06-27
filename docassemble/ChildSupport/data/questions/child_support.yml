@@ -502,16 +502,33 @@ objects:
   - al_user_bundle: ALDocumentBundle.using(elements=[child_support_attachment], filename="child_support_action_plan", title="All forms to download for your records", enabled=True)
   - al_recipient_bundle: ALDocumentBundle.using(elements=[child_support_attachment],  filename="child_support_action_plan", title="All forms to file", enabled=True)
 ---
-# Each attachment defines a key in an ALDocument. We use `i` as the placeholder here so the same template is 
-# used for "preview" and "final" keys, and logic in the template checks the value of 
-# `i` to show or hide the user's signature
-attachments:
-  #  - name: Post-interview-Instructions
-  #    filename: child_support_next_steps
-  #    docx template file: child_support_next_steps.docx
-  #    variable name: child_support_Post_interview_instructions[i]
-  - name: Asking for child support Action Plan
-    filename: child_support_action_plan
-    variable name: child_support_attachment[i]
-    skip undefined: True
-    docx template file: child_support_action_plan.docx	
+## Each attachment defines a key in an ALDocument. We use `i` as the placeholder here so the same template is 
+## used for "preview" and "final" keys, and logic in the template checks the value of 
+## `i` to show or hide the user's signature
+#attachments:
+#  #  - name: Post-interview-Instructions
+#  #    filename: child_support_next_steps
+#  #    docx template file: child_support_next_steps.docx
+#  #    variable name: child_support_Post_interview_instructions[i]
+#  - name: Asking for child support Action Plan
+#    filename: child_support_action_plan
+#    variable name: child_support_attachment[i]
+#    skip undefined: True
+#    docx template file: child_support_action_plan.docx	
+---
+attachment:
+  name: Asking for child support Action Plan
+  filename: child_support_action_plan
+  update references: True
+  variable name: child_support_attachment[i]
+  skip undefined: True
+  docx template file: child_support_action_plan.docx
+  tagged pdf: True
+---
+attachment:
+  name: Asking for child support Action Plan
+  filename: child_support_action_plan
+  update references: True
+  variable name: docx_child_support_attachment
+  skip undefined: True
+  docx template file: child_support_action_plan.docx
