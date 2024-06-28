@@ -18,7 +18,7 @@ subquestion: |
   ${ al_user_bundle.download_list_html() }
   
   % if "docassembledev" in interview_url():
-  [get the docx file](${ docx_divorce_dissolution_separation_action_plan_attachment.docx.url_for() })
+  [get the docx file](${ docx_child_support_attachment.docx.url_for() })
   % endif 
 buttons:
   - Start over: restart
