@@ -6,7 +6,7 @@ question: |
 subquestion: | 
   #### Your Personal Action Plan in ${ len(step_list) } Steps
   
-  % if "docassembledev" in interview_url():
+  % if get_config("debug", False):
   <button id="akc_expand_all" class="btn other stuff">Expand all</button>
   <button id="akc_collapse_all" class="btn other stuff">Collapse all</button>
   % endif
@@ -17,7 +17,7 @@ subquestion: |
   
   ${ al_user_bundle.download_list_html() }
   
-  % if "docassembledev" in interview_url():
+  % if get_config("debug", False):
   [get the docx file](${ docx_child_support_attachment.docx.url_for() })
   % endif 
 buttons:
