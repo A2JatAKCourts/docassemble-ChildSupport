@@ -389,7 +389,7 @@ content: |
       * If CSED establishes paternity, they will order child support. Either parent can open a court case and ask the court for a Parenting Plan so both parents can spend time with their child. Use [Ask the Court for a Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/AskingForChildCustody).
   * Start a court case to establish or disestablish paternity:
       * If a husband and wife are married when a child is born, the husband is not the biological father.
-      * If the husband and wife want to separate, they can start a divorce, dissolution, or legal separation case. and ask the judge to disestablish paternity as part of the divorce case. Use [Start a Case to End Your Marriage or Legally Separate](http://docassemble.akcourts.gov/start/Divorce).
+      * If the husband and wife want to separate, they can start a divorce, dissolution, or legal separation case. and ask the judge to disestablish paternity as part of the divorce case. Use [Start a Case to End Your Marriage or Legally Separate](https://docassemble.akcourts.gov/start/DivorceAndSeparation).
       * If a married husband and wife want to stay married, but the husband is not the biological father of a child, the wife, husband, or another man can start a case to disestablish the husband’s paternity and establish another man’s paternity.
       * If you are not married to the other biological parent when the child is born, you can start a paternity case and ask the judge to find that your child’s biological father is their legal father. If the judge establishes paternity, they can order child support. You can ask the court to open a custody case at the same time and get a Parenting Plan so both parents can spend time with their child. Use [Ask the Court for a Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/AskingForChildCustody).
       * See the court’s [paternity forms](https://courts.alaska.gov/shc/family/shcforms.htm#paternity).
@@ -415,7 +415,7 @@ content: |
     * CSED can help collect child support for both a CSED child support order and a court child support order.  If you have a court child support order and you want CSED to hep collect, apply for CSED services.
     * Once a year, either parent can ask CSED to look at each parent’s income and calculate if the child support amount should change. 
       * If CSED ordered the child support, and the amount should change, CSED will change it. 
-      *	If the court ordered the child support, CSED will tell you if the amount should change.  To change child support, you need to file a motion with the court to modify child support.  Use [Changing Your Child Support Order](https://docassemble.akcourts.gov/start/ChangingChildSupport).
+      *	If the court ordered the child support, CSED will tell you if the amount should change.  To change child support, you need to file a motion with the court to modify child support.  Use [Changing Your Child Support Order](https://docassemble.akcourts.gov/start/ChangingEnforcingChildSupport).
     * CSED can order DNA testing.  DNA testing can show who a child’s biological father is.
     *	If you do not agree about the biological father, CSED can order DNA tests to prove paternity.
     *	If you ask CSED for a child support order, they calculate child support based on the schedule you already have. They do not make a parenting plan order about:
@@ -515,9 +515,9 @@ content: |
   Use the Court Guide Action Plan to answer questions and get detailed steps about how to respond in your ${ case_type } case.
   
   % if case_type in ('divorce', 'legal separation'):
-  [Respond in your case to end your marriage](https://docassemble.akcourts.gov/start/RespondToDivorce)
+  [Respond in your case to end your marriage](https://docassemble.AKcourts.gov/start/RespondingDivorceAndSeparation)
   % else:
-  [Respond in Your Child Custody or Parenting Plan Case](https://docassemble.akcourts.gov/start/RespondToCustody)
+  [Respond in Your Child Custody or Parenting Plan Case](https://docassemble.akcourts.gov/start/RespondingCustody)
   % endif
 ---
 template: interim_step
@@ -617,7 +617,7 @@ content: |
   
   If your case is closed you may want to get a Personal Action Plan for changing or enforcing your child support order: 
   
-  See [Changing or Enforcing Your Child Support Order](https://docassemble.AKCourts.gov/start/ChangingChildSupport)
+  See [Changing or Enforcing Your Child Support Order](https://docassemble.akcourts.gov/start/ChangingEnforcingChildSupport/)
 ---
 template: find_out_if_court_step
 subject: |
