@@ -218,9 +218,9 @@ id: Asking_for_Child_Support
 question: |
   Asking for Child Support
 subquestion: |
-  This Guided Assistant asks you questions and uses your answers to build a Personal Action Plan - a list of steps to help you ask for child support in Alaska.
+  This Court Guide Action Plan asks you questions and uses your answers to build a a list of steps to help you ask for child support in Alaska.
   
-  This interview can help you find information to:
+  Your Action Plan will help you find information to:
   
 	* Ask the court for child support when you start a case.
 	* Ask the court for child support during a case.
@@ -246,7 +246,7 @@ fields:
   - note: |
      
      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
-     Your Personal Action Plan explains how child support works only in Alaska.  To find out about child support in other states find their [court](https://www.ncsc.org/information-and-resources/state-court-websites), [legal aid](https://lawhelp.org), [child support agency or tribal child support agency website](https://www.acf.hhs.gov/css/contact-information/state-and-tribal-child-support-agency-contacts).
+     Your Action Plan explains how child support works only in Alaska.  To find out about child support in other states find their [court](https://www.ncsc.org/information-and-resources/state-court-websites), [legal aid](https://lawhelp.org), [child support agency or tribal child support agency website](https://www.acf.hhs.gov/css/contact-information/state-and-tribal-child-support-agency-contacts).
 ---
 id: Courtview
 question: |
@@ -323,9 +323,9 @@ fields:
 id: info about filling out child support forms
 question: |
   % if (existing_case == 'open' and user_role_in_case != 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case != 'closed'):
-  Do you want your Personal Action Plan to include information to help you fill out the court's child support forms?
+  Do you want your Action Plan to include information to help you fill out the court's child support forms?
   % else:
-  Do you want your Personal Action Plan to include information to help you fill out the child support forms when you start your case? 
+  Do you want your Action Plan to include information to help you fill out the child support forms when you start your case? 
   % endif
 subquestion: |
   % if (existing_case == 'open' and user_role_in_case != 'closed') or (existing_case == 'unknown' and after_courtview == 'open' and user_role_in_case != 'closed'):
@@ -363,7 +363,7 @@ subquestion: |
   * Proving someone is the **biological** father of a child is called "establishing paternity."
   * Proving someone is not the **biological** father is called "disestablishing paternity." 
 
-  Do you want to add information about establishing or disestablishing paternity to your Personal Action Plan?
+  Do you want to add information about establishing or disestablishing paternity to your Action Plan?
 fields:
   - no label: paternity
     datatype: yesnoradio
@@ -381,7 +381,7 @@ question: |
   Do you want to ask the court or CSED to order a child support?
 subquestion: |
   % if paternity:
-  Your action plan includes information about "establishing paternity" and "disestablishing paternity."
+  Your Action Plan includes information about "establishing paternity" and "disestablishing paternity."
   % endif
   
   A child support order tells one parent to pay child support to the other parent.
@@ -417,7 +417,7 @@ question: |
   Start a court case to ask for child support
 subquestion: |
   % if ask_court_or_cssd == 'both':
-  Your Personal Action Plan includes information about how to ask the Alaska Child Support Enforcement Division (CSED) for a child support order. 
+  Your Action Plan includes information about how to ask the Alaska Child Support Enforcement Division (CSED) for a child support order. 
   % endif
   
   If you want the court to order child support, you must start a court case.
