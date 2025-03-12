@@ -1,10 +1,35 @@
+---
+generic object: ALDocumentBundle
+template: x.get_email_copy
+content: |
+  Email a copy of your Action Plan to yourself or someone else
+---
+generic object: ALDocumentBundle
+template: x.send_email_template
+subject: |
+  Your Action Plan for asking for
+  % if existing_case == 'open' and interim_motion == 'ask':
+  an Interim Child Support order while your case is going on
+  % else:
+  a Child Support order in Alaska
+  % endif
+
+content: |
+  Thank you for using the Alaska Court System’s Court Guide Action Plan.
+
+  Your Action Plan is attached.
+
+  Get [more information and a list of all the Court Guide Action Plans](https://ak-courts.info/plans).
+  
+  [ak-courts.info/plans](https://ak-courts.info/plans).
+---
 id: download child support
 decoration: pen-to-square
 event: child_support_download
 question: |
-  # <i class="fa-thin fa-list"></i>Your Personal Action Plan is ready!
+  # <i class="fa-thin fa-list"></i>Your Court Guide Action Plan is ready!
 subquestion: | 
-  #### Your Personal Action Plan in ${ len(step_list) } Steps
+  #### Your Action Plan in ${ len(step_list) } Steps
   
   % if get_config("debug", False):
   <button id="akc_expand_all" class="btn other stuff">Expand all</button>
@@ -16,6 +41,10 @@ subquestion: |
   % endfor
   
   ${ al_user_bundle.download_list_html() }
+  
+  &nbsp;
+
+  ${ al_user_bundle.send_button_html(show_editable_checkbox=False) }
   
   % if get_config("debug", False):
   [get the docx file](${ docx_child_support_attachment.docx.url_for() })
@@ -473,7 +502,7 @@ content: |
   % if general_information_about_forms or interim_motion == 'ask':
   <ul>
   % if general_information_about_forms:
-  <li>Use the other steps in this action plan to help you fill out the child support forms you need to start your case.</li>
+  <li>Use the other steps in your Action Plan to help you fill out the child support forms you need to start your case.</li>
   % endif
   % if interim_motion == 'ask':
   <li>File your <strong>Motion for Interim Child Support</strong> with your complaint, which is the form you use to start your case.</li>
@@ -613,9 +642,9 @@ template: decide_if_modify_step
 subject: |
   Step ${ decide_if_modify_idx }: Decide if you want to change your order
 content: |
-  This Court Guide Action Plan has information about asking for child support.
+  Your Action Plan has information about asking for child support.
   
-  If your case is closed you may want to get a Personal Action Plan for changing or enforcing your child support order: 
+  If your case is closed, you may want to get an Action Plan for changing or enforcing your child support order: 
   
   See [Changing or Enforcing Your Child Support Order](https://docassemble.akcourts.gov/start/ChangingEnforcingChildSupport/)
 ---
