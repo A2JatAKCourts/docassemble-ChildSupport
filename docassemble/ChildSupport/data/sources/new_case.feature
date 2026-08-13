@@ -212,7 +212,7 @@ Scenario:  row #30
     | other_party_enter_email         | True           |         | 
     | ak_patience_assembling          | True           |         | 
     And I take a screenshot
-    And I should see the phrase "Your Action Plan in 13 Steps"  
+    And I should see the phrase "Your Action Plan in 12 Steps"  
     And I should see the phrase "Find out who counts as your child’s legal parents"
     And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
     And I should see the phrase "Start a court case"
@@ -483,7 +483,7 @@ Scenario:  row #71
     | other_party_enter_email         | True           |         | 
     | ak_patience_assembling          | True           |         | 
     And I take a screenshot
-    And I should see the phrase "Your Action Plan in 12 Steps"
+    And I should see the phrase "Your Action Plan in 11 Steps"
     And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
     And I should see the phrase "Start a court case" 
     And I should see the phrase "Learn about child support"
