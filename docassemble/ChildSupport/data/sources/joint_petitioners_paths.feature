@@ -50,6 +50,6 @@ Scenario: Row #55
     And I should see the phrase "Sign if you use paper forms or do not use TrueFiling""
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
+    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
     And I should see the phrase "Get more information or help"
     And I download "child_support_action_plan.pdf"

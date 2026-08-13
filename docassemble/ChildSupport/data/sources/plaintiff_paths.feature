@@ -1,6 +1,6 @@
 @plaintiffs
 Feature: User paths
-# 2026-08-12
+# 2026-08-13
 
 Scenario: Row #18
   Given I start the interview at "child_support.yml"
@@ -62,7 +62,7 @@ Scenario: Row #20
     And I should see the phrase "Fill out the Certificate of Service"
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
+    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
     And I should see the phrase "Get more information or help"
     And I download "child_support_action_plan.pdf"
 
@@ -89,7 +89,7 @@ Scenario: Row #21
     And I should see the phrase "Fill out the form that matches your situation""
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
+    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
     And I should see the phrase "Get more information or help"
     And I download "child_support_action_plan.pdf" 
 
@@ -177,7 +177,7 @@ Scenario: Row #54
     And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
+    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
     And I should see the phrase "Get more information or help"
     And I download "child_support_action_plan.pdf"
 
