@@ -13,6 +13,7 @@ authors = [
     { name = "Caroline Robinson", email = "CRobinson@akcourts.gov" },
 ]
 dependencies = [
+    "docassemble.AKA2JBranding @ git+https://github.com/A2JatAKCourts/docassemble-AKA2JBranding.git@main",
     "docassemble.AssemblyLine>=4.5.0",
 ]
 license = "MIT"

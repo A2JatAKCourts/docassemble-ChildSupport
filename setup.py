@@ -53,7 +53,7 @@ setup(name='docassemble.ChildSupport',
       license='MIT',
       url='https://docassemble.org',
       packages=find_namespace_packages(),
-      install_requires=['docassemble.AssemblyLine>=4.5.0'],
+      install_requires=['docassemble.AKA2JBranding @ git+https://github.com/A2JatAKCourts/docassemble-AKA2JBranding.git@main', 'docassemble.AssemblyLine>=4.5.0'],
       zip_safe=False,
       package_data=find_package_data(where='docassemble/ChildSupport/', package='docassemble.ChildSupport'),
      )
