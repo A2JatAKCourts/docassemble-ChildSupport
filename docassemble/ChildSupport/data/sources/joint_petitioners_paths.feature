@@ -1,6 +1,6 @@
 @joint_petitioners
 Feature: User paths
-# 2026-08-12
+# 2026-08-13
 
 @row17
 Scenario: Row #17 
@@ -47,7 +47,7 @@ Scenario: Row #55
     And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
     And I should see the phrase "Figure out your child support schedule"
     And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "Fill out the Certificate of Service"
+    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling""
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
     And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
