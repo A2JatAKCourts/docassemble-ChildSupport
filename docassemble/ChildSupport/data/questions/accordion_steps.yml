@@ -1,3 +1,5 @@
+comment: |
+  2026-08-12 updated with TrueFiling
 ---
 generic object: ALDocumentBundle
 template: x.get_email_copy
@@ -131,10 +133,19 @@ code: |
         step_list.append((general_info_step, "general_info_idx"))
         step_list.append((one_child1_step, "one_child1_idx"))
         step_list.append((shared_custody_step, "shared_custody_idx"))
-        step_list.append((cert_of_service_step, "cert_of_service_idx"))
-        step_list.append((file_motion_step, "file_motion_idx"))
-        step_list.append((serve_motion_step, "serve_motion_idx"))
-        step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        # step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        # step_list.append((file_motion_step, "file_motion_idx"))
+        # step_list.append((serve_motion_step, "serve_motion_idx"))
+        # step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+          step_list.append((sign_step, "sign_idx"))
+        other_party_exempt
+        step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
+        step_list.append((truefiling_serve_step, "truefiling_serve_idx"))
+        step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
+
+
+  
 
     # rows 21 & 55
     if user_role_in_case in ("plaintiff", "joint") \
@@ -145,10 +156,16 @@ code: |
         step_list.append((general_info_step, "general_info_idx"))
         step_list.append((more_children_step, "more_children_idx"))
         step_list.append((more_children_forms_step, "more_children_forms_idx"))
-        step_list.append((cert_of_service_step, "cert_of_service_idx"))
-        step_list.append((file_motion_step, "file_motion_idx"))
-        step_list.append((serve_motion_step, "serve_motion_idx"))
-        step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        # step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        # step_list.append((file_motion_step, "file_motion_idx"))
+        # step_list.append((serve_motion_step, "serve_motion_idx"))
+        # step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+          step_list.append((sign_step, "sign_idx"))
+        other_party_exempt
+        step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
+        step_list.append((truefiling_serve_step, "truefiling_serve_idx"))
+        step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
 
   if existing_case == "none" or (existing_case == "unknown" and after_courtview == "none"):
     expect_after_motion = "<p>If you file your <b>Motion for Interim Child Support</b> with your complaint, " + other_party_in_case + " does not have to respond until they respond to the complaint.  This is usually 20 days after they get the complaint.    </p>"
@@ -202,10 +219,16 @@ code: |
         step_list.append((general_info_step, "general_info_idx"))
         step_list.append((one_child1_step, "one_child1_idx"))
         step_list.append((shared_custody_step, "shared_custody_idx"))
-        step_list.append((cert_of_service_step, "cert_of_service_idx"))
-        step_list.append((file_motion_step, "file_motion_idx"))
-        step_list.append((serve_motion_step, "serve_motion_idx"))
-        step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        # step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        # step_list.append((file_motion_step, "file_motion_idx"))
+        # step_list.append((serve_motion_step, "serve_motion_idx"))
+        # step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+          step_list.append((sign_step, "sign_idx"))
+        other_party_exempt
+        step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
+        step_list.append((truefiling_serve_step, "truefiling_serve_idx"))
+        step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
     
     if ask_court_or_cssd == "both" \
         and (parents_married or not parents_married) \
@@ -219,10 +242,16 @@ code: |
           step_list.append((general_info_step, "general_info_idx"))
           step_list.append((one_child1_step, "one_child1_idx"))
           step_list.append((shared_custody_step, "shared_custody_idx"))
-          step_list.append((cert_of_service_step, "cert_of_service_idx"))
-          step_list.append((file_motion_step, "file_motion_idx"))
-          step_list.append((serve_motion_step, "serve_motion_idx"))
-          step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+          # step_list.append((cert_of_service_step, "cert_of_service_idx"))
+          # step_list.append((file_motion_step, "file_motion_idx"))
+          # step_list.append((serve_motion_step, "serve_motion_idx"))
+          # step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+          if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+            step_list.append((sign_step, "sign_idx"))
+          other_party_exempt
+          step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
+          step_list.append((truefiling_serve_step, "truefiling_serve_idx"))
+          step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
 
     # rows 26 & 59
     if ask_court_or_cssd == "court" \
@@ -260,10 +289,16 @@ code: |
         step_list.append((general_info_step, "general_info_idx"))
         step_list.append((more_children_step, "more_children_idx"))
         step_list.append((more_children_forms_step, "more_children_forms_idx"))
-        step_list.append((cert_of_service_step, "cert_of_service_idx"))
-        step_list.append((file_motion_step, "file_motion_idx"))
-        step_list.append((serve_motion_step, "serve_motion_idx"))
-        step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        # step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        # step_list.append((file_motion_step, "file_motion_idx"))
+        # step_list.append((serve_motion_step, "serve_motion_idx"))
+        # step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+          step_list.append((sign_step, "sign_idx"))
+        other_party_exempt
+        step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
+        step_list.append((truefiling_serve_step, "truefiling_serve_idx"))
+        step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
         
     if ask_court_or_cssd == "both" \
       and (parents_married or not parents_married) \
@@ -277,10 +312,16 @@ code: |
         step_list.append((general_info_step, "general_info_idx"))
         step_list.append((more_children_step, "more_children_idx"))
         step_list.append((more_children_forms_step, "more_children_forms_idx"))
-        step_list.append((cert_of_service_step, "cert_of_service_idx"))
-        step_list.append((file_motion_step, "file_motion_idx"))
-        step_list.append((serve_motion_step, "serve_motion_idx"))
-        step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        # step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        # step_list.append((file_motion_step, "file_motion_idx"))
+        # step_list.append((serve_motion_step, "serve_motion_idx"))
+        # step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+          step_list.append((sign_step, "sign_idx"))
+        other_party_exempt
+        step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
+        step_list.append((truefiling_serve_step, "truefiling_serve_idx"))
+        step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
 
     # 28
     if ask_court_or_cssd == "court" \
@@ -310,10 +351,16 @@ code: |
         step_list.append((general_info_step, "general_info_idx"))
         step_list.append((one_child1_step, "one_child1_idx"))
         step_list.append((shared_custody_step, "shared_custody_idx"))
-        step_list.append((cert_of_service_step, "cert_of_service_idx"))
-        step_list.append((file_motion_step, "file_motion_idx"))
-        step_list.append((serve_motion_step, "serve_motion_idx"))
-        step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        # step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        # step_list.append((file_motion_step, "file_motion_idx"))
+        # step_list.append((serve_motion_step, "serve_motion_idx"))
+        # step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+          step_list.append((sign_step, "sign_idx"))
+        other_party_exempt
+        step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
+        step_list.append((truefiling_serve_step, "truefiling_serve_idx"))
+        step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
         
     if ask_court_or_cssd == "both" \
       and (parents_married or not parents_married) \
@@ -327,10 +374,16 @@ code: |
         step_list.append((general_info_step, "general_info_idx"))
         step_list.append((one_child1_step, "one_child1_idx"))
         step_list.append((shared_custody_step, "shared_custody_idx"))
-        step_list.append((cert_of_service_step, "cert_of_service_idx"))
-        step_list.append((file_motion_step, "file_motion_idx"))
-        step_list.append((serve_motion_step, "serve_motion_idx"))
-        step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        # step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        # step_list.append((file_motion_step, "file_motion_idx"))
+        # step_list.append((serve_motion_step, "serve_motion_idx"))
+        # step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+          step_list.append((sign_step, "sign_idx"))
+        other_party_exempt
+        step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
+        step_list.append((truefiling_serve_step, "truefiling_serve_idx"))
+        step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
 
     # 30
     if ask_court_or_cssd == "court" \
@@ -344,10 +397,16 @@ code: |
         step_list.append((general_info_step, "general_info_idx"))
         step_list.append((more_children_step, "more_children_idx"))
         step_list.append((more_children_forms_step, "more_children_forms_idx"))
-        step_list.append((cert_of_service_step, "cert_of_service_idx"))
-        step_list.append((file_motion_step, "file_motion_idx"))
-        step_list.append((serve_motion_step, "serve_motion_idx"))
-        step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        # step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        # step_list.append((file_motion_step, "file_motion_idx"))
+        # step_list.append((serve_motion_step, "serve_motion_idx"))
+        # step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+          step_list.append((sign_step, "sign_idx"))
+        other_party_exempt
+        step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
+        step_list.append((truefiling_serve_step, "truefiling_serve_idx"))
+        step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
         
     if ask_court_or_cssd == "both" \
       and (parents_married or not parents_married) \
@@ -361,10 +420,16 @@ code: |
         step_list.append((general_info_step, "general_info_idx"))
         step_list.append((more_children_step, "more_children_idx"))
         step_list.append((more_children_forms_step, "more_children_forms_idx"))
-        step_list.append((cert_of_service_step, "cert_of_service_idx"))
-        step_list.append((file_motion_step, "file_motion_idx"))
-        step_list.append((serve_motion_step, "serve_motion_idx"))
-        step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        # step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        # step_list.append((file_motion_step, "file_motion_idx"))
+        # step_list.append((serve_motion_step, "serve_motion_idx"))
+        # step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+        if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+          step_list.append((sign_step, "sign_idx"))
+        other_party_exempt
+        step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
+        step_list.append((truefiling_serve_step, "truefiling_serve_idx"))
+        step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
 
   if existing_case == "unknown" and after_courtview == "unknown":
     step_list.append((childsupport_step, "childsupport_idx"))
@@ -375,6 +440,7 @@ code: |
   for iter_idx, step_tuple in enumerate( step_list ):
       define(step_tuple[ 1 ], iter_idx + 1)
   
+  ak_patience_assembling
   get_steps = True
 ---
 template: child_support_paternity_step

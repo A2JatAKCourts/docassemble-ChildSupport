@@ -1,9 +1,10 @@
 @joint_petitioners
 Feature: User paths
+# 2026-08-12
 
 @row17
 Scenario: Row #17 
-  Given I start the interview at "child_support.yml"
+  Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
     | var                             | value | trigger | 
     | wants_action_plan               | True  |         | 
@@ -12,6 +13,7 @@ Scenario: Row #17
     | interim_motion                  | wait  |         | 
     | general_information_about_forms | True  |         | 
     | number_of_children              | one   |         | 
+    | ak_patience_assembling          | True  |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 5 Steps"
     And I should see the phrase "Learn about child support"
@@ -23,16 +25,21 @@ Scenario: Row #17
 
 @row55
 Scenario: Row #55 
-  Given I start the interview at "child_support.yml"
+  Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var                             | value         | trigger | 
-    | wants_action_plan               | True          |         | 
-    | existing_case                   | unknown       |         | 
-    | after_courtview                 | open          |         | 
-    | user_role_in_case               | joint         |         | 
-    | interim_motion                  | ask           |         | 
-    | general_information_about_forms | True          |         | 
-    | number_of_children              | more than one |         | 
+    | var                             | value             | trigger | 
+    | wants_action_plan               | True              |         | 
+    | existing_case                   | unknown           |         | 
+    | after_courtview                 | open              |         | 
+    | user_role_in_case               | joint             |         | 
+    | interim_motion                  | ask               |         | 
+    | general_information_about_forms | True              |         | 
+    | number_of_children              | more than one     |         | 
+    | filling_manner                  | electronically    |         | 
+    | filing_method                   | mail or in person |         | 
+    | other_party_exempt              | yes               |         | 
+    | other_party_enter_email         | False             |         | 
+    | ak_patience_assembling          | True              |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 10 Steps"
     And I should see the phrase "Learn about child support"

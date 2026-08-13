@@ -1,15 +1,17 @@
 @NewCase
 Feature: User paths
+# 2026-08-12
 
 @row23
 Scenario:  row #23
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var               | value | trigger | 
-    | wants_action_plan | True  |         | 
-    | existing_case     | none  |         | 
-    | paternity         | True  |         | 
-    | ask_court_or_cssd | cssd  |         | 
+    | var                    | value | trigger | 
+    | wants_action_plan      | True  |         | 
+    | existing_case          | none  |         | 
+    | paternity              | True  |         | 
+    | ask_court_or_cssd      | cssd  |         | 
+    | ak_patience_assembling | True  |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 4 Steps"  
     And I should see the phrase "Find out who counts as your child’s legal parents"
@@ -31,6 +33,7 @@ Scenario:  row #24
     | general_information_about_forms | True  |         | 
     | number_of_children              | one   |         | 
     | interim_motion                  | wait  |         | 
+    | ak_patience_assembling          | True  |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 7 Steps"
     And I should see the phrase "Find out who counts as your child’s legal parents"
@@ -46,15 +49,19 @@ Scenario:  row #24
 Scenario:  row #25
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var                             | value | trigger | 
-    | wants_action_plan               | True  |         | 
-    | existing_case                   | none  |         | 
-    | paternity                       | True  |         | 
-    | ask_court_or_cssd               | both  |         | 
-    | parents_married                 | False |         | 
-    | general_information_about_forms | True  |         | 
-    | number_of_children              | one   |         | 
-    | interim_motion                  | ask   |         | 
+    | var                             | value   | trigger | 
+    | wants_action_plan               | True    |         | 
+    | existing_case                   | none    |         | 
+    | paternity                       | True    |         | 
+    | ask_court_or_cssd               | both    |         | 
+    | parents_married                 | False   |         | 
+    | general_information_about_forms | True    |         | 
+    | number_of_children              | one     |         | 
+    | interim_motion                  | ask     |         | 
+    | filling_manner                  | paper   |         | 
+    | filing_method                   | efiling |         | 
+    | other_party_exempt              | no      |         | 
+    | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 13 Steps"  
     And I should see the phrase "Find out who counts as your child’s legal parents"
@@ -65,7 +72,7 @@ Scenario:  row #25
     And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
     And I should see the phrase "Figure out your child support schedule"
     And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Fill out the Certificate of Service"
+    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
     And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
@@ -85,6 +92,7 @@ Scenario:  #26
     | general_information_about_forms | True          |         | 
     | number_of_children              | more than one |         | 
     | interim_motion                  | wait          |         | 
+    | ak_patience_assembling          | True          |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 8 Steps"  
     And I should see the phrase "Find out who counts as your child’s legal parents"
@@ -101,15 +109,20 @@ Scenario:  #26
 Scenario: #27
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var                             | value         | trigger | 
-    | wants_action_plan               | True          |         | 
-    | existing_case                   | none          |         | 
-    | paternity                       | True          |         | 
-    | ask_court_or_cssd               | court         |         | 
-    | parents_married                 | True          |         | 
-    | general_information_about_forms | True          |         | 
-    | number_of_children              | more than one |         | 
-    | interim_motion                  | ask           |         | 
+    | var                             | value          | trigger | 
+    | wants_action_plan               | True           |         | 
+    | existing_case                   | none           |         | 
+    | paternity                       | True           |         | 
+    | ask_court_or_cssd               | court          |         | 
+    | parents_married                 | True           |         | 
+    | general_information_about_forms | True           |         | 
+    | number_of_children              | more than one  |         | 
+    | interim_motion                  | ask            |         | 
+    | filling_manner                  | electronically |         | 
+    | filing_method                   | dunno          |         | 
+    | other_party_exempt              | yes            |         | 
+    | other_party_enter_email         | None           |         | 
+    | ak_patience_assembling          | True           |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 12 Steps"  
     And I should see the phrase "Find out who counts as your child’s legal parents"
@@ -118,8 +131,7 @@ Scenario: #27
     And I should see the phrase "Ask for interim child support"
     And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
     And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "Fill out the Certificate of Service"
+    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
     And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
@@ -138,6 +150,7 @@ Scenario:  #28
     | parents_married                 | True  |         | 
     | general_information_about_forms | False |         | 
     | interim_motion                  | wait  |         | 
+    | ak_patience_assembling          | True  |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 5 Steps"  
     And I should see the phrase "Find out who counts as your child’s legal parents"
@@ -151,15 +164,19 @@ Scenario:  #28
 Scenario:  #29
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var                             | value | trigger | 
-    | wants_action_plan               | True  |         | 
-    | existing_case                   | none  |         | 
-    | paternity                       | True  |         | 
-    | ask_court_or_cssd               | court |         | 
-    | parents_married                 | False |         | 
-    | general_information_about_forms | False |         | 
-    | number_of_children              | one   |         | 
-    | interim_motion                  | ask   |         | 
+    | var                             | value   | trigger | 
+    | wants_action_plan               | True    |         | 
+    | existing_case                   | none    |         | 
+    | paternity                       | True    |         | 
+    | ask_court_or_cssd               | court   |         | 
+    | parents_married                 | False   |         | 
+    | general_information_about_forms | False   |         | 
+    | number_of_children              | one     |         | 
+    | interim_motion                  | ask     |         | 
+    | filling_manner                  | paper   |         | 
+    | filing_method                   | efiling |         | 
+    | other_party_exempt              | no      |         | 
+    | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 12 Steps"  
     And I should see the phrase "Find out who counts as your child’s legal parents"
@@ -169,7 +186,7 @@ Scenario:  #29
     And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
     And I should see the phrase "Figure out your child support schedule"
     And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Fill out the Certificate of Service"
+    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
     And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
@@ -180,15 +197,20 @@ Scenario:  #29
 Scenario:  row #30
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var                             | value         | trigger | 
-    | wants_action_plan               | True          |         | 
-    | existing_case                   | none          |         | 
-    | paternity                       | True          |         | 
-    | ask_court_or_cssd               | both          |         | 
-    | parents_married                 | False         |         | 
-    | general_information_about_forms | False         |         | 
-    | number_of_children              | more than one |         | 
-    | interim_motion                  | ask           |         | 
+    | var                             | value          | trigger | 
+    | wants_action_plan               | True           |         | 
+    | existing_case                   | none           |         | 
+    | paternity                       | True           |         | 
+    | ask_court_or_cssd               | both           |         | 
+    | parents_married                 | False          |         | 
+    | general_information_about_forms | False          |         | 
+    | number_of_children              | more than one  |         | 
+    | interim_motion                  | ask            |         | 
+    | filling_manner                  | electronically |         | 
+    | filing_method                   | efiling        |         | 
+    | other_party_exempt              | yes            |         | 
+    | other_party_enter_email         | True           |         | 
+    | ak_patience_assembling          | True           |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 13 Steps"  
     And I should see the phrase "Find out who counts as your child’s legal parents"
@@ -199,7 +221,6 @@ Scenario:  row #30
     And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
     And I should see the phrase "Figure out your child support schedule"
     And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "Fill out the Certificate of Service"
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
     And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
@@ -209,12 +230,13 @@ Scenario:  row #30
 Scenario:  row #56
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var               | value   | trigger | 
-    | wants_action_plan | True    |         | 
-    | existing_case     | unknown |         | 
-    | after_courtview   | none    |         | 
-    | paternity         | True    |         | 
-    | ask_court_or_cssd | cssd    |         | 
+    | var                    | value   | trigger | 
+    | wants_action_plan      | True    |         | 
+    | existing_case          | unknown |         | 
+    | after_courtview        | none    |         | 
+    | paternity              | True    |         | 
+    | ask_court_or_cssd      | cssd    |         | 
+    | ak_patience_assembling | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 4 Steps"  
     And I should see the phrase "Find out who counts as your child’s legal parents"
@@ -237,6 +259,7 @@ Scenario:  row #57
     | general_information_about_forms | True    |         | 
     | number_of_children              | one     |         | 
     | interim_motion                  | wait    |         | 
+    | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 7 Steps"  
     And I should see the phrase "Find out who counts as your child’s legal parents"
@@ -251,12 +274,13 @@ Scenario:  row #57
 Scenario:  row #64
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var               | value   | trigger | 
-    | wants_action_plan | True    |         | 
-    | existing_case     | unknown |         | 
-    | after_courtview   | none    |         | 
-    | paternity         | False   |         | 
-    | ask_court_or_cssd | cssd    |         | 
+    | var                    | value   | trigger | 
+    | wants_action_plan      | True    |         | 
+    | existing_case          | unknown |         | 
+    | after_courtview        | none    |         | 
+    | paternity              | False   |         | 
+    | ask_court_or_cssd      | cssd    |         | 
+    | ak_patience_assembling | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"  
     And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
@@ -278,6 +302,7 @@ Scenario:  row #65
     | general_information_about_forms | True    |         | 
     | number_of_children              | one     |         | 
     | interim_motion                  | wait    |         | 
+    | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 7 Steps"  
     And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
@@ -293,16 +318,21 @@ Scenario:  row #65
 Scenario:  row #66
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var                             | value   | trigger | 
-    | wants_action_plan               | True    |         | 
-    | existing_case                   | unknown |         | 
-    | after_courtview                 | none    |         | 
-    | paternity                       | False   |         | 
-    | ask_court_or_cssd               | both    |         | 
-    | parents_married                 | False   |         | 
-    | general_information_about_forms | True    |         | 
-    | number_of_children              | one     |         | 
-    | interim_motion                  | ask     |         | 
+    | var                             | value             | trigger | 
+    | wants_action_plan               | True              |         | 
+    | existing_case                   | unknown           |         | 
+    | after_courtview                 | none              |         | 
+    | paternity                       | False             |         | 
+    | ask_court_or_cssd               | both              |         | 
+    | parents_married                 | False             |         | 
+    | general_information_about_forms | True              |         | 
+    | number_of_children              | one               |         | 
+    | interim_motion                  | ask               |         | 
+    | filling_manner                  | electronically    |         | 
+    | filing_method                   | mail or in person |         | 
+    | other_party_exempt              | yes               |         | 
+    | other_party_enter_email         | False             |         | 
+    | ak_patience_assembling          | True              |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 12 Steps"
     And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
@@ -312,7 +342,7 @@ Scenario:  row #66
     And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
     And I should see the phrase "Figure out your child support schedule"
     And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Fill out the Certificate of Service"
+    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
     And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
@@ -333,6 +363,7 @@ Scenario:  row #67
     | general_information_about_forms | True          |         | 
     | number_of_children              | more than one |         | 
     | interim_motion                  | wait          |         | 
+    | ak_patience_assembling          | True          |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 7 Steps"
     And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
@@ -347,16 +378,21 @@ Scenario:  row #67
 Scenario:  row #68
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var                             | value         | trigger | 
-    | wants_action_plan               | True          |         | 
-    | existing_case                   | unknown       |         | 
-    | after_courtview                 | none          |         | 
-    | paternity                       | False         |         | 
-    | ask_court_or_cssd               | court         |         | 
-    | parents_married                 | True          |         | 
-    | general_information_about_forms | True          |         | 
-    | number_of_children              | more than one |         | 
-    | interim_motion                  | ask           |         | 
+    | var                             | value          | trigger | 
+    | wants_action_plan               | True           |         | 
+    | existing_case                   | unknown        |         | 
+    | after_courtview                 | none           |         | 
+    | paternity                       | False          |         | 
+    | ask_court_or_cssd               | court          |         | 
+    | parents_married                 | True           |         | 
+    | general_information_about_forms | True           |         | 
+    | number_of_children              | more than one  |         | 
+    | interim_motion                  | ask            |         | 
+    | filling_manner                  | electronically |         | 
+    | filing_method                   | dunno          |         | 
+    | other_party_exempt              | yes            |         | 
+    | other_party_enter_email         | None           |         | 
+    | ak_patience_assembling          | True           |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 11 Steps"
     And I should see the phrase "Start a court case"
@@ -365,7 +401,7 @@ Scenario:  row #68
     And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
     And I should see the phrase "Figure out your child support schedule"
     And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "Fill out the Certificate of Service"
+    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
     And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
@@ -385,6 +421,7 @@ Scenario:  row #69
     | parents_married                 | True    |         | 
     | general_information_about_forms | False   |         | 
     | interim_motion                  | wait    |         | 
+    | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 4 Steps"
     And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
@@ -407,6 +444,10 @@ Scenario:  row #70
     | general_information_about_forms | False   |         | 
     | number_of_children              | one     |         | 
     | interim_motion                  | ask     |         | 
+    | filling_manner                  | paper   |         | 
+    | filing_method                   | efiling |         | 
+    | other_party_exempt              | no      |         | 
+    | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 11 Steps"
     And I should see the phrase "Start a court case"  
@@ -415,7 +456,7 @@ Scenario:  row #70
     And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
     And I should see the phrase "Figure out your child support schedule"
     And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Fill out the Certificate of Service"
+    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
     And I should see the phrase "What to expect after you file a Motion for Interim Child Support"
@@ -426,16 +467,21 @@ Scenario:  row #70
 Scenario:  row #71
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var                             | value         | trigger | 
-    | wants_action_plan               | True          |         | 
-    | existing_case                   | unknown       |         | 
-    | after_courtview                 | none          |         | 
-    | paternity                       | False         |         | 
-    | ask_court_or_cssd               | both          |         | 
-    | parents_married                 | False         |         | 
-    | general_information_about_forms | False         |         | 
-    | number_of_children              | more than one |         | 
-    | interim_motion                  | ask           |         | 
+    | var                             | value          | trigger | 
+    | wants_action_plan               | True           |         | 
+    | existing_case                   | unknown        |         | 
+    | after_courtview                 | none           |         | 
+    | paternity                       | False          |         | 
+    | ask_court_or_cssd               | both           |         | 
+    | parents_married                 | False          |         | 
+    | general_information_about_forms | False          |         | 
+    | number_of_children              | more than one  |         | 
+    | interim_motion                  | ask            |         | 
+    | filling_manner                  | electronically |         | 
+    | filing_method                   | efiling        |         | 
+    | other_party_exempt              | yes            |         | 
+    | other_party_enter_email         | True           |         | 
+    | ak_patience_assembling          | True           |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 12 Steps"
     And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
@@ -445,7 +491,6 @@ Scenario:  row #71
     And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
     And I should see the phrase "Figure out your child support schedule"
     And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "Fill out the Certificate of Service"
     And I should see the phrase "File your Motion for Interim Child Support"
     And I should see the phrase "Serve the other parent"
     And I should see the phrase "What to expect after you file a Motion for Interim Child Support"

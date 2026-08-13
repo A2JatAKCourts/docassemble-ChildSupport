@@ -1,0 +1,29 @@
+[build-system]
+requires = [
+    "setuptools>=80.9.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docassemble.ChildSupport"
+version = "26.08.12"
+description = "A docassemble extension."
+readme = "README.md"
+authors = [
+    { name = "Caroline Robinson", email = "CRobinson@akcourts.gov" },
+]
+dependencies = [
+    "docassemble.AssemblyLine>=4.5.0",
+]
+license = "MIT"
+license-files = [
+    "LICENSE",
+]
+
+[project.urls]
+Homepage = "https://docassemble.org"
+
+[tool.setuptools.packages.find]
+where = [
+    ".",
+]

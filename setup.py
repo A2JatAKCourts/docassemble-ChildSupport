@@ -1,6 +1,6 @@
 import os
 import sys
-from setuptools import setup, find_packages
+from setuptools import setup, find_namespace_packages
 from fnmatch import fnmatchcase
 from distutils.util import convert_path
 
@@ -44,18 +44,16 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
     return out
 
 setup(name='docassemble.ChildSupport',
-      version='25.03.12',
+      version='26.08.12',
       description=('A docassemble extension.'),
       long_description='# docassemble.ChildSupport\r\n\r\nA docassemble extension.\r\n\r\n## Author\r\n\r\nCaroline Robinson, CRobinson@akcourts.gov\r\n\r\n',
       long_description_content_type='text/markdown',
       author='Caroline Robinson',
       author_email='CRobinson@akcourts.gov',
-      license='The MIT License (MIT)',
+      license='MIT',
       url='https://docassemble.org',
-      packages=find_packages(),
-      namespace_packages=['docassemble'],
-      install_requires=['docassemble.AssemblyLine>=3.2.0', 'docassemble-AKA2JBranding @ https://github.com/A2JatAKCourts/docassemble-AKA2JBranding/archive/main.zip'],
+      packages=find_namespace_packages(),
+      install_requires=['docassemble.AssemblyLine>=4.5.0'],
       zip_safe=False,
       package_data=find_package_data(where='docassemble/ChildSupport/', package='docassemble.ChildSupport'),
      )
-

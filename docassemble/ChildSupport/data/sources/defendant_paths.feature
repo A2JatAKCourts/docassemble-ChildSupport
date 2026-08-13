@@ -1,14 +1,16 @@
 @DefendantsClosedAndUnknown
 Feature: User paths
+# 2026-08-12
 
 Scenario: Row #2 defendants
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var               | value     | trigger | 
-    | wants_action_plan | True      |         | 
-    | existing_case     | open      |         | 
-    | case_type         | divorce   |         | 
-    | user_role_in_case | defendant |         | 
+    | var                    | value     | trigger | 
+    | wants_action_plan      | True      |         | 
+    | existing_case          | open      |         | 
+    | case_type              | divorce   |         | 
+    | user_role_in_case      | defendant |         | 
+    | ak_patience_assembling | True      |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"
     And I should see the phrase "Learn about child support"
@@ -19,10 +21,11 @@ Scenario: Row #2 defendants
 Scenario: Row #16 case closed
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var               | value  | trigger | 
-    | wants_action_plan | True   |         | 
-    | existing_case     | open   |         | 
-    | user_role_in_case | closed |         | 
+    | var                    | value  | trigger | 
+    | wants_action_plan      | True   |         | 
+    | existing_case          | open   |         | 
+    | user_role_in_case      | closed |         | 
+    | ak_patience_assembling | True   |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"
     And I should see the phrase "Learn about child support"
@@ -34,10 +37,11 @@ Scenario: Row #16 case closed
 Scenario: row #39
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var               | value   | trigger | 
-    | wants_action_plan | True    |         | 
-    | existing_case     | unknown |         | 
-    | after_courtview   | unknown |         | 
+    | var                    | value   | trigger | 
+    | wants_action_plan      | True    |         | 
+    | existing_case          | unknown |         | 
+    | after_courtview        | unknown |         | 
+    | ak_patience_assembling | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"
     And I should see the phrase "Learn about child support"
@@ -48,11 +52,12 @@ Scenario: row #39
 Scenario: row #40
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var               | value   | trigger | 
-    | wants_action_plan | True    |         | 
-    | existing_case     | unknown |         | 
-    | after_courtview   | open    |         | 
-    | user_role_in_case | closed  |         | 
+    | var                    | value   | trigger | 
+    | wants_action_plan      | True    |         | 
+    | existing_case          | unknown |         | 
+    | after_courtview        | open    |         | 
+    | user_role_in_case      | closed  |         | 
+    | ak_patience_assembling | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"
     And I should see the phrase "Learn about child support"
@@ -63,12 +68,13 @@ Scenario: row #40
 Scenario: # 41
   Given I start the interview at "child_support.yml"
     And I get to the question id "download child support" with this data:
-    | var               | value     | trigger | 
-    | wants_action_plan | True      |         | 
-    | existing_case     | unknown   |         | 
-    | after_courtview   | open      |         | 
-    | case_type         | custody   |         | 
-    | user_role_in_case | defendant |         | 
+    | var                    | value     | trigger | 
+    | wants_action_plan      | True      |         | 
+    | existing_case          | unknown   |         | 
+    | after_courtview        | open      |         | 
+    | case_type              | custody   |         | 
+    | user_role_in_case      | defendant |         | 
+    | ak_patience_assembling | True      |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"
     And I should see the phrase "Learn about child support"
