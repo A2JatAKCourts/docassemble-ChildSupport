@@ -4,7 +4,8 @@ include:
   - docassemble.AKA2JBranding:custom_organization.yml
   - docassemble.AKA2JBranding:aka2j_templates.yml
   - docassemble.AKA2JBranding:aka2j_mod_cust_div_templates.yml
-  - accordion_steps.yml
+  - accordion_steps.yml    
+  - docassemble.AKA2JBranding:truefiling.yml
   - bundling_forms_for_downloading.yml
 ---
 metadata:
@@ -522,7 +523,8 @@ attachment:
   update references: True
   variable name: child_support_attachment[i]
   skip undefined: True
-  docx template file: child_support_action_plan.docx
+  # docx template file: child_support_action_plan.docx
+  docx template file: dummy.docx
   tagged pdf: True
 ---
 attachment:
@@ -531,4 +533,5 @@ attachment:
   update references: True
   variable name: docx_child_support_attachment
   skip undefined: True
-  docx template file: child_support_action_plan.docx
+  # docx template file: child_support_action_plan.docx
+  docx template file: dummy.docx
