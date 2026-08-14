@@ -372,7 +372,7 @@ Scenario:  row #67
     And I should see the phrase "Step 3: Learn about child support"
     And I should see the phrase "Step 4: Fill out the Child Support Guidelines Affidavit"
     And I should see the phrase "Step 5: Figure out your child support schedule"
-    And I should see the phrase "Step 6 Fill out the form that matches your situation"
+    And I should see the phrase "Step 6: Fill out the form that matches your situation"
     And I should see the phrase "Step 7: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
