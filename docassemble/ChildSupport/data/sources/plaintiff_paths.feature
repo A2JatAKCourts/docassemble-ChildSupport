@@ -1,6 +1,6 @@
 @plaintiffs
 Feature: User paths
-# 2026-08-13
+# 2026-08-14
 
 Scenario: Row #18
   Given I start the interview at "child_support.yml"
@@ -15,11 +15,11 @@ Scenario: Row #18
     | ak_patience_assembling          | True          |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 5 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 3: Figure out your child support schedule"
+    And I should see the phrase "Step 4: Fill out the form that matches your situation"
+    And I should see the phrase "Step 5: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 Scenario: Row #19
@@ -34,8 +34,8 @@ Scenario: Row #19
     | ak_patience_assembling          | True      |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 2 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 Scenario: Row #20
@@ -53,16 +53,16 @@ Scenario: Row #20
     | other_party_enter_email | True           |         | 
     | ak_patience_assembling  | True           |         | 
     And I take a screenshot
-    And I should see the phrase "Your Action Plan in 10 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Ask for interim child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "File your Motion for Interim Child Support"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Your Action Plan in 9 Steps"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Ask for interim child support"
+    And I should see the phrase "Step 3: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 4: Figure out your child support schedule"
+    And I should see the phrase "Step 5: Fill out the Shared Custody Support Calculation"
+    And I should see the phrase "Step 6: File your Motion for Interim Child Support"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file your Motion for Interim Child Support"
+    And I should see the phrase "Step 9: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 Scenario: Row #21
@@ -81,15 +81,15 @@ Scenario: Row #21
     | ak_patience_assembling  | True           |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 9 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Ask for interim child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the form that matches your situation""
-    And I should see the phrase "File your Motion for Interim Child Support"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Ask for interim child support"
+    And I should see the phrase "Step 3: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 4: Figure out your child support schedule"
+    And I should see the phrase "Step 5: Fill out the form that matches your situation"
+    And I should see the phrase "Step 6: File your Motion for Interim Child Support"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file your Motion for Interim Child Support"
+    And I should see the phrase "Step 9: Get more information or help"
     And I download "child_support_action_plan.pdf" 
 
 Scenario: Row #51 
@@ -106,11 +106,11 @@ Scenario: Row #51
     | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 5 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 3: Figure out your child support schedule"
+    And I should see the phrase "Step 4: Fill out the Shared Custody Support Calculation"
+    And I should see the phrase "Step 5: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 Scenario: Row #52
@@ -127,11 +127,11 @@ Scenario: Row #52
     | ak_patience_assembling          | True          |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 5 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 3: Figure out your child support schedule"
+    And I should see the phrase "Step 4: Fill out the form that matches your situation"
+    And I should see the phrase "Step 5: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 Scenario: Row #53
@@ -147,8 +147,8 @@ Scenario: Row #53
     | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 2 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 Scenario: Row #54 
@@ -168,15 +168,15 @@ Scenario: Row #54
     | ak_patience_assembling  | True              |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 10 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Ask for interim child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
-    And I should see the phrase "File your Motion for Interim Child Support"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Ask for interim child support"
+    And I should see the phrase "Step 3: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 4: Figure out your child support schedule"
+    And I should see the phrase "Step 5: Fill out the Shared Custody Support Calculation"
+    And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 7: File your Motion for Interim Child Support"
+    And I should see the phrase "Step 8: Serve the other parent"
+    And I should see the phrase "Step 9: What to expect after you file your Motion for Interim Child Support"
+    And I should see the phrase "Step 10: Get more information or help"
     And I download "child_support_action_plan.pdf"
 

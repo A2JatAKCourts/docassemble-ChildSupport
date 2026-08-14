@@ -1,6 +1,6 @@
 @DefendantsClosedAndUnknown
 Feature: User paths
-# 2026-08-12
+# 2026-08-14
 
 Scenario: Row #2 defendants
   Given I start the interview at "child_support.yml"
@@ -13,9 +13,9 @@ Scenario: Row #2 defendants
     | ak_patience_assembling | True      |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Respond to your divorce case"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Respond to your divorce case"
+    And I should see the phrase "Step 3: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 Scenario: Row #16 case closed
@@ -28,9 +28,9 @@ Scenario: Row #16 case closed
     | ak_patience_assembling | True   |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Decide if you want to change your order"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Decide if you want to change your order"
+    And I should see the phrase "Step 3: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 @UnknownCase
@@ -44,9 +44,9 @@ Scenario: row #39
     | ak_patience_assembling | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Find out if you have a court case"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Find out if you have a court case"
+    And I should see the phrase "Step 3: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 Scenario: row #40
@@ -60,9 +60,9 @@ Scenario: row #40
     | ak_patience_assembling | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Decide if you want to change your order"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Decide if you want to change your order"
+    And I should see the phrase "Step 3: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 Scenario: # 41
@@ -77,7 +77,7 @@ Scenario: # 41
     | ak_patience_assembling | True      |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Respond to your custody case"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about child support"
+    And I should see the phrase "Step 2: Respond to your custody case"
+    And I should see the phrase "Step 3: Get more information or help"
     And I download "child_support_action_plan.pdf"

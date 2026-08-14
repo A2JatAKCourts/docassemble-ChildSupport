@@ -1,6 +1,6 @@
 @NewCase
 Feature: User paths
-# 2026-08-13
+# 2026-08-14
 
 @row23
 Scenario:  row #23
@@ -14,10 +14,10 @@ Scenario:  row #23
     | ak_patience_assembling | True  |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 4 Steps"  
-    And I should see the phrase "Find out who counts as your child’s legal parents"
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Find out who counts as your child’s legal parents"
+    And I should see the phrase "Step 2: Learn about the Alaska Child Support Enforcement Division (CSED)"
+    And I should see the phrase "Step 3: Learn about child support"
+    And I should see the phrase "Step 4: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 @row24
@@ -36,13 +36,13 @@ Scenario:  row #24
     | ak_patience_assembling          | True  |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 7 Steps"
-    And I should see the phrase "Find out who counts as your child’s legal parents"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Find out who counts as your child’s legal parents"
+    And I should see the phrase "Step 2: Start a court case"
+    And I should see the phrase "Step 3: Learn about child support"
+    And I should see the phrase "Step 4: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 5: Figure out your child support schedule"
+    And I should see the phrase "Step 6: Fill out the Shared Custody Support Calculation"
+    And I should see the phrase "Step 7: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 @row25  
@@ -64,19 +64,19 @@ Scenario:  row #25
     | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 13 Steps"  
-    And I should see the phrase "Find out who counts as your child’s legal parents"
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Ask for interim child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
-    And I should see the phrase "File your Motion for Interim Child Support"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Find out who counts as your child’s legal parents"
+    And I should see the phrase "Step 2: Learn about the Alaska Child Support Enforcement Division (CSED)"
+    And I should see the phrase "Step 3: Start a court case"
+    And I should see the phrase "Step 4: Learn about child support"
+    And I should see the phrase "Step 5: Ask for interim child support"
+    And I should see the phrase "Step 6: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 7: Figure out your child support schedule"
+    And I should see the phrase "Step 8: Fill out the Shared Custody Support Calculation"
+    And I should see the phrase "Step 9: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 10: File your Motion for Interim Child Support"
+    And I should see the phrase "Step 11: Serve the other parent"
+    And I should see the phrase "Step 12: What to expect after you file your Motion for Interim Child Support"
+    And I should see the phrase "Step 13: Get more information or help"
     And I download "child_support_action_plan.pdf"  
 
 @row26
@@ -95,14 +95,14 @@ Scenario:  #26
     | ak_patience_assembling          | True          |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 8 Steps"  
-    And I should see the phrase "Find out who counts as your child’s legal parents"
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Find out who counts as your child’s legal parents"
+    And I should see the phrase "Step 2: Learn about the Alaska Child Support Enforcement Division (CSED)"
+    And I should see the phrase "Step 3: Start a court case"
+    And I should see the phrase "Step 4: Learn about child support"
+    And I should see the phrase "Step 5: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 6: Figure out your child support schedule"
+    And I should see the phrase "Step 7: Fill out the form that matches your situation"
+    And I should see the phrase "Step 8: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 @row27
@@ -125,17 +125,18 @@ Scenario: #27
     | ak_patience_assembling          | True           |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 12 Steps"  
-    And I should see the phrase "Find out who counts as your child’s legal parents"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Ask for interim child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
-    And I should see the phrase "File your Motion for Interim Child Support"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Find out who counts as your child’s legal parents"
+    And I should see the phrase "Step 2: Start a court case"
+    And I should see the phrase "Step 3: Learn about child support"
+    And I should see the phrase "Step 4: Ask for interim child support"
+    And I should see the phrase "Step 5: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 6: Figure out your child support schedule"
+    And I should see the phrase "Step 7: Fill out the form that matches your situation"
+    And I should see the phrase "Step 8: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 9: File your Motion for Interim Child Support"
+    And I should see the phrase "Step 10: Serve the other parent"
+    And I should see the phrase "Step 11: What to expect after you file your Motion for Interim Child Support"
+    And I should see the phrase "Step 12: Get more information or help"
     And I download "child_support_action_plan.pdf"  
 
 @row28
@@ -153,11 +154,11 @@ Scenario:  #28
     | ak_patience_assembling          | True  |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 5 Steps"  
-    And I should see the phrase "Find out who counts as your child’s legal parents"
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"  
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Find out who counts as your child’s legal parents"
+    And I should see the phrase "Step 2: Learn about the Alaska Child Support Enforcement Division (CSED)"  
+    And I should see the phrase "Step 3: Learn about child support"
+    And I should see the phrase "Step 4: Start a court case"
+    And I should see the phrase "Step 5: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 @row29
@@ -178,20 +179,20 @@ Scenario:  #29
     | other_party_exempt              | no      |         | 
     | ak_patience_assembling          | True    |         | 
     And I take a screenshot
-    And I should see the phrase "Your Action Plan in 12 Steps"  
-    And I should see the phrase "Find out who counts as your child’s legal parents"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Ask for interim child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling
-    And I should see the phrase "File your Motion for Interim Child Support"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
-    And I should see the phrase "Get more information or help" 
-    And I download "child_support_action_plan.pdf" 
+    And I should see the phrase "Your Action Plan in 12 Steps"
+    And I should see the phrase "Step 1: Find out who counts as your child’s legal parents"
+    And I should see the phrase "Step 2: Start a court case"
+    And I should see the phrase "Step 3: Learn about child support"
+    And I should see the phrase "Step 4: Ask for interim child support"
+    And I should see the phrase "Step 5: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 6: Figure out your child support schedule"
+    And I should see the phrase "Step 7: Fill out the Shared Custody Support Calculation"
+    And I should see the phrase "Step 8: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 9: File your Motion for Interim Child Support"
+    And I should see the phrase "Step 10: Serve the other parent"
+    And I should see the phrase "Step 11: What to expect after you file your Motion for Interim Child Support"
+    And I should see the phrase "Step 12: Get more information or help"
+    And I download "child_support_action_plan.pdf"
 
 @row30
 Scenario:  row #30
@@ -213,18 +214,18 @@ Scenario:  row #30
     | ak_patience_assembling          | True           |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 12 Steps"  
-    And I should see the phrase "Find out who counts as your child’s legal parents"
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Ask for interim child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "File your Motion for Interim Child Support"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Find out who counts as your child’s legal parents"
+    And I should see the phrase "Step 2: Learn about the Alaska Child Support Enforcement Division (CSED)"
+    And I should see the phrase "Step 3: Start a court case"
+    And I should see the phrase "Step 4: Learn about child support"
+    And I should see the phrase "Step 5: Ask for interim child support"
+    And I should see the phrase "Step 6: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 7: Figure out your child support schedule"
+    And I should see the phrase "Step 8: Fill out the form that matches your situation"
+    And I should see the phrase "Step 9: File your Motion for Interim Child Support"
+    And I should see the phrase "Step 10: Serve the other parent"
+    And I should see the phrase "Step 11: What to expect after you file your Motion for Interim Child Support"
+    And I should see the phrase "Step 12: Get more information or help"
     And I download "child_support_action_plan.pdf"  
 
 Scenario:  row #56
@@ -239,10 +240,10 @@ Scenario:  row #56
     | ak_patience_assembling | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 4 Steps"  
-    And I should see the phrase "Find out who counts as your child’s legal parents"
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Find out who counts as your child’s legal parents"
+    And I should see the phrase "Step 2: Learn about the Alaska Child Support Enforcement Division (CSED)"
+    And I should see the phrase "Step 3: Learn about child support"
+    And I should see the phrase "Step 4: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 @row57
@@ -262,13 +263,13 @@ Scenario:  row #57
     | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 7 Steps"  
-    And I should see the phrase "Find out who counts as your child’s legal parents"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Find out who counts as your child’s legal parents"
+    And I should see the phrase "Step 2: Start a court case"
+    And I should see the phrase "Step 3: Learn about child support"
+    And I should see the phrase "Step 4: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 5: Figure out your child support schedule"
+    And I should see the phrase "Step 6: Fill out the Shared Custody Support Calculation"
+    And I should see the phrase "Step 7: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 Scenario:  row #64
@@ -283,9 +284,9 @@ Scenario:  row #64
     | ak_patience_assembling | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 3 Steps"  
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about the Alaska Child Support Enforcement Division (CSED)"
+    And I should see the phrase "Step 2: Learn about child support"
+    And I should see the phrase "Step 3: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 @row65
@@ -305,13 +306,13 @@ Scenario:  row #65
     | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 7 Steps"  
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about the Alaska Child Support Enforcement Division (CSED)"
+    And I should see the phrase "Step 2: Learn about child support"
+    And I should see the phrase "Step 3: Start a court case"
+    And I should see the phrase "Step 4: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 5: Figure out your child support schedule"
+    And I should see the phrase "Step 6: Fill out the Shared Custody Support Calculation"
+    And I should see the phrase "Step 7: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 @row66
@@ -335,18 +336,18 @@ Scenario:  row #66
     | ak_patience_assembling          | True              |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 12 Steps"
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Start a court case"  
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Ask for interim child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
-    And I should see the phrase "File your Motion for Interim Child Support"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about the Alaska Child Support Enforcement Division (CSED)"
+    And I should see the phrase "Step 2: Start a court case"  
+    And I should see the phrase "Step 3: Learn about child support"
+    And I should see the phrase "Step 4: Ask for interim child support"
+    And I should see the phrase "Step 5: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 6: Figure out your child support schedule"
+    And I should see the phrase "Step 7: Fill out the Shared Custody Support Calculation"
+    And I should see the phrase "Step 8: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 9: File your Motion for Interim Child Support"
+    And I should see the phrase "Step 10: Serve the other parent"
+    And I should see the phrase "Step 11: What to expect after you file your Motion for Interim Child Support"
+    And I should see the phrase "Step 12: Get more information or help"
     And I download "child_support_action_plan.pdf"  
 
 @row67
@@ -366,12 +367,12 @@ Scenario:  row #67
     | ak_patience_assembling          | True          |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 7 Steps"
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about the Alaska Child Support Enforcement Division (CSED)"
+    And I should see the phrase "Step 2: Start a court case"
+    And I should see the phrase "Step 3: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 4: Figure out your child support schedule"
+    And I should see the phrase "Step 5: Fill out the form that matches your situation"
+    And I should see the phrase "Step 6: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 @row68
@@ -395,17 +396,17 @@ Scenario:  row #68
     | ak_patience_assembling          | True           |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 11 Steps"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Ask for interim child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
-    And I should see the phrase "File your Motion for Interim Child Support"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Start a court case"
+    And I should see the phrase "Step 2: Learn about child support"
+    And I should see the phrase "Step 3: Ask for interim child support"
+    And I should see the phrase "Step 4: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 5: Figure out your child support schedule"
+    And I should see the phrase "Step 6: Fill out the form that matches your situation"
+    And I should see the phrase "Step 7: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 8: File your Motion for Interim Child Support"
+    And I should see the phrase "Step 9: Serve the other parent"
+    And I should see the phrase "Step 10: What to expect after you file your Motion for Interim Child Support"
+    And I should see the phrase "Step 11: Get more information or help"
     And I download "child_support_action_plan.pdf"  
 
 @row69
@@ -424,10 +425,10 @@ Scenario:  row #69
     | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 4 Steps"
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Start a court case"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about the Alaska Child Support Enforcement Division (CSED)"
+    And I should see the phrase "Step 2: Learn about child support"
+    And I should see the phrase "Step 3: Start a court case"
+    And I should see the phrase "Step 4: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 @row70
@@ -450,17 +451,17 @@ Scenario:  row #70
     | ak_patience_assembling          | True    |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 11 Steps"
-    And I should see the phrase "Start a court case"  
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Ask for interim child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the Shared Custody Support Calculation"
-    And I should see the phrase "Sign if you use paper forms or do not use TrueFiling"
-    And I should see the phrase "File your Motion for Interim Child Support"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Start a court case"  
+    And I should see the phrase "Step 2: Learn about child support"
+    And I should see the phrase "Step 3: Ask for interim child support"
+    And I should see the phrase "Step 4: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 5: Figure out your child support schedule"
+    And I should see the phrase "Step 6: Fill out the Shared Custody Support Calculation"
+    And I should see the phrase "Step 7: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 8: File your Motion for Interim Child Support"
+    And I should see the phrase "Step 9: Serve the other parent"
+    And I should see the phrase "Step 10: What to expect after you file your Motion for Interim Child Support"
+    And I should see the phrase "Step 11: Get more information or help"
     And I download "child_support_action_plan.pdf"  
 
 @row71
@@ -484,15 +485,15 @@ Scenario:  row #71
     | ak_patience_assembling          | True           |         | 
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 11 Steps"
-    And I should see the phrase "Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Start a court case" 
-    And I should see the phrase "Learn about child support"
-    And I should see the phrase "Ask for interim child support"
-    And I should see the phrase "Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Figure out your child support schedule"
-    And I should see the phrase "Fill out the form that matches your situation"
-    And I should see the phrase "File your Motion for Interim Child Support"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file your Motion for Interim Child Support"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about the Alaska Child Support Enforcement Division (CSED)"
+    And I should see the phrase "Step 2: Start a court case" 
+    And I should see the phrase "Step 3: Learn about child support"
+    And I should see the phrase "Step 4: Ask for interim child support"
+    And I should see the phrase "Step 5: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 6: Figure out your child support schedule"
+    And I should see the phrase "Step 7: Fill out the form that matches your situation"
+    And I should see the phrase "Step 8: File your Motion for Interim Child Support"
+    And I should see the phrase "Step 9: Serve the other parent"
+    And I should see the phrase "Step 10: What to expect after you file your Motion for Interim Child Support"
+    And I should see the phrase "Step 11: Get more information or help"
     And I download "child_support_action_plan.pdf"  
