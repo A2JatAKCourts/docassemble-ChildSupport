@@ -156,8 +156,8 @@ Scenario:  #28
     And I should see the phrase "Your Action Plan in 5 Steps"  
     And I should see the phrase "Step 1: Find out who counts as your child’s legal parents"
     And I should see the phrase "Step 2: Learn about the Alaska Child Support Enforcement Division (CSED)"  
-    And I should see the phrase "Step 3: Learn about child support"
-    And I should see the phrase "Step 4: Start a court case"
+    And I should see the phrase "Step 3: Start a court case"
+    And I should see the phrase "Step 4: Learn about child support"
     And I should see the phrase "Step 5: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
@@ -307,8 +307,8 @@ Scenario:  row #65
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 7 Steps"  
     And I should see the phrase "Step 1: Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Step 2: Learn about child support"
-    And I should see the phrase "Step 3: Start a court case"
+    And I should see the phrase "Step 2: Start a court case"
+    And I should see the phrase "Step 3: Learn about child support"
     And I should see the phrase "Step 4: Fill out the Child Support Guidelines Affidavit"
     And I should see the phrase "Step 5: Figure out your child support schedule"
     And I should see the phrase "Step 6: Fill out the Shared Custody Support Calculation"
@@ -369,10 +369,11 @@ Scenario:  row #67
     And I should see the phrase "Your Action Plan in 7 Steps"
     And I should see the phrase "Step 1: Learn about the Alaska Child Support Enforcement Division (CSED)"
     And I should see the phrase "Step 2: Start a court case"
-    And I should see the phrase "Step 3: Fill out the Child Support Guidelines Affidavit"
-    And I should see the phrase "Step 4: Figure out your child support schedule"
-    And I should see the phrase "Step 5: Fill out the form that matches your situation"
-    And I should see the phrase "Step 6: Get more information or help"
+    And I should see the phrase "Step 3: Learn about child support"
+    And I should see the phrase "Step 4: Fill out the Child Support Guidelines Affidavit"
+    And I should see the phrase "Step 5: Figure out your child support schedule"
+    And I should see the phrase "Step 6 Fill out the form that matches your situation"
+    And I should see the phrase "Step 7: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
 @row68
@@ -426,8 +427,8 @@ Scenario:  row #69
     And I take a screenshot
     And I should see the phrase "Your Action Plan in 4 Steps"
     And I should see the phrase "Step 1: Learn about the Alaska Child Support Enforcement Division (CSED)"
-    And I should see the phrase "Step 2: Learn about child support"
-    And I should see the phrase "Step 3: Start a court case"
+    And I should see the phrase "Step 2: Start a court case"
+    And I should see the phrase "Step 3: Learn about child support"
     And I should see the phrase "Step 4: Get more information or help"
     And I download "child_support_action_plan.pdf"
 
