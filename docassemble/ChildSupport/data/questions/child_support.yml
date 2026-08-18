@@ -522,8 +522,8 @@ attachment:
   update references: True
   variable name: child_support_attachment[i]
   skip undefined: True
-  # docx template file: child_support_action_plan.docx
-  docx template file: dummy.docx
+  docx template file: child_support_action_plan.docx
+  # docx template file: dummy.docx
   tagged pdf: True
 ---
 attachment:
@@ -532,5 +532,5 @@ attachment:
   update references: True
   variable name: docx_child_support_attachment
   skip undefined: True
-  # docx template file: child_support_action_plan.docx
-  docx template file: dummy.docx
+  docx template file: child_support_action_plan.docx
+  # docx template file: dummy.docx
