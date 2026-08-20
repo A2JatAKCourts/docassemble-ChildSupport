@@ -667,7 +667,7 @@ content: |
       * On the last page, at the bottom of form, fill out the CERTIFICATE OF SERVICE.</br>
         Check the boxes that tell the court how you plan to serve the other parent.
   
-  % for image_data in service_cert_interim_image:
+  % for image_data in images_list:
   ${ image_data['text'] }
   ${ image_data['image'].show(width='100%') }
   % endfor

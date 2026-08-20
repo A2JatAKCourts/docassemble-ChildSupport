@@ -534,3 +534,4 @@ attachment:
   skip undefined: True
   docx template file: child_support_action_plan.docx
   # docx template file: dummy.docx
+  tagged pdf: True
